@@ -1,0 +1,21 @@
+<li>
+  <a style="" href="<%= facebook %>" target="blank">
+    <h3>
+      <i class="fa fa-facebook-official fa-lg" aria-hidden="true"></i>
+    </h3>
+  </a>
+</li>
+<li>
+  <a style="" href="#" target="blank">
+    <h3>
+      <i class="fa fa-twitter fa-lg" aria-hidden="true"></i>
+    </h3>
+  </a>
+</li>
+<li>
+  <a style="" href="#" target="blank">
+    <h3>
+      <i class="fa fa-linkedin fa-lg" aria-hidden="true"></i>
+    </h3>
+  </a>
+</li>

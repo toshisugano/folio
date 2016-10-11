@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://code.jquery.com/jquery-2.2.4.min.js"   integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="   crossorigin="anonymous"></script>
+<link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+<script src="https://use.fontawesome.com/4a77a9db4c.js"></script>
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" type="text/css" href="css/main.min.css"> 
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script> 
+<script src="//jashkenas.github.io/underscore/underscore-min.js"></script> 
+  <meta charset="utf-8"> 
+  <meta name="viewport" content="width=device-width; initial-scale=1.0; user-scalable=0;"> 
+  <title>Cabbit</title>
+</head>
+<body> 
+  <!--
+   <div id="overlaycontainer"> 
+    <div id="overlay-app">
+      <a href="#">
+        <div id="overlay-close">
+          <h2>CLOSE</h2>
+        </div>
+      </a> 
+      <div id="overlay-close-up">  
+        <img id="detail-main" src=""> 
+        <img class="close-up" id="detail-a" src="" src-large="">
+        <img class="close-up" id="detail-b" src="" src-large="">  
+        <img class="close-up" id="detail-c" src="" src-large="">
+        <img class="close-up" id="detail-d" src="" src-large="">
+      </div>
+      <div id="overlay-description">
+        <h2 id="title">Cabbit House</h2>
+        <h2 id="key"></h2>
+        <hr/>
+        <h3 id="size">8x10</h3> 
+        <h4 id="description">Printed on Epson Fine Art Paper</h4>
+        <h4 id="price">$22.00</h4>
+        <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+        <input type="hidden" name="cmd" value="_s-xclick">
+        <input type="hidden" name="encrypted" value="-----BEGIN PKCS7-----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-----END PKCS7-----
+        ">
+        <input id="buy-now" type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_buynow_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+        <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+        </form> 
+      </div> 
+    </div>
+  </div>    -->
+  <div class="row" id="mainContainer"> 
+        <!-- NAVIGATION --> 
+        <div id="pageCenter">
+          <ul id="menu">
+            <a href='#'><i id='bars' class='fa fa-bars fa-2x' aria-hidden='true'></i></a>
+          </ul>  
+          <ul id="navLinks">
+            <li><a id="about" class="links" style="" href="about"><i class="fa fa-home fa-2x" aria-hidden="true"></i></a></li> 
+            <li><a id="news" class="links" style="" href="news"><h3>NEWS</h3></a></li>
+            <li><a id="art" class="links" style="" href="art"><h3>ART</h3></a></li>
+            <li><a id="team" class="links" style="" href="team"><h3>TEAM</h3></a></li>
+          </ul>
+          <div id="socialLinks">
+            <ul>
+             <li id="cartCount"><a href="create"><h3></h3></a></li>  
+             <li><a href="create"><i class="fa fa-2x fa-shopping-cart" aria-hidden="true"></i></a></li> 
+            </ul>
+          </div>  
+          <div id="menuItems"></div>
+          <div id="announcements"> 
+            <h4>ALL PRINTS ARE CURRENTLY 50% OFF</h4>
+          </div> 
+        </div> 
+      <!-- ABOUT -->
+      <div id="content"> 
+          <div class="row" id="artContainer"> 
+              <img id="artHeader" src="images/artBar.jpg">  
+              <div id="artGallery" class="row">  
+                <div id="artFrame" class="row">
+                  <div class="row" id="artRow1">
+                    <a class="artClick" href="#">
+                      <div id="artRow1-a">
+                        <img id="moonBlows" paypal= "<form action='https://www.paypal.com/cgi-bin/webscr' method='post' target='_top'><input type='hidden' name='cmd' value='_s-xclick'><input type='hidden' name='hosted_button_id' value='DNUNR6QQPH6KE'><input type='image' src='https://www.paypalobjects.com/en_US/i/btn/btn_buynowCC_LG.gif' border='0' name='submit' alt='PayPal - The safer, easier way to pay online!'><img border='0' src='https://www.paypalobjects.com/en_US/i/scr/pixel.gif' width='1' height='1'></form>" title="Moon Blows" price="$20.00" size="8x10" src="images/moon-blows.jpg">
+                      </div> 
+                    </a>
+                    <a class="artClick" href="#">
+                      <div id="artRow1-b">
+                         <img id="cabbitValley" paypal="<form action='https://www.paypal.com/cgi-bin/webscr' method='post' target='_top'><input type='hidden' name='cmd' value='_s-xclick'><input type='hidden' name='hosted_button_id' value='VE2TV4CECDY24'><input type='image' src='https://www.paypalobjects.com/en_US/i/btn/btn_buynowCC_LG.gif' border='0' name='submit' alt='PayPal - The safer, easier way to pay online!'><img alt='' border='0' src='https://www.paypalobjects.com/en_US/i/scr/pixel.gif' width='1' height='1'></form>" title="Cabbit-Valley" price="$22.00" size="8x10" src="images/cabbit-valley.jpg">
+                      </div>
+                    </a>
+                  </div>
+                  <a class="artClick" href="#">  
+                    <div class="row" id="artRow2"> 
+                        <img id="cabbitHouse" paypal="<form action='https://www.paypal.com/cgi-bin/webscr' method='post' target='_top'><input type='hidden' name='cmd' value='_s-xclick'><input type='hidden' name='hosted_button_id' value='TVQYL4T4E4X4Q'><input type='image' src='https://www.paypalobjects.com/en_US/i/btn/btn_buynowCC_LG.gif' border='0' name='submit' alt='PayPal - The safer, easier way to pay online!'><img alt='' border='0' src='https://www.paypalobjects.com/en_US/i/scr/pixel.gif' width='1' height='1'></form>" title="Cabbit House"price="$22.00" size="8x10" src="images/house.jpg">   
+                    </div>
+                  </a>
+                  <div id="buttons">
+                      <a href="#"><img class="nextButton not-active" id="prevArrow" src="images/prevArrow.gif"></a>
+                      <a href="#"><img class="nextButton" id="nextArrow" src="images/nextArrow.gif"></a> 
+                  </div> 
+                  <div class="row" id="artRow3">
+                    <a class="artClick" href="#">
+                      <div id="artRow3-a">
+                        <img id="walkingHumans" paypal="<form action='https://www.paypal.com/cgi-bin/webscr' method='post' target='_top'><input type='hidden' name='cmd' value='_s-xclick'><input type='hidden' name='hosted_button_id' value='M5VYQRYTGEB5J'><input type='image' src='https://www.paypalobjects.com/en_US/i/btn/btn_buynowCC_LG.gif' border='0' name='submit' alt='PayPal - The safer, easier way to pay online!'><img alt='' border='0' src='https://www.paypalobjects.com/en_US/i/scr/pixel.gif' width='1' height='1'></form>" title="Walking Humans" price="$15.00" size="8x10" src="images/walking-humans.jpg">
+                      </div>
+                    </a>
+                    <a class="artClick" href="#">
+                      <div id="artRow3-b">
+                         <img id="deerwoodDrive" paypal="<form action='https://www.paypal.com/cgi-bin/webscr' method='post' target='_top'><input type='hidden' name='cmd' value='_s-xclick'><input type='hidden' name='hosted_button_id' value='6XH6E7YRKH35A'><input type='image' src='https://www.paypalobjects.com/en_US/i/btn/btn_buynowCC_LG.gif' border='0' name='submit' alt='PayPal - The safer, easier way to pay online!'><img alt='' border='0' src='https://www.paypalobjects.com/en_US/i/scr/pixel.gif' width='1' height='1'></form>" title="Deerwood Drive" price="$24.00" size="8x10" src="images/deerwood-dr.jpg">
+                      </div>
+                    </a>
+                    <a class="artClick" href="#">
+                      <div id="artRow3-c">
+                         <img id="cabbitEnters" paypal="<form action='https://www.paypal.com/cgi-bin/webscr' method='post' target='_top'><input type='hidden' name='cmd' value='_s-xclick'><input type='hidden' name='hosted_button_id' value='TWR8U6BZB29NA'><input type='image' src='https://www.paypalobjects.com/en_US/i/btn/btn_buynowCC_LG.gif' border='0' name='submit' alt='PayPal - The safer, easier way to pay online!'><img alt='' border='0' src='https://www.paypalobjects.com/en_US/i/scr/pixel.gif' width='1' height='1'></form>" title="Cabbit Enters" price="$16.00" size="8x10" src="images/cabbit-enters.jpg">
+                      </div>
+                    </a>
+                  </div>
+                </div>
+              </div> 
+          </div>  
+      </div>
+      <!-- FOOTER -->
+      <div class="row" id="footerContainer">
+        <h5>PROSPEKT</h5>
+      </div>
+  </div>
+</body> 
+<script src="scripts/main.js"></script>
+</html>
