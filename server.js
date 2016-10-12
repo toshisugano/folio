@@ -7,7 +7,7 @@ var express = require('express');
 	fs = require('fs'); 
     underscore = require('underscore');
 
-var mainUrl = 'http://localhost:8000/'; 
+var mainUrl = 'https://cabbitfilm.herokuapp.com/'; 
 
 var clientId = 'Ae6PP_ZnAq9wXIrdeevd9NmfCuT6EnsjQkC-iBVEoiBY4h3HQGlKmpNDWtFJkr7h_X37bz8Eqx3NXv3Y';
 // live clientId = Adnckf-8KyL8-pcvcPQ6s3tzDZ9_8DmKT531WbwoxHRk6_3-wHQV4nVNsBZbn0y2RmUVOMM-iu9Gjb9d
