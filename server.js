@@ -29,12 +29,12 @@ var overlay = function(){
                 '<html>' +
                 '<head>' +
                 '<script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>' +
-                '<link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" rel="stylesheet" type="text/css" />' +
+                '<link href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" rel="stylesheet" type="text/css" />' +
                 '<script src="https://use.fontawesome.com/4a77a9db4c.js"></script>' +
                 '<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" type="text/css" />' +
                 '<link rel="stylesheet" type="text/css" href="' + mainUrl + 'css/main.min.css">' +
                 '<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>' +
-                '<script src="//jashkenas.github.io/underscore/underscore-min.js"></script>' +
+                '<script src="https://jashkenas.github.io/underscore/underscore-min.js"></script>' +
                   '<meta charset="utf-8">' +
                   '<meta name="viewport" content="width=device-width; initial-scale=1.0; user-scalable=0;">' +
                   '<title>Cabbit</title>' +
