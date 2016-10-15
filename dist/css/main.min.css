@@ -185,7 +185,12 @@ li {
 
 #bars {
   margin-top: 8px;
-  margin-bottom: 5px; }
+  margin-bottom: 5px;
+  opacity: 1.0; }
+
+.inactive {
+  pointer-events: none;
+  cursor: default; }
 
 #socialLinks {
   float: right;

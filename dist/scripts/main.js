@@ -416,6 +416,7 @@ $('#cartCount, .fa-shopping-cart').on('click', function(){
 $('#bars').on('click', function(){  
 	$("#menuItems").animate({height: "255px"});
 	$('#announcements').attr('margin-top', '-11px');
+	$('#bars').attr('opacity', '0.5').addClass('inactive');
 	$("#menuItems").append(
 		'<li><a id="about" style="" href="about"><h3>HOME</h3></a></li>' +
 		'<li><a id="news" style="" href="news"><h3>NEWS</h3></a></li>' +
