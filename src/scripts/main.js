@@ -146,12 +146,12 @@ function initImg(){
 		$('#mainBG').attr('src', 'images/main-bg-m.jpg'); 
 		$('#newsHeader').attr('src', 'images/newsBar-m.jpg');
 		$('#artHeader').attr('src', 'images/artBar.jpg');
-			$('#artRow1-a').children().attr('src', 'images/moon-blows.jpg');
-			$('#artRow1-b').children().attr('src', 'images/cabbit-valley.jpg');
-			$('#artRow2').children().attr('src', 'images/house.jpg');
-			$('#artRow3-a').children().attr('src', 'images/walking-humans.jpg');
-			$('#artRow3-b').children().attr('src', 'images/deerwood-dr.jpg');
-			$('#artRow3-c').children().attr('src', 'images/cabbit-enters.jpg');
+			$('#artRow1-a').children().attr('src', 'images/artRow1-a.jpg');
+			$('#artRow1-b').children().attr('src', 'images/artRow1-b.jpg');
+			$('#artRow2').children().attr('src', 'images/artRow2.jpg');
+			$('#artRow3-a').children().attr('src', 'images/artRow3-a.jpg');
+			$('#artRow3-b').children().attr('src', 'images/artRow3-b.jpg');
+			$('#artRow3-c').children().attr('src', 'images/artRow3-c.jpg');
 		$('#teamHeader').attr('src', 'images/teamBar-m.jpg');
 			$('.john').attr('src', 'images/bio-john-m.png');
 			$('.emma').attr('src', 'images/bio-emma-m.png');
@@ -169,12 +169,12 @@ function initImg(){
 		$('#artHeader').attr('src', 'images/artBar-2.jpg');
 			(function(page){
 				if (page === 1){
-					$('#artRow1-a').children().attr('src', 'images/moon-blows-2.jpg');
-					$('#artRow1-b').children().attr('src', 'images/cabbit-valley-2.jpg');
-					$('#artRow2').children().attr('src', 'images/house-2.jpg');
-					$('#artRow3-a').children().attr('src', 'images/walking-humans-2.jpg');
-					$('#artRow3-b').children().attr('src', 'images/deerwood-dr-2.jpg');
-					$('#artRow3-c').children().attr('src', 'images/cabbit-enters-2.jpg');
+					$('#artRow1-a').children().attr('src', 'images/artRow1-a-2.jpg');
+			$('#artRow1-b').children().attr('src', 'images/artRow1-b-2.jpg');
+			$('#artRow2').children().attr('src', 'images/artRow2-2.jpg');
+			$('#artRow3-a').children().attr('src', 'images/artRow3-a-2.jpg');
+			$('#artRow3-b').children().attr('src', 'images/artRow3-b-2.jpg');
+			$('#artRow3-c').children().attr('src', 'images/artRow3-c-2.jpg');
 				}
 			})(currPage);
 		$('#teamHeader').attr('src', 'images/teamBar-s.jpg');
@@ -186,8 +186,7 @@ function initImg(){
 		$('#video').attr({
 			width : winWidth,
 			height : vidHeight
-		}); 
-
+		});  
 	} 
 }
 
@@ -227,7 +226,7 @@ function setIcons(){
 	}
 }
  
-function bios(){  
+function getJSONs(){  
 	//Load article1 template
 	$.get("templates/article1.txt", function( data ) {
         articleTemp = data;
@@ -442,9 +441,8 @@ $(document).ready(function(){
 	dims();
 	theDate();
 	cartCount();
-	bios();  
-	setTimeout(setIcons, 1000);  
-
+	getJSONs();  
+	setTimeout(setIcons, 1000);   
 	sessionStorage.setItem("mainUrl", mainUrl); 
 });
  
