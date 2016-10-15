@@ -355,7 +355,7 @@ $('.close-up').on('click', function(){
 
 $('#overlay-close').on('click', function(e){ 
 	e.preventDefault(); 
-	window.location = mainUrl + "art"; 
+	window.location = mainUrl + "art";  
 });
 
 $('.artClick').on('click', function(e){
@@ -444,5 +444,6 @@ $(document).ready(function(){
 	getJSONs();  
 	setTimeout(setIcons, 1000);   
 	sessionStorage.setItem("mainUrl", mainUrl); 
+	changePage(currPage, 100);
 });
  
