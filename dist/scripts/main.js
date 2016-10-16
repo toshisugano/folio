@@ -445,6 +445,6 @@ $(document).ready(function(){
 	getJSONs();  
 	setTimeout(setIcons, 1000);   
 	sessionStorage.setItem("mainUrl", mainUrl); 
-	changePage(currPage, 100);
+	setTimeout(changePage(currPage, 100), 1000);
 });
  
