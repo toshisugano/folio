@@ -287,10 +287,11 @@ function getJSONs(){
 				var template2 = _.template(bioTemp2);
 				var htmlTemp2 = template2(obj); 
 				$('#teamContainer').append(htmlTemp2);
-			}    
+			}   
+			initImg();
+			} 
 		});
-		}, 500);   
-		initImg();
+		}, 500);    
 	});   
  
 	imageJSON.then(function(data){
@@ -428,8 +429,7 @@ $('#bars').on('click', function(){
 //On window resize, run imageBG 
 window.onresize = function() {
 	dims();
-    //initImg();
-    changePage(currPage, 100);
+    initImg(); 
 };
  
 window.onresize(); 
@@ -446,6 +446,6 @@ $(document).ready(function(){
 	getJSONs();  
 	setTimeout(setIcons, 1000);   
 	sessionStorage.setItem("mainUrl", mainUrl); 
-	//setTimeout(changePage(currPage, 100), 1000);
+	setTimeout(changePage(currPage, 100), 1000);
 });
  
