@@ -290,6 +290,7 @@ function getJSONs(){
 			}    
 		});
 		}, 500);   
+		initImg();
 	});   
  
 	imageJSON.then(function(data){
@@ -311,9 +312,7 @@ function getJSONs(){
 			changePage(index, 200);
 			$(document).scrollTop(sessionStorage.scrollTop);
 		} 
-	});
-
-	initImg();
+	}); 
 }	 
 
 $('.links').on('click', function(){  
