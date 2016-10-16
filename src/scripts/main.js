@@ -289,7 +289,7 @@ function getJSONs(){
 				$('#teamContainer').append(htmlTemp2);
 			}   
 			initImg();
-			} 
+			
 		});
 		}, 500);    
 	});   
