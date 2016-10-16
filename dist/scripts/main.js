@@ -287,8 +287,7 @@ function getJSONs(){
 				var template2 = _.template(bioTemp2);
 				var htmlTemp2 = template2(obj); 
 				$('#teamContainer').append(htmlTemp2);
-			}   
-			initImg();
+			}    
 		});
 		}, 500);   
 	});   
@@ -313,6 +312,8 @@ function getJSONs(){
 			$(document).scrollTop(sessionStorage.scrollTop);
 		} 
 	});
+
+	initImg();
 }	 
 
 $('.links').on('click', function(){  
