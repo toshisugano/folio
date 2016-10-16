@@ -429,7 +429,8 @@ $('#bars').on('click', function(){
 //On window resize, run imageBG 
 window.onresize = function() {
 	dims();
-    initImg();
+    //initImg();
+    changePage(currPage, 100);
 };
  
 window.onresize(); 
@@ -446,6 +447,6 @@ $(document).ready(function(){
 	getJSONs();  
 	setTimeout(setIcons, 1000);   
 	sessionStorage.setItem("mainUrl", mainUrl); 
-	setTimeout(changePage(currPage, 100), 1000);
+	//setTimeout(changePage(currPage, 100), 1000);
 });
  
