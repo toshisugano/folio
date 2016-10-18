@@ -26,6 +26,7 @@ var aboutBios = [];
 var socialIcons = {};
 var images = []; 
 var frameArr = ['#artRow1-a', '#artRow1-b', '#artRow2', '#artRow3-a', '#artRow3-b', '#artRow3-c'];
+var imgKeys = ['bison', 'cabbit-apocalypse', 'cabbit-balloons', 'cabbit-eclipse', 'cabbit-enters', 'cabbit-mtn', 'cabbit-river', 'cabbit-tea', 'cabbit-trees', 'cabbit-valley', 'clouds', 'deerwood-dr', 'flying-humans', 'house', 'moon-blows', 'walking-humans'];
 var shoppingCart = [];
 
 var currPage = sessionStorage.currPage || 1; 
@@ -119,6 +120,35 @@ function dims(){
 	artHeight = newsHeight + $('#artContainer').height();
 	teamHeight = $('#teamContainer').height() + artHeight; 
 } 
+
+function storeImgs(){ 
+	var arr = {};
+	for (i=0; i<imgKeys.length; i++) { 
+		var key = imgKeys[i];
+		var key2 = imgKeys[i] + '-2';
+		var key3 = imgKeys[i] + '-3';
+		var keyA = imgKeys[i] + '-a';
+		var keyA2 = keyA + '-2';
+		var keyB = imgKeys[i] + '-b';
+		var keyB2 = keyB + '-2';
+		var keyC = imgKeys[i] + '-c';
+		var keyC2 = keyC + '-2'; 
+		var src = '/images/';
+		var extension = '.jpg';
+		sessionStorage.setItem(key, src + key + extension);
+		sessionStorage.setItem(key2, src + key2 + extension);
+		sessionStorage.setItem(key3, src + key3 + extension);
+		sessionStorage.setItem(keyA, src + keyA + extension);
+		sessionStorage.setItem(keyA2, src + keyA2 + extension);
+		sessionStorage.setItem(keyB, src + keyB + extension);
+		sessionStorage.setItem(keyB2, src + keyB2 + extension);
+		sessionStorage.setItem(keyC, src + keyC + extension);
+		sessionStorage.setItem(keyC2, src + keyC2 + extension);
+	}
+
+storeImgs();
+
+}
 
 //Changes image sizes depending on window width
 function initImg(){ 
