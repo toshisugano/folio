@@ -123,8 +123,9 @@ function dims(){
 
 function storeImgs(){ 
 	var arr = {};
-	for (i=0; i<imgKeys.length; i++) { 
+	for (i=0; i<imgKeys.length; i++) {  
 		var key = imgKeys[i];
+		console.log(key);
 		var key2 = imgKeys[i] + '-2';
 		var key3 = imgKeys[i] + '-3';
 		var keyA = imgKeys[i] + '-a';
@@ -146,7 +147,7 @@ function storeImgs(){
 		sessionStorage.setItem(keyC2, src + keyC2 + extension);
 	}
 
-storeImgs();
+
 
 }
 
@@ -474,6 +475,7 @@ $(document).ready(function(){
 	theDate();
 	cartCount();
 	getJSONs();  
+	storeImgs();
 	setTimeout(setIcons, 1000);   
 	sessionStorage.setItem("mainUrl", mainUrl); 
 	setTimeout(changePage(currPage, 100), 1000);
