@@ -62,7 +62,7 @@ function toggleIMG(page, size, speed){
 			var query = frameArr[index] + ' img';
             var $img = $(query);
             var thisObj = imagePage[keys[index]]; 
-            console.log(thisObj);
+             
             $img.hide();
             $img.attr({
             	"id" : keys[index],
@@ -232,7 +232,7 @@ function setIcons(){
  
 function getJSONs(){  
 	//Load article1 template
-	console.log("getJSON");
+	 
 	$.get("templates/article1.txt", function( data ) {
         articleTemp = data;
     });
@@ -313,7 +313,7 @@ function getJSONs(){
 		var slice = mainUrl.slice(split.length-3, split.length); 
 
 		if (slice === "art"){
-			console.log(images);
+			 
 			var index = Number(sessionStorage.currPage) || 1; 
 			changePage(index, 200);
 			$(document).scrollTop(sessionStorage.scrollTop);
