@@ -46,8 +46,8 @@ function cartCount() {
 } 
 
 function toggleIMG(page, size, speed){  
-	var imagePage = images[page];
-
+	console.log('toggleIMG');
+	var imagePage = images[page]; 
 	var keys = Object.keys(imagePage); 
 	var time = speed;
 	var src;
@@ -77,29 +77,30 @@ function toggleIMG(page, size, speed){
 }
   
 function changePage(input, speed){ 
+	console.log("changePage");
 	var num = Number(input); 
 	var artIndex = num-1; 
 	if (input === 1 && winWidth > 500){
 		$('#prevArrow').css('opacity', '.5').addClass('not-active'); 
-		toggleIMG(artIndex, "large", speed);
+		toggleIMG(artIndex, "large", 100);
 	}
 	else if (input === 1 && winWidth < 500){
 		$('#prevArrow').css('opacity', '.5').addClass('not-active'); 
-		 toggleIMG(artIndex, "small", speed);
+		 toggleIMG(artIndex, "small", 100);
 	}
 	else if (input === 2 && winWidth > 500){
 		$('#prevArrow').css('opacity', '1').removeClass('not-active');
 		$('#nextArrow').css('opacity', '1').removeClass('not-active');
-		toggleIMG(artIndex, "large", speed);
+		toggleIMG(artIndex, "large", 100);
 	}
 	else if (input === 2 && winWidth < 500){
 		$('#prevArrow').css('opacity', '1').removeClass('not-active');
 		$('#nextArrow').css('opacity', '1').removeClass('not-active');
-		toggleIMG(artIndex, "small", speed);
+		toggleIMG(artIndex, "small", 100);
 	}
 	else if (input === 3 && winWidth > 500) {
 		$('#nextArrow').css('opacity', '.5').addClass('not-active'); 
-		toggleIMG(artIndex, "large", speed);
+		toggleIMG(artIndex, "large", 100);
 	} 
 	else if (input === 3 && winWidth < 500) {
 		$('#nextArrow').css('opacity', '.5').addClass('not-active'); 
@@ -120,39 +121,11 @@ function dims(){
 	artHeight = newsHeight + $('#artContainer').height();
 	teamHeight = $('#teamContainer').height() + artHeight; 
 } 
-
-function storeImgs(){ 
-	var arr = {};
-	for (i=0; i<imgKeys.length; i++) {  
-		var key = imgKeys[i];
-		console.log(key);
-		var key2 = imgKeys[i] + '-2';
-		var key3 = imgKeys[i] + '-3';
-		var keyA = imgKeys[i] + '-a';
-		var keyA2 = keyA + '-2';
-		var keyB = imgKeys[i] + '-b';
-		var keyB2 = keyB + '-2';
-		var keyC = imgKeys[i] + '-c';
-		var keyC2 = keyC + '-2'; 
-		var src = '/images/';
-		var extension = '.jpg';
-		sessionStorage.setItem(key, src + key + extension);
-		sessionStorage.setItem(key2, src + key2 + extension);
-		sessionStorage.setItem(key3, src + key3 + extension);
-		sessionStorage.setItem(keyA, src + keyA + extension);
-		sessionStorage.setItem(keyA2, src + keyA2 + extension);
-		sessionStorage.setItem(keyB, src + keyB + extension);
-		sessionStorage.setItem(keyB2, src + keyB2 + extension);
-		sessionStorage.setItem(keyC, src + keyC + extension);
-		sessionStorage.setItem(keyC2, src + keyC2 + extension);
-	}
-
-
-
-}
+ 
 
 //Changes image sizes depending on window width
 function initImg(){ 
+	console.log("initImg");
 	var vidWidth = winWidth/1.5;
 	var vidHeight = vidWidth/1.3333;   
 	var midImgHeight = $('#artRow2').height() + 80;
@@ -201,11 +174,11 @@ function initImg(){
 			(function(page){
 				if (page === 1){
 					$('#artRow1-a').children().attr('src', 'images/artRow1-a-2.jpg');
-			$('#artRow1-b').children().attr('src', 'images/artRow1-b-2.jpg');
-			$('#artRow2').children().attr('src', 'images/artRow2-2.jpg');
-			$('#artRow3-a').children().attr('src', 'images/artRow3-a-2.jpg');
-			$('#artRow3-b').children().attr('src', 'images/artRow3-b-2.jpg');
-			$('#artRow3-c').children().attr('src', 'images/artRow3-c-2.jpg');
+					$('#artRow1-b').children().attr('src', 'images/artRow1-b-2.jpg');
+					$('#artRow2').children().attr('src', 'images/artRow2-2.jpg');
+					$('#artRow3-a').children().attr('src', 'images/artRow3-a-2.jpg');
+					$('#artRow3-b').children().attr('src', 'images/artRow3-b-2.jpg');
+					$('#artRow3-c').children().attr('src', 'images/artRow3-c-2.jpg');
 				}
 			})(currPage);
 		$('#teamHeader').attr('src', 'images/teamBar-s.jpg');
@@ -259,6 +232,7 @@ function setIcons(){
  
 function getJSONs(){  
 	//Load article1 template
+	consolelog("getJSON");
 	$.get("templates/article1.txt", function( data ) {
         articleTemp = data;
     });
@@ -474,10 +448,9 @@ $(document).ready(function(){
 	dims();
 	theDate();
 	cartCount();
-	getJSONs();  
-	storeImgs();
+	getJSONs();   
 	setTimeout(setIcons, 1000);   
-	sessionStorage.setItem("mainUrl", mainUrl); 
+	sessionStorage.setItem("mainUrl", mainUrl);  
 	setTimeout(changePage(currPage, 100), 1000);
 });
  
