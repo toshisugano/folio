@@ -460,6 +460,12 @@ li {
     min-height: 225px; }
   #overlay-frame {
     width: 100%; }
+  #overlay-close-up {
+    margin-top: 10px;
+    width: 100%;
+    clear: both; }
+  #overlay-description {
+    width: 100%; }
   #mainImg {
     width: 100%; }
   #mainDescription {
@@ -548,12 +554,6 @@ li {
     width: 99%;
     clear: both;
     display: inline-block; }
-  #overlay-close-up {
-    width: 100%; }
-  #overlay-close-up {
-    margin-top: 10px; }
-  #overlay-description {
-    width: 100%; }
   #socialLinks {
     display: none; }
   #navLinks {

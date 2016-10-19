@@ -16,12 +16,12 @@ var secret = 'EPJTlVNZoYr_iDdZPVxo3Unc2-fDzOM8SHBxy7QV0RWF-FvrGv4IE3xvo_WwttszRs
 
 var port = process.env.PORT || 8000;
    
-var images = fs.readFileSync(__dirname + '/dist/json/images.json');
-// Define to JSON type
+var images = fs.readFileSync(__dirname + '/dist/json/images.json'); 
+
 var jsonImages= JSON.parse(images);
-var currPage = 0;
-// Get Value from JSON  
-console.log("jsonImages = " + images);
+   
+var currPage = 0; 
+
 var data = require(__dirname + '/src/json/about.json'); 
 
 var overlay = function(){
@@ -129,8 +129,7 @@ app.get('/create', function(req, res) {
                 console.error('no redirect URI present');
             }
         }
-    });
- 
+    }); 
 
 });
 
@@ -151,7 +150,6 @@ app.get('/process', function(req, res){
         }
     });
 });
-
 
 app.get('/', function(req, res ){
 	res.sendFile(__dirname + '/dist/index.html');

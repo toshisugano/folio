@@ -11,12 +11,7 @@ var artHeight;
 var teamHeight; 
 
 var date = new Date(); 
-var year = date.getFullYear(); 
-
-var newsJSON = $.getJSON("json/news.json");
-var aboutJSON = $.getJSON("json/about.json");
-var socialJSON = $.getJSON("templates/socialMedia.json");
-var imageJSON = $.getJSON("json/images.json"); 
+var year = date.getFullYear();  
 
 var articleTemp;
 var articleTemp2;  
@@ -44,11 +39,11 @@ function cartCount() {
 	var currCount = shoppingCart.length;
 	$('#cartCount').children().children().text(currCount);
 } 
-
+// selects ARTRow img objects and fills in params//
 function toggleIMG(page, size, speed){  
 	console.log('toggleIMG');
-	var imagePage = images[page]; 
-	var keys = Object.keys(imagePage); 
+	var imagePage = images[page];  
+	var keys = Object.keys(imagePage);  
 	var time = speed;
 	var src;
 	if (size === 'small'){
@@ -232,93 +227,111 @@ function setIcons(){
  
 function getJSONs(){  
 	//Load article1 template
-	 
-	$.get("templates/article1.txt", function( data ) {
-        articleTemp = data;
-    });
-    //Load article2 template
-    $.get("templates/article2.txt", function( data ) {
-        articleTemp2 = data;
-    }); 
+	var split = mainUrl.split("");
+	var route = mainUrl.slice(split.length-3, split.length); 
 
-    $.get("templates/bio1.txt", function(data) {
-    	bioTemp = data;
-    }); 
+	if (route === "eam"){ 
+		console.log("team");
+		var aboutJSON = $.getJSON("json/about.json");
+		var socialJSON = $.getJSON("templates/socialMedia.json"); 
 
-    $.get("templates/bio2.txt", function(data) {
-    	bioTemp2 = data;
-    });   
+		$.get("templates/bio1.txt", function(data) {
+    		bioTemp = data;
+    	}); 
 
-	//Loop through JSON
-	socialJSON.then(function(jsondata){
-		_.each(jsondata, function(icons){
-			var keys = Object.keys(icons);
-			for (i=0; i<keys.length; i++){
-				var thisKey = keys[i];
-				socialIcons[thisKey] = icons[thisKey];
-			}
-		});
-	});
+    	$.get("templates/bio2.txt", function(data) {
+    		bioTemp2 = data;
+    	}); 
 
-	newsJSON.then(function(json){
-		setTimeout(function(){
-		_.each(json, function(obj){ 
-			var modulus = obj.id%2;
-			if (modulus){
-				var template = _.template(articleTemp);
-				var htmlTemp = template(obj);  
-				$('#newsContainer').append(htmlTemp);
-			}
-			else {
-				var template2 = _.template(articleTemp2);
-				var htmlTemp2 = template2(obj); 
-				$('#newsContainer').append(htmlTemp2);
-			}   
-		}); 
-		}, 500);  
-	});
+    	aboutJSON.then(function(json){ 
+			setTimeout(function(){
+				_.each(json, function(obj){ 
+				aboutBios.push(obj);
+				var modulus = obj.id%2;
+				if (modulus){
+					var template = _.template(bioTemp);
+					var htmlTemp = template(obj);  
+					$('#teamContainer').append(htmlTemp);
+				}
+				else {
+					var template2 = _.template(bioTemp2);
+					var htmlTemp2 = template2(obj); 
+					$('#teamContainer').append(htmlTemp2);
+				}  
+			});
+			}, 500);    
+		});   
 
-	aboutJSON.then(function(json){ 
-		setTimeout(function(){
+		socialJSON.then(function(jsondata){
+			_.each(jsondata, function(icons){
+				var keys = Object.keys(icons);
+				for (i=0; i<keys.length; i++){
+					var thisKey = keys[i];
+					socialIcons[thisKey] = icons[thisKey];
+				}
+			}); 
+		});  
+
+		initImg(); 
+
+	} 
+
+	else if (route === "ews") {
+
+		$.get("templates/article1.txt", function( data ) {
+        	articleTemp = data;
+    	});
+     
+	    $.get("templates/article2.txt", function( data ) {
+	        articleTemp2 = data;
+	    }); 
+
+	    var newsJSON = $.getJSON("json/news.json");
+
+	    newsJSON.then(function(json){
+			setTimeout(function(){
 			_.each(json, function(obj){ 
-			aboutBios.push(obj);
-			var modulus = obj.id%2;
-			if (modulus){
-				var template = _.template(bioTemp);
-				var htmlTemp = template(obj);  
-				$('#teamContainer').append(htmlTemp);
-			}
-			else {
-				var template2 = _.template(bioTemp2);
-				var htmlTemp2 = template2(obj); 
-				$('#teamContainer').append(htmlTemp2);
-			}   
-			initImg();
-			
+				var modulus = obj.id%2;
+				if (modulus){
+					var template = _.template(articleTemp);
+					var htmlTemp = template(obj);  
+					$('#newsContainer').append(htmlTemp);
+				}
+				else {
+					var template2 = _.template(articleTemp2);
+					var htmlTemp2 = template2(obj); 
+					$('#newsContainer').append(htmlTemp2);
+				}   
+			}); 
+			}, 500);  
 		});
-		}, 500);    
-	});   
- 
-	imageJSON.then(function(data){
-		_.each(data, function(obj, index){
-			var keys = Object.keys(obj);
-			var thisObj = {};
-			for (i=0; i<keys.length; i++){
-				var thisKey = keys[i]; 
-				thisObj[thisKey] = obj[thisKey];
-			}  
-			images.push(thisObj);
-		});
-		var split = mainUrl.split("");
-		var slice = mainUrl.slice(split.length-3, split.length); 
 
-		if (slice === "art"){
-			 
+	} 
+
+	else if (route === "art") {
+
+		var imageJSON = $.getJSON("json/images.json");  
+
+		imageJSON.then(function(data){
+			_.each(data, function(obj, index){
+				var keys = Object.keys(obj);
+				var thisObj = {};
+				for (i=0; i<keys.length; i++){
+					var thisKey = keys[i]; 
+					thisObj[thisKey] = obj[thisKey];
+				}  
+				images.push(thisObj);
+			});  
+
 			var index = Number(sessionStorage.currPage) || 1; 
 			changePage(index, 200);
-			$(document).scrollTop(sessionStorage.scrollTop);
-		} 
-	}); 
+			$(document).scrollTop(sessionStorage.scrollTop); 
+			 
+		});  
+
+	}
+ 
+	
 }	 
 
 $('.links').on('click', function(){  
@@ -368,44 +381,7 @@ $('.artClick').on('click', function(e){
 	e.preventDefault();   
 	var id = $(this).children().children()[0].id;
 	window.location = mainUrl + "/" + id;
-	sessionStorage.setItem("scrollTop", scrollTop);
-	/*
-	var title = $(this).children().children()[0].title;  
-	var src = $(this).children().children()[0].attributes[0].value; 
-	var size = $(this).children().children()[0].attributes[1].value;
-	var price = $(this).children().children()[0].attributes[2].value; 
-	var paypal = $(this).children().children()[0].attributes[4].value; 
-	var split = src.split("");  
-	var substr = src.substring(0, split.length-4);  
-	var subsplit = substr.split(""); 
-	var newstr = src.substring(0, split.length-6); 
-	 
-	var thisObj;
-	for (i=0; i<images.length; i++){
-		thisObj = images[i][id];
-	}
-	console.log("thisObj"); 
-	 
-	$('#overlaycontainer').css("display" , "inline");  
-	$('#key').text(id);
-	$('#price').text(price);
-	$('#size').text(size);
-	$('#title').text(title); 
-	$('#buyitnow').html(paypal);
-	if (substr.substring(subsplit.length-2, subsplit.length) === "-2") { 
-		$('#detail-main').attr("src", newstr + "-3.jpg"); 
-		$('#detail-a').attr("src", newstr + "-a-2.jpg"); 
-		$('#detail-b').attr("src", newstr + "-b-2.jpg"); 
-		$('#detail-c').attr("src", newstr + "-c-2.jpg");  
-		$('#detail-d').attr("src", newstr + "-3.jpg");
-	}  
-	else {
-		$('#detail-main').attr("src", substr + "-3.jpg");  
-		$('#detail-a').attr("src", substr + "-a-2.jpg"); 
-		$('#detail-b').attr("src", substr + "-b-2.jpg"); 
-		$('#detail-c').attr("src", substr + "-c-2.jpg");  
-		$('#detail-d').attr("src", substr + "-3.jpg");
-	}*/
+	sessionStorage.setItem("scrollTop", scrollTop); 
 });
 
 $('.cartButton').on('click', function(){
@@ -451,6 +427,6 @@ $(document).ready(function(){
 	getJSONs();   
 	setTimeout(setIcons, 1000);   
 	sessionStorage.setItem("mainUrl", mainUrl);  
-	setTimeout(changePage(currPage, 100), 1000);
+	//setTimeout(changePage(currPage, 100), 1000);
 });
  
