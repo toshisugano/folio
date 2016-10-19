@@ -232,7 +232,7 @@ function setIcons(){
  
 function getJSONs(){  
 	//Load article1 template
-	consolelog("getJSON");
+	console.log("getJSON");
 	$.get("templates/article1.txt", function( data ) {
         articleTemp = data;
     });
