@@ -314,6 +314,8 @@ function getJSONs(){
 
 	else if (route === "art") {
 
+		initImg(); 
+
 		var imageJSON = $.getJSON("json/images.json");  
 
 		imageJSON.then(function(data){
@@ -329,8 +331,8 @@ function getJSONs(){
 
 			var index = Number(sessionStorage.currPage) || 1; 
 			changePage(index, 200);
-			$(document).scrollTop(sessionStorage.scrollTop); 
-			 
+			$(document).scrollTop(sessionStorage.scrollTop);  
+
 		});  
 
 	}
