@@ -476,7 +476,8 @@ display : inline-block;
 #artRow3-a {
   float : left; 
   position : relative;  
-  width : 33.3333%;    
+  width : 33.3333%;   
+  display : inline-block; 
 }
 
 #artRow3-a img{
@@ -487,7 +488,8 @@ display : inline-block;
   float : left; 
   position : relative; 
   min-height : 50px; 
-  width : 33.3333%;  
+  width : 33.332%;  
+  display : inline-block;
 }
 
 #artRow3-b img{
@@ -499,6 +501,7 @@ display : inline-block;
   position : relative; 
   min-height : 50px; 
   width : 33.3333%;  
+  display : inline-block;
 }
 
 #artRow3-c img{
@@ -600,14 +603,6 @@ display : inline-block;
   } 
   #overlay-frame {
     width : 100%;
-  }   
-  #overlay-close-up {
-    margin-top : 10px;
-    width : 100%;
-    clear : both;
-  }
-  #overlay-description{
-    width : 100%;
   } 
   #mainImg {
     width : 100%;
@@ -651,78 +646,86 @@ display : inline-block;
   #artRow1 { 
       display : block; 
     }
-  #artRow1-a {
-    float : none; 
-    position : relative; 
-    min-height : 50px; 
-    width : 100%; 
-    margin-bottom : 10px;
-  } 
-  #artRow1-a img{
-    width : 101%; 
-    display : inline-block; 
-    margin-right : 0px; 
-  } 
-  #artRow1-b {
-    float : none; 
-    position : relative; 
-    min-height : 50px; 
-    width : 100%; 
-  }
-  #artRow1-b img{
-    width : 101%;  
-    clear : both;
-    display : inline-block; 
-    margin-left : -5px;
-  }
-  #artRow2 {
-    float : none; 
-    position : relative; 
-    min-height : 50px; 
-    width : 100%; 
-  }
-  #artRow2 img{
-    width : 99%;  
-    clear : both;
-    display : inline-block;  
-  }
-  #artRow3-a {
-    float : none; 
-    position : relative; 
-    min-height : 50px; 
-    width : 100%; 
-    margin-bottom : 10px;
-  }
-  #artRow3-a img{
-    width : 99%;  
-    clear : both;
-    display : inline-block;  
-  }
-  #artRow3-b {
-    float : none; 
-    position : relative; 
-    min-height : 50px; 
-    width : 100%; 
-    margin-bottom : 10px;
-  }
-  #artRow3-b img{
-    width : 99%;  
-    clear : both;
-    display : inline-block;  
-  }
-  #artRow3-c {
-    float : none; 
-    position : relative; 
-    min-height : 50px; 
-    width : 100%; 
-    margin-bottom : 10px;
-  }
-  #artRow3-c img{
-    width : 99%;  
-    clear : both;
-    display : inline-block;  
-  }
-
+    #artRow1-a {
+      float : none; 
+      position : relative; 
+      min-height : 50px; 
+      width : 100%; 
+      margin-bottom : 10px;
+    } 
+    #artRow1-a img{
+      width : 101%; 
+      display : inline-block; 
+      margin-right : 0px; 
+    } 
+    #artRow1-b {
+      float : none; 
+      position : relative; 
+      min-height : 50px; 
+      width : 100%; 
+    }
+    #artRow1-b img{
+      width : 101%;  
+      clear : both;
+      display : inline-block; 
+      margin-left : -5px;
+    }
+    #artRow2 {
+      float : none; 
+      position : relative; 
+      min-height : 50px; 
+      width : 100%; 
+    }
+    #artRow2 img{
+      width : 99%;  
+      clear : both;
+      display : inline-block;  
+    }
+    #artRow3-a {
+      float : none; 
+      position : relative; 
+      min-height : 50px; 
+      width : 100%; 
+      margin-bottom : 10px;
+    }
+    #artRow3-a img{
+      width : 99%;  
+      clear : both;
+      display : inline-block;  
+    }
+    #artRow3-b {
+      float : none; 
+      position : relative; 
+      min-height : 50px; 
+      width : 100%; 
+      margin-bottom : 10px;
+    }
+    #artRow3-b img{
+      width : 99%;  
+      clear : both;
+      display : inline-block;  
+    }
+    #artRow3-c {
+      float : none; 
+      position : relative; 
+      min-height : 50px; 
+      width : 100%; 
+      margin-bottom : 10px;
+    }
+    #artRow3-c img{
+      width : 99%;  
+      clear : both;
+      display : inline-block;  
+    }
+    #overlay-close-up {
+      width : 100%; 
+    }
+    #overlay-close-up {
+      margin-top : 10px;
+    }
+    #overlay-description{
+      width : 100%;
+    } 
   #socialLinks {
     display : none;
   } 

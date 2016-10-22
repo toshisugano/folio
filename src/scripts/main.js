@@ -35,76 +35,6 @@ function theDate(){
 	$('#footerContainer').append('<footer>&copy;' + year + ' Prospekt Group Films</footer>');
 }  
 
-function cartCount() {
-	var currCount = shoppingCart.length;
-	$('#cartCount').children().children().text(currCount);
-} 
-// selects ARTRow img objects and fills in params//
-function toggleIMG(page, size, speed){  
-	console.log('toggleIMG');
-	var imagePage = images[page];  
-	var keys = Object.keys(imagePage);  
-	var time = speed;
-	var src;
-	if (size === 'small'){
-		src = 'src2';
-	}
-	else if (size === 'large'){
-		src = 'src';
-	}
-	_.each(keys, function(obj, index){
-		return setTimeout(function(){
-			var query = frameArr[index] + ' img';
-            var $img = $(query);
-            var thisObj = imagePage[keys[index]]; 
-             
-            $img.hide();
-            $img.attr({
-            	"id" : keys[index],
-            	"src" : thisObj[src],
-            	"title" : thisObj.title,
-            	"size" : thisObj.size,
-            	"price" : thisObj.price,
-            	"paypal" : thisObj.paypal
-            }).fadeIn(speed);  
-		}, time + (100*index));
-	});
-}
-  
-function changePage(input, speed){ 
-	console.log("changePage");
-	var num = Number(input); 
-	var artIndex = num-1; 
-	if (input === 1 && winWidth > 500){
-		$('#prevArrow').css('opacity', '.5').addClass('not-active'); 
-		toggleIMG(artIndex, "large", 100);
-	}
-	else if (input === 1 && winWidth < 500){
-		$('#prevArrow').css('opacity', '.5').addClass('not-active'); 
-		 toggleIMG(artIndex, "small", 100);
-	}
-	else if (input === 2 && winWidth > 500){
-		$('#prevArrow').css('opacity', '1').removeClass('not-active');
-		$('#nextArrow').css('opacity', '1').removeClass('not-active');
-		toggleIMG(artIndex, "large", 100);
-	}
-	else if (input === 2 && winWidth < 500){
-		$('#prevArrow').css('opacity', '1').removeClass('not-active');
-		$('#nextArrow').css('opacity', '1').removeClass('not-active');
-		toggleIMG(artIndex, "small", 100);
-	}
-	else if (input === 3 && winWidth > 500) {
-		$('#nextArrow').css('opacity', '.5').addClass('not-active'); 
-		toggleIMG(artIndex, "large", 100);
-	} 
-	else if (input === 3 && winWidth < 500) {
-		$('#nextArrow').css('opacity', '.5').addClass('not-active'); 
-		toggleIMG(artIndex, "small"); 
-        $('#artRow3-b img').css("display", "none");  
-        $('#artRow3-c img').hide();
-	} 
-}   
-
 function dims(){
 	win = window; 
 	winWidth = win.innerWidth;  
@@ -116,7 +46,11 @@ function dims(){
 	artHeight = newsHeight + $('#artContainer').height();
 	teamHeight = $('#teamContainer').height() + artHeight; 
 } 
- 
+
+function cartCount() {
+	var currCount = shoppingCart.length;
+	$('#cartCount').children().children().text(currCount);
+} 
 
 //Changes image sizes depending on window width
 function initImg(){ 
@@ -224,6 +158,76 @@ function setIcons(){
 		}
 	}
 }
+
+
+
+// selects ARTRow img objects and fills in params//
+function toggleIMG(page, size, speed){  
+	console.log('toggleIMG');
+	var imagePage = images[page];  
+	var keys = Object.keys(imagePage);  
+	var time = speed;
+	var src;
+	if (size === 'small'){
+		src = 'src2';
+	}
+	else if (size === 'large'){
+		src = 'src';
+	}
+	_.each(keys, function(obj, index){
+		return setTimeout(function(){
+			var query = frameArr[index] + ' img';
+            var $img = $(query);
+            var thisObj = imagePage[keys[index]]; 
+             
+            $img.hide();
+            $img.attr({
+            	"id" : keys[index],
+            	"src" : thisObj[src],
+            	"title" : thisObj.title,
+            	"size" : thisObj.size,
+            	"price" : thisObj.price,
+            	"paypal" : thisObj.paypal
+            }).fadeIn(speed);  
+		}, time + (100*index));
+	});
+}
+  
+function changePage(input, speed){ 
+	console.log("changePage");
+	var num = Number(input); 
+	var artIndex = num-1; 
+	if (input === 1 && winWidth > 500){
+		$('#prevArrow').css('opacity', '.5').addClass('not-active'); 
+		toggleIMG(artIndex, "large", 100);
+	}
+	else if (input === 1 && winWidth < 500){
+		$('#prevArrow').css('opacity', '.5').addClass('not-active'); 
+		 toggleIMG(artIndex, "small", 100);
+	}
+	else if (input === 2 && winWidth > 500){
+		$('#prevArrow').css('opacity', '1').removeClass('not-active');
+		$('#nextArrow').css('opacity', '1').removeClass('not-active');
+		toggleIMG(artIndex, "large", 100);
+	}
+	else if (input === 2 && winWidth < 500){
+		$('#prevArrow').css('opacity', '1').removeClass('not-active');
+		$('#nextArrow').css('opacity', '1').removeClass('not-active');
+		toggleIMG(artIndex, "small", 100);
+	}
+	else if (input === 3 && winWidth > 500) {
+		$('#nextArrow').css('opacity', '.5').addClass('not-active'); 
+		toggleIMG(artIndex, "large", 100);
+	} 
+	else if (input === 3 && winWidth < 500) {
+		$('#nextArrow').css('opacity', '.5').addClass('not-active'); 
+		toggleIMG(artIndex, "small"); 
+        $('#artRow3-b img').css("display", "none");  
+        $('#artRow3-c img').hide();
+	} 
+}    
+
+
  
 function getJSONs(){  
 	//Load article1 template
@@ -330,7 +334,6 @@ function getJSONs(){
 		});  
 
 	}
- 
 	
 }	 
 
