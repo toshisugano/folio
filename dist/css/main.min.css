@@ -379,11 +379,11 @@ li {
   float: left;
   position: relative;
   min-height: 50px;
-  width: 33.2%;
+  min-width: 33%;
   display: inline-block; }
 
 #artRow3-b img {
-  width: 100%; }
+  width: 99%; }
 
 #artRow3-c {
   float: left;
