@@ -312,9 +312,7 @@ function getJSONs(){
 
 	} 
 
-	else if (route === "art") {
-
-		initImg(); 
+	else if (route === "art") { 
 
 		var imageJSON = $.getJSON("json/images.json");  
 
