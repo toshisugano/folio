@@ -369,8 +369,7 @@ li {
 #artRow3-a {
   float: left;
   position: relative;
-  width: 33.3333%;
-  display: inline-block; }
+  width: 33.3333%; }
 
 #artRow3-a img {
   width: 100%; }
@@ -379,8 +378,7 @@ li {
   float: left;
   position: relative;
   min-height: 50px;
-  min-width: 33.3333%;
-  display: inline-block; }
+  width: 33%; }
 
 #artRow3-b img {
   width: 99%; }
@@ -389,8 +387,7 @@ li {
   float: left;
   position: relative;
   min-height: 50px;
-  width: 33.3333%;
-  display: inline-block; }
+  width: 33.3333%; }
 
 #artRow3-c img {
   width: 100%; }
@@ -462,6 +459,12 @@ li {
   .articleContainer, .articleContainer2, .bioContainer2, .articleContainer2, .innerContainer {
     min-height: 225px; }
   #overlay-frame {
+    width: 100%; }
+  #overlay-close-up {
+    margin-top: 10px;
+    width: 100%;
+    clear: both; }
+  #overlay-description {
     width: 100%; }
   #mainImg {
     width: 100%; }
@@ -551,12 +554,6 @@ li {
     width: 99%;
     clear: both;
     display: inline-block; }
-  #overlay-close-up {
-    width: 100%; }
-  #overlay-close-up {
-    margin-top: 10px; }
-  #overlay-description {
-    width: 100%; }
   #socialLinks {
     display: none; }
   #navLinks {
