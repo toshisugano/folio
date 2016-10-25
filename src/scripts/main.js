@@ -79,12 +79,14 @@ function initImg(){
 		$('#mainBG').attr('src', 'images/main-bg-m.jpg'); 
 		$('#newsHeader').attr('src', 'images/newsBar-m.jpg');
 		$('#artHeader').attr('src', 'images/artBar.jpg');
+			/*
 			$('#artRow1-a').children().attr('src', 'images/artRow1-a.jpg');
 			$('#artRow1-b').children().attr('src', 'images/artRow1-b.jpg');
 			$('#artRow2').children().attr('src', 'images/artRow2.jpg');
 			$('#artRow3-a').children().attr('src', 'images/artRow3-a.jpg');
 			$('#artRow3-b').children().attr('src', 'images/artRow3-b.jpg');
 			$('#artRow3-c').children().attr('src', 'images/artRow3-c.jpg');
+			*/
 		$('#teamHeader').attr('src', 'images/teamBar-m.jpg');
 			$('.john').attr('src', 'images/bio-john-m.png');
 			$('.emma').attr('src', 'images/bio-emma-m.png');
@@ -100,6 +102,7 @@ function initImg(){
 		$('#mainBG').attr('src', 'images/main-bg-s.jpg');
 		$('#newsHeader').attr('src', 'images/newsBar-s.jpg');
 		$('#artHeader').attr('src', 'images/artBar-2.jpg');
+			/*
 			(function(page){
 				if (page === 1){
 					$('#artRow1-a').children().attr('src', 'images/artRow1-a-2.jpg');
@@ -110,6 +113,7 @@ function initImg(){
 					$('#artRow3-c').children().attr('src', 'images/artRow3-c-2.jpg');
 				}
 			})(currPage);
+*/
 		$('#teamHeader').attr('src', 'images/teamBar-s.jpg');
 			$('.john').attr('src', 'images/bio-john-s.png');
 			$('.emma').attr('src', 'images/bio-emma-s.png');
