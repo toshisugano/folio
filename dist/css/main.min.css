@@ -307,7 +307,7 @@ li {
   background-color: #eff7d9; }
 
 .nextButton {
-  position: fixed;
+  position: relative;
   background-color: white;
   height: 50px;
   margin-top: -200px; }

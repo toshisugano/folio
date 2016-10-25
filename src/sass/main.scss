@@ -399,7 +399,7 @@ display : inline-block;
 }
 
 .nextButton {  
-  position : fixed;  
+  position : relative;  
   background-color : white;
   height : 50px; 
   margin-top : -200px;
