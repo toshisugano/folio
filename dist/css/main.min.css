@@ -501,7 +501,7 @@ li {
 @media (max-width: 500px) {
   #artRow1 {
     display: block;
-    width: 55%; }
+    width: 100%; }
   #artRow1-a {
     float: none;
     position: relative;
@@ -531,6 +531,11 @@ li {
     width: 99%;
     clear: both;
     display: inline-block; }
+  #artRow3 {
+    float: none;
+    position: relative;
+    min-height: 50px;
+    width: 100%; }
   #artRow3-a {
     float: none;
     position: relative;
