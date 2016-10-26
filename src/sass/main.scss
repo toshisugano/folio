@@ -426,10 +426,9 @@ display : inline-block;
 
 #artRow1 {
   @extend .maxWidth;
-  min-height : 50px;  
-  display : inline; 
+  min-height : 50px;   
   margin-bottom : 10px;
-  width : 80%;
+  width : 90%;
 }
 
 #artRow1-a {
@@ -473,7 +472,7 @@ display : inline-block;
   min-height : 50px; 
   position : relative; 
   margin-top : 10px;  
-  width : 75%;
+  width : 90%;
 }
 
 #artRow3-a {
@@ -657,6 +656,7 @@ display : inline-block;
 @media (max-width : 500px) {
   #artRow1 { 
       display : block; 
+      width : 55%;
     }
   #artRow1-a {
     float : none; 

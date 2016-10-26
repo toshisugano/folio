@@ -278,9 +278,7 @@ function getJSONs(){
 					socialIcons[thisKey] = icons[thisKey];
 				}
 			}); 
-		});  
-
-		initImg(); 
+		});   
 
 	} 
 

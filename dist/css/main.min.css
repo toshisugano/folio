@@ -330,9 +330,8 @@ li {
 
 #artRow1 {
   min-height: 50px;
-  display: inline;
   margin-bottom: 10px;
-  width: 80%; }
+  width: 90%; }
 
 #artRow1-a {
   float: left;
@@ -367,7 +366,7 @@ li {
   min-height: 50px;
   position: relative;
   margin-top: 10px;
-  width: 75%; }
+  width: 90%; }
 
 #artRow3-a {
   float: left;
@@ -501,7 +500,8 @@ li {
 
 @media (max-width: 500px) {
   #artRow1 {
-    display: block; }
+    display: block;
+    width: 55%; }
   #artRow1-a {
     float: none;
     position: relative;
