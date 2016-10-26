@@ -331,7 +331,8 @@ li {
 #artRow1 {
   min-height: 50px;
   display: inline;
-  margin-bottom: 10px; }
+  margin-bottom: 10px;
+  width: 80%; }
 
 #artRow1-a {
   float: left;
@@ -356,7 +357,8 @@ li {
 #artRow2 {
   position: relative;
   margin-top: 10px;
-  margin-bottom: 10px; }
+  margin-bottom: 10px;
+  width: 90%; }
 
 #artRow2 img {
   width: 100%; }
