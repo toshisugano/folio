@@ -337,6 +337,8 @@ function getJSONs(){
 
 		});  
 
+		initImg();
+
 	}
 	
 }	 
