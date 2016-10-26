@@ -365,12 +365,14 @@ li {
   min-height: 50px;
   position: relative;
   margin-top: 10px;
-  border: 2px solid red; }
+  max-width: 431px; }
 
 #artRow3-a {
   float: left;
   position: relative;
-  width: 33.3333%; }
+  width: 33.3333%;
+  min-height: 50px;
+  display: inline-block; }
 
 #artRow3-a img {
   width: 100%; }
@@ -379,7 +381,8 @@ li {
   float: left;
   position: relative;
   min-height: 50px;
-  width: 33.333%; }
+  width: 33.333%;
+  display: inline-block; }
 
 #artRow3-b img {
   width: 100%; }
@@ -388,7 +391,8 @@ li {
   float: left;
   position: relative;
   min-height: 50px;
-  width: 33.3333%; }
+  width: 33.3333%;
+  display: inline-block; }
 
 #artRow3-c img {
   width: 100%; }
