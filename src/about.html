@@ -13,6 +13,14 @@
   <title>Cabbit</title>
 </head>
 <body>  
+  <div id="fb-root"></div>
+  <script>(function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.8";
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));</script>
   <div class="row" id="mainContainer"> 
         <!-- NAVIGATION --> 
         <div id="pageCenter">
@@ -27,6 +35,7 @@
           </ul>
           <div id="socialLinks">
             <ul>
+             <li><div class="fb-like" data-href="https://cabbitfilm.herokuapp.com" data-layout="button" data-action="recommend" data-size="large" data-show-faces="false" data-share="false"></div></li>
              <li id="cartCount"><a href="create"><h3></h3></a></li>  
              <li><a href="create"><i class="fa fa-2x fa-shopping-cart" aria-hidden="true"></i></a></li> 
             </ul>
