@@ -2,6 +2,7 @@
     { 
         "moonBlows" : {
             "id" : "moonBlows",
+            "index" : "1",
             "src" : "images/moon-blows.jpg",
             "src2" : "images/moon-blows-2.jpg", 
             "title" : "Moon Blows",
@@ -11,6 +12,7 @@
             }, 
         "cabbitValley" : {
             "id" : "cabbitValley",
+            "index" : "2",
             "src" : "images/cabbit-valley.jpg",
             "src2" : "images/cabbit-valley-2.jpg",
             "title" : "Cabbit Valley",
@@ -20,6 +22,7 @@
             }, 
         "cabbitHouse" : {
             "id" : "cabbitHouse",
+            "index" : "3",
             "src" : "images/house.jpg",
             "src2" : "images/house-2.jpg", 
             "title" : "Cabbit House",
@@ -29,6 +32,7 @@
             }, 
         "walkingHumans" : {
             "id" : "walkingHumans",
+            "index" : "4",
             "src" : "images/walking-humans.jpg",
             "src2" : "images/walking-humans-2.jpg", 
             "title" : "Walking Humans",
@@ -38,6 +42,7 @@
             },  
         "deerwoodDrive" : {
             "id" : "deerwoodDrive",
+            "index" : "5",
             "src" : "images/deerwood-dr.jpg", 
             "src2" : "images/deerwood-dr-2.jpg", 
             "title" : "Deerwood Drive",
@@ -47,6 +52,7 @@
             },  
         "cabbitEnters" : {
             "id" : "cabbitEnters",
+            "index" : "6",
             "src" : "images/cabbit-enters.jpg", 
             "src2" : "images/cabbit-enters-2.jpg", 
             "title" : "Cabbit Enters",
@@ -56,17 +62,19 @@
             } 
     },
     {
-        "bison" : {
-            "id" : "bison",
-            "src" : "images/bison.jpg",
-            "src2" : "images/bison-2.jpg",
-            "title" : "Bison",
+        "cabbitTea" : {
+            "id" : "cabbitTea",
+            "index" : "1",
+            "src" : "images/cabbit-tea.jpg",
+            "src2" : "images/cabbit-tea-2.jpg",
+            "title" : "Cabbit Tea",
             "size" : "8x10",
-            "price" : "$12.00",
-            "paypal" : "<form action='https://www.paypal.com/cgi-bin/webscr' method='post' target='_top'><input type='hidden' name='cmd' value='_s-xclick'><input type='hidden' name='hosted_button_id' value='UER4EGG7RLSMN'><input type='image' src='https://www.paypalobjects.com/en_US/i/btn/btn_buynowCC_LG.gif' border='0' name='submit' alt='PayPal - The safer, easier way to pay online!'><img alt='' border='0' src='https://www.paypalobjects.com/en_US/i/scr/pixel.gif' width='1' height='1'></form>"      
-            }, 
+            "price" : "$20.00",
+            "paypal" : "<form action='https://www.paypal.com/cgi-bin/webscr' method='post' target='_top'><input type='hidden' name='cmd' value='_s-xclick'><input type='hidden' name='hosted_button_id' value='DDN4B9R87VAXG6'><input type='image' src='https://www.paypalobjects.com/en_US/i/btn/btn_buynowCC_LG.gif' border='0' name='submit' alt='PayPal - The safer, easier way to pay online!'><img alt='' border='0' src='https://www.paypalobjects.com/en_US/i/scr/pixel.gif' width='1' height='1'></form>"      
+            },  
         "clouds" : {
             "id" : "clouds",
+            "index" : "2",
             "src" : "images/clouds.jpg",
             "src2" : "images/clouds-2.jpg",
             "title" : "Clouds",
@@ -76,6 +84,7 @@
             }, 
         "cabbitMountain" : {
             "id" : "cabbitMountain",
+            "index" : "3",
             "src" : "images/cabbit-mtn.jpg",
             "src2" : "images/cabbit-mtn-2.jpg",
             "title" : "Cabbit Mountain",
@@ -85,6 +94,7 @@
             }, 
         "cabbitRiver" : {
             "id" : "cabbitRiver",
+            "index" : "4",
             "src" : "images/cabbit-river.jpg",
             "src2" : "images/cabbit-river-2.jpg",
             "title" : "Cabbit River",
@@ -94,6 +104,7 @@
             }, 
         "cabbitTrees" : {
             "id" : "cabbitTrees",
+            "index" : "5",
             "src" : "images/cabbit-trees.jpg",
             "src2" : "images/cabbit-trees-2.jpg",
             "title" : "Cabbit Trees",
@@ -103,6 +114,7 @@
             }, 
         "cabbitBalloons" : {
             "id" : "cabbitBalloons",
+            "index" : "6",
             "src" : "images/cabbit-balloons.jpg",
             "src2" : "images/cabbit-balloons-2.jpg",
             "title" : "Cabbit Ballons",
@@ -110,51 +122,5 @@
             "price" : "$20.00",
             "paypal" : "<form action='https://www.paypal.com/cgi-bin/webscr' method='post' target='_top'><input type='hidden' name='cmd' value='_s-xclick'><input type='hidden' name='hosted_button_id' value='DDN4B9R87VAXG6'><input type='image' src='https://www.paypalobjects.com/en_US/i/btn/btn_buynowCC_LG.gif' border='0' name='submit' alt='PayPal - The safer, easier way to pay online!'><img alt='' border='0' src='https://www.paypalobjects.com/en_US/i/scr/pixel.gif' width='1' height='1'></form>"      
             } 
-    },
-    {
-        "flyingHumans" : {
-            "id" : "flyingHumans",
-            "src" : "images/flying-humans.jpg",
-            "src2" : "images/flying-humans-2.jpg",
-            "title" : "Flying Humans",
-            "size" : "8x10",
-            "price" : "$10.00",
-            "paypal" : "<form action='https://www.paypal.com/cgi-bin/webscr' method='post' target='_top'><input type='hidden' name='cmd' value='_s-xclick'><input type='hidden' name='hosted_button_id' value='ETQBDHTGEFMJY'><input type='image' src='https://www.paypalobjects.com/en_US/i/btn/btn_buynowCC_LG.gif' border='0' name='submit' alt='PayPal - The safer, easier way to pay online!'><img alt='' border='0' src='https://www.paypalobjects.com/en_US/i/scr/pixel.gif' width='1' height='1'></form>"      
-            },  
-        "cabbitTea" : {
-            "id" : "cabbitTea",
-            "src" : "images/cabbit-tea.jpg",
-            "src2" : "images/cabbit-tea-2.jpg",
-            "title" : "Cabbit Tea",
-            "size" : "8x10",
-            "price" : "$20.00",
-            "paypal" : "<form action='https://www.paypal.com/cgi-bin/webscr' method='post' target='_top'><input type='hidden' name='cmd' value='_s-xclick'><input type='hidden' name='hosted_button_id' value='DDN4B9R87VAXG6'><input type='image' src='https://www.paypalobjects.com/en_US/i/btn/btn_buynowCC_LG.gif' border='0' name='submit' alt='PayPal - The safer, easier way to pay online!'><img alt='' border='0' src='https://www.paypalobjects.com/en_US/i/scr/pixel.gif' width='1' height='1'></form>"      
-            },  
-        "cabbitEclipse" : {
-            "id" : "cabbitEclipse",
-            "src" : "images/cabbit-eclipse.jpg",
-            "src2" : "images/cabbit-eclipse-2.jpg",
-            "title" : "Cabbit Eclipse",
-            "size" : "8x10",
-            "price" : "$18.00",
-            "paypal" : "<form action='https://www.paypal.com/cgi-bin/webscr' method='post' target='_top'><input type='hidden' name='cmd' value='_s-xclick'><input type='hidden' name='hosted_button_id' value='DDN4B9R87VAXG6'><input type='image' src='https://www.paypalobjects.com/en_US/i/btn/btn_buynowCC_LG.gif' border='0' name='submit' alt='PayPal - The safer, easier way to pay online!'><img alt='' border='0' src='https://www.paypalobjects.com/en_US/i/scr/pixel.gif' width='1' height='1'></form>"      
-             },  
-        "cabbitApocalypse" : {
-            "id" : "cabbitApocalypse",
-            "src" : "images/cabbit-apocalypse.jpg",
-            "src2" : "images/cabbit-apocalypse-2.jpg",
-            "title" : "Cabbit Apocalypse",
-            "size" : "8x10",
-            "price" : "$20.00",
-            "paypal" : "<form action='https://www.paypal.com/cgi-bin/webscr' method='post' target='_top'><input type='hidden' name='cmd' value='_s-xclick'><input type='hidden' name='hosted_button_id' value='DDN4B9R87VAXG6'><input type='image' src='https://www.paypalobjects.com/en_US/i/btn/btn_buynowCC_LG.gif' border='0' name='submit' alt='PayPal - The safer, easier way to pay online!'><img alt='' border='0' src='https://www.paypalobjects.com/en_US/i/scr/pixel.gif' width='1' height='1'></form>"      
-             },  
-        "blankb" : {
-            "src" : "images/blank-b.jpg",
-            "src2" : "images/blank-b-2.jpg"
-            }, 
-        "blankc" : {
-            "src" : "images/blank-c.jpg",
-            "src2" : "images/blank-c.jpg"
-            } 
-    } 
+    }
 ]

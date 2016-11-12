@@ -20,12 +20,11 @@ var bioTemp2;
 var aboutBios = [];
 var socialIcons = {};
 var images = []; 
-var frameArr = ['#artRow1-a', '#artRow1-b', '#artRow2', '#artRow3-a', '#artRow3-b', '#artRow3-c'];
-var imgKeys = ['bison', 'cabbit-apocalypse', 'cabbit-balloons', 'cabbit-eclipse', 'cabbit-enters', 'cabbit-mtn', 'cabbit-river', 'cabbit-tea', 'cabbit-trees', 'cabbit-valley', 'clouds', 'deerwood-dr', 'flying-humans', 'house', 'moon-blows', 'walking-humans'];
+//var frameArr = ['#artRow1-a', '#artRow1-b', '#artRow2', '#artRow3-a', '#artRow3-b', '#artRow3-c'];
+//var imgKeys = ['bison', 'cabbit-apocalypse', 'cabbit-balloons', 'cabbit-eclipse', 'cabbit-enters', 'cabbit-mtn', 'cabbit-river', 'cabbit-tea', 'cabbit-trees', 'cabbit-valley', 'clouds', 'deerwood-dr', 'flying-humans', 'house', 'moon-blows', 'walking-humans'];
 var shoppingCart = [];
 
-var currPage = sessionStorage.currPage || 1; 
-var artIndex = currPage-1;
+var currPage = sessionStorage.currPage || 1;  
 
 function winReload(){
 	window.location.reload();
@@ -113,7 +112,7 @@ function initImg(){
 					$('#artRow3-c').children().attr('src', 'images/artRow3-c-2.jpg');
 				}
 			})(currPage);
-*/
+		*/
 		$('#teamHeader').attr('src', 'images/teamBar-s.jpg');
 			$('.john').attr('src', 'images/bio-john-s.png');
 			$('.emma').attr('src', 'images/bio-emma-s.png');
@@ -166,7 +165,7 @@ function setIcons(){
 
 
 // selects ARTRow img objects and fills in params//
-function toggleIMG(page, size, speed){  
+/*function toggleIMG(page, size, speed){  
 	console.log('toggleIMG');
 	var imagePage = images[page];  
 	var keys = Object.keys(imagePage);  
@@ -195,43 +194,42 @@ function toggleIMG(page, size, speed){
             }).fadeIn(speed);  
 		}, time + (100*index));
 	});
-}
+}*/
   
-function changePage(input, speed){ 
-	console.log("changePage");
-	var num = Number(input); 
-	var artIndex = num-1; 
-	if (input === 1 && winWidth > 500){
+function changePage(input){  
+	var num = Number(input);  
+	if (num === 1 /*&& winWidth > 500*/){
 		$('#prevArrow').css('opacity', '.5').addClass('not-active'); 
-		toggleIMG(artIndex, "large", 100);
+		$('#nextArrow').css('opacity', '1').removeClass('not-active');
+		//toggleIMG(artIndex, "large", 100);
+		 
 	}
-	else if (input === 1 && winWidth < 500){
+	/*else if (input === 1 && winWidth < 500){
 		$('#prevArrow').css('opacity', '.5').addClass('not-active'); 
-		 toggleIMG(artIndex, "small", 100);
+		 //toggleIMG(artIndex, "small", 100);
+	}*/
+	else if (num === 2 /*&& winWidth > 500*/){
+		$('#prevArrow').css('opacity', '1').removeClass('not-active');
+		$('#nextArrow').css('opacity', '.5').addClass('not-active');
+		//toggleIMG(artIndex, "large", 100);
+		 
 	}
-	else if (input === 2 && winWidth > 500){
+	/*else if (input === 2 && winWidth < 500){
 		$('#prevArrow').css('opacity', '1').removeClass('not-active');
 		$('#nextArrow').css('opacity', '1').removeClass('not-active');
-		toggleIMG(artIndex, "large", 100);
-	}
-	else if (input === 2 && winWidth < 500){
-		$('#prevArrow').css('opacity', '1').removeClass('not-active');
-		$('#nextArrow').css('opacity', '1').removeClass('not-active');
-		toggleIMG(artIndex, "small", 100);
+		//toggleIMG(artIndex, "small", 100);
 	}
 	else if (input === 3 && winWidth > 500) {
 		$('#nextArrow').css('opacity', '.5').addClass('not-active'); 
-		toggleIMG(artIndex, "large", 100);
+		//toggleIMG(artIndex, "large", 100);
 	} 
 	else if (input === 3 && winWidth < 500) {
 		$('#nextArrow').css('opacity', '.5').addClass('not-active'); 
-		toggleIMG(artIndex, "small"); 
+		//toggleIMG(artIndex, "small"); 
         $('#artRow3-b img').css("display", "none");  
         $('#artRow3-c img').hide();
-	} 
-}    
-
-
+	} */
+}     
  
 function getJSONs(){  
 	//Load article1 template
@@ -239,7 +237,7 @@ function getJSONs(){
 	var route = mainUrl.slice(split.length-3, split.length); 
 
 	if (route === "eam"){ 
-		console.log("team");
+		
 		var aboutJSON = $.getJSON("json/about.json");
 		var socialJSON = $.getJSON("templates/socialMedia.json"); 
 
@@ -314,7 +312,7 @@ function getJSONs(){
 
 	} 
 
-	else if (route === "art") { 
+	/*else if (route === "art") { 
 
 		var imageJSON = $.getJSON("json/images.json");  
 
@@ -337,8 +335,8 @@ function getJSONs(){
 
 		initImg();
 
-	}
-	
+	}*/
+	 
 }	 
 
 $('.links').on('click', function(){  
@@ -347,23 +345,34 @@ $('.links').on('click', function(){
 	var id = that[0].id; 
 	var child = $('#' + id).children()[0]; 
 	$(child).attr('style', 'color : red'); 
-}); 
-    
+});  
 
 $('.nextButton').on('click', function(e){
 	e.preventDefault();
 	var thisId = $(this).attr('id'); 
-	if (thisId === 'prevArrow'){
+	if (thisId === 'prevArrow'){ 
 		currPage--; 
-		sessionStorage.setItem("currPage", currPage);
-		changePage(currPage, 100);
+		sessionStorage.setItem("currPage", currPage); 
+		changePage(currPage);
+		window.location.href = "?page=" + currPage + "&winWidth=" + winWidth;
 	}
 	if (thisId === 'nextArrow'){
 		currPage++; 
-		sessionStorage.setItem("currPage", currPage);
-		changePage(currPage, 100);
+		sessionStorage.setItem("currPage", currPage); 
+		changePage(currPage); 
+		window.location.href =  "?page=" + currPage + "&winWidth=" + winWidth;
 	} 
 }); 
+
+$('#art').on('click', function(e){
+	e.preventDefault();
+	window.location =  "art" + "?page=1&winWidth=" + winWidth;
+
+});
+
+$('#menuItems').on('click', function(e){ 
+	console.log($(this)[0].children);
+});
 
 $('.close-up').on('click', function(){ 
 	var thisURL = $(this)[0].src;
@@ -387,9 +396,9 @@ $('#overlay-close').on('click', function(e){
 $('.artClick').on('click', function(e){
 	e.preventDefault();   
 	var id = $(this).children().children()[0].id;
-	window.location = mainUrl + "/" + id;
+	window.location = "art" + "/" + id;
 	sessionStorage.setItem("scrollTop", scrollTop); 
-});
+}); 
 
 $('.cartButton').on('click', function(){
 	var thisText = $('#key').text();
@@ -431,9 +440,17 @@ $(document).ready(function(){
 	dims();
 	theDate();
 	cartCount();
-	getJSONs();   
-	setTimeout(setIcons, 1000);   
+
+	//Populates the news and team page
+	getJSONs();  
+
+	//Sets ICONS 
+	setTimeout(setIcons, 1000);  
+	setTimeout(initImg, 1000); 
 	sessionStorage.setItem("mainUrl", mainUrl);  
-	//setTimeout(changePage(currPage, 100), 1000);
+	changePage(sessionStorage.currPage || currPage); 
+	alert("ready");
 });
+
+
  
