@@ -52,8 +52,7 @@ function cartCount() {
 } 
 
 //Changes image sizes depending on window width
-function initImg(){ 
-	console.log("initImg");
+function initImg(){  
 	var vidWidth = winWidth/1.5;
 	var vidHeight = vidWidth/1.3333;   
 	var midImgHeight = $('#artRow2').height() + 80;
@@ -448,8 +447,7 @@ $(document).ready(function(){
 	setTimeout(setIcons, 1000);  
 	setTimeout(initImg, 1000); 
 	sessionStorage.setItem("mainUrl", mainUrl);  
-	changePage(sessionStorage.currPage || currPage); 
-	alert("ready");
+	changePage(sessionStorage.currPage || currPage);  
 });
 
 

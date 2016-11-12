@@ -22,8 +22,7 @@ var artIndex = 0;
 
 function init(){ 
 
-	$('.close-up').on('click', function(){ 
-		alert("clicked");
+	$('.close-up').on('click', function(){  
 		var thisURL = $(this)[0].src;
 		var split = thisURL.split(""); 
 		var spliced = thisURL.substring(0, split.length-6); 
@@ -38,8 +37,7 @@ function init(){
 	});
 
 	$('#overlay-close').on('click', function(e){ 
-		e.preventDefault(); 
-		alert("closed");
+		e.preventDefault();  
 		window.location = sessionStorage.mainUrl;  
 	}); 
 
@@ -50,8 +48,7 @@ function init(){
 
 }
 
-function dims(){ 
-	console.log("clicked");
+function dims(){  
 	win = window; 
 	winWidth = win.innerWidth;  
 	winHeight = win.innerHeight;
@@ -77,7 +74,6 @@ $(window).scroll(function(){
 
 $(document).ready(function(){
 	dims();  
-	init();
-	alert("ready");
+	init(); 
 });
  
