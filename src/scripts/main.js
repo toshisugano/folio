@@ -397,6 +397,7 @@ $('.artClick').on('click', function(e){
 	var id = $(this).children().children()[0].id;
 	window.location = "art" + "/" + id;
 	sessionStorage.setItem("scrollTop", scrollTop); 
+	sessionStorage.setItem("artId", id);
 }); 
 
 $('.cartButton').on('click', function(){

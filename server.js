@@ -15,6 +15,8 @@ var jsonImages = JSON.parse(images);
    
 var currPage = 1; 
 
+var artId;
+
 var clientId = 'Ae6PP_ZnAq9wXIrdeevd9NmfCuT6EnsjQkC-iBVEoiBY4h3HQGlKmpNDWtFJkr7h_X37bz8Eqx3NXv3Y';
 // live clientId = Adnckf-8KyL8-pcvcPQ6s3tzDZ9_8DmKT531WbwoxHRk6_3-wHQV4nVNsBZbn0y2RmUVOMM-iu9Gjb9d
 var secret = 'EPJTlVNZoYr_iDdZPVxo3Unc2-fDzOM8SHBxy7QV0RWF-FvrGv4IE3xvo_WwttszRsb2YMRsdQhdIiok';
@@ -38,6 +40,14 @@ var artHtml = function(){
                   '<title>Cabbit</title>' +
                 '</head>' +
                 '<body>' +
+                  '<div id="fb-root"></div>' + 
+                  '<script>(function(d, s, id) {' + 
+                  'var js, fjs = d.getElementsByTagName(s)[0];' + 
+                  'if (d.getElementById(id)) return;' +
+                  'js = d.createElement(s); js.id = id;' + 
+                  'js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.8";' + 
+                  'fjs.parentNode.insertBefore(js, fjs);' + 
+                  '}(document, "script", "facebook-jssdk"));</script>' + 
                   '<div class="row" id="mainContainer">' +  
                         '<div id="pageCenter">' + 
                           '<ul id="menu">' + 
@@ -51,6 +61,9 @@ var artHtml = function(){
                           '</ul>' +
                           '<div id="socialLinks">' + 
                             '<ul>' + 
+                             '<li id="fbRecommend" >' + 
+                             '<div class="fb-like" data-href="https://cabbitfilm.herokuapp.com" data-layout="button" data-action="recommend" data-size="large" data-show-faces="false" data-share="false">' + 
+                             '</div></li>' + 
                              '<li id="cartCount"><a href="create"><h3></h3></a></li>' +  
                              '<li><a href="create"><i class="fa fa-2x fa-shopping-cart" aria-hidden="true"></i></a></li>' +
                             '</ul>' + 
@@ -325,8 +338,8 @@ app.get('/art', function(req, res ){
 
 app.get('/art/:artId', function(req, res){ 
 
-    var artId = req.params['artId'];  
     var artObj;
+    artId = req.params['artId'];   
     currPage = req.query.page;
 
     for (i=0; i<jsonImages.length; i++){

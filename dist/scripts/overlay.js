@@ -43,7 +43,8 @@ function init(){
 
 	$('.addToCart').on('click', function(e){ 
 		e.preventDefault();
-		shoppingCart.push("hello");
+		var artId = sessionStorage.artId;
+		shoppingCart.push(artId);
 	});
 
 }
