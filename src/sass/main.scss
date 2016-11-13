@@ -269,10 +269,14 @@ li {
 }
 
 #socialLinks li {
-display : inline-block; 
- line-height : 55px;
- vertical-align : middle;
+  display : inline-block; 
+  line-height : 55px;
+  vertical-align : middle;
 } 
+
+#fbRecommend {
+  height : 30px;
+}
 
 .fa-shopping-cart {
   line-height : 55px;

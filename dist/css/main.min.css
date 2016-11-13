@@ -70,7 +70,8 @@ li {
   background-color: #eff7d3;
   overflow: scroll; }
 
-#overlay-app { 
+#overlay-app {
+  height: 100%;
   width: 100%;
   padding: 5px 5px 3px 5px;
   text-align: center;
@@ -220,6 +221,9 @@ li {
   display: inline-block;
   line-height: 55px;
   vertical-align: middle; }
+
+#fbRecommend {
+  height: 30px; }
 
 .fa-shopping-cart {
   line-height: 55px;
