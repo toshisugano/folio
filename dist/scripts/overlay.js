@@ -44,7 +44,13 @@ function init(){
 	$('.addToCart').on('click', function(e){ 
 		e.preventDefault();
 		var artId = sessionStorage.artId;
-		shoppingCart.push(artId);
+		if (sessionStorage.cart === undefined) {
+			sessionStorage.cart = [];
+			sessionStorage.cart.push(artId);
+		}
+		else {
+			sessionStorage.cart.push(artId);
+		}
 	});
 
 }
