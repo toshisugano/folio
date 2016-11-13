@@ -270,18 +270,14 @@ li {
 
 #socialLinks li {
   display : inline-block; 
-  line-height : 55px;
+  /*line-height : 55px;*/
   vertical-align : middle;
 } 
 
 #fbRecommend {
   margin-top : -25px
   height : 30px;
-}
-
-.fb_iframe_widget {
-  line-height : 0px;
-}
+} 
 
 .fa-shopping-cart {
   line-height : 55px;
