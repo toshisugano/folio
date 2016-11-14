@@ -14,8 +14,7 @@ var baseUrl = mainUrl.slice(0, (mainUrl.split("").length)-3);
 var imageJSON = $.getJSON(baseUrl + "json/images.json"); 
 
 var images = []; 
-var frameArr = ['#artRow1-a', '#artRow1-b', '#artRow2', '#artRow3-a', '#artRow3-b', '#artRow3-c'];
-var shoppingCart = [];
+var frameArr = ['#artRow1-a', '#artRow1-b', '#artRow2', '#artRow3-a', '#artRow3-b', '#artRow3-c']; 
 
 var currPage = 1;
 var artIndex = 0; 
@@ -42,18 +41,17 @@ function init(){
 	}); 
 
 	$('.addToCart').on('click', function(e){ 
-	  e.preventDefault();
-	  var artId = sessionStorage.artId;
+	  e.preventDefault(); 
 	  var storedCart;
 
 	  if (sessionStorage.cart === undefined) {
 	    var cart = [];
-	    cart.push(artId);
+	    cart.push(sessionStorage.artId);
 	    sessionStorage.setItem("cart", JSON.stringify(cart));
 	  }
 	  else {
 	    storedCart = JSON.parse(sessionStorage.cart);
-	    storedCart.push(artId);
+	    storedCart.push(sessionStorage.artId);
 	    sessionStorage.setItem("cart", JSON.stringify(storedCart));
  	  }
  	  
