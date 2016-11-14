@@ -42,15 +42,21 @@ function init(){
 	}); 
 
 	$('.addToCart').on('click', function(e){ 
-		e.preventDefault();
-		var artId = sessionStorage.artId;
-		if (sessionStorage.cart === undefined) {
-			sessionStorage.cart = [];
-			sessionStorage.cart.push(artId);
-		}
-		else {
-			sessionStorage.cart.push(artId);
-		}
+	  e.preventDefault();
+	  var artId = sessionStorage.artId;
+	  var storedCart;
+
+	  if (sessionStorage.cart === undefined) {
+	    var cart = [];
+	    cart.push(artId);
+	    sessionStorage.setItem("cart", JSON.stringify(cart));
+	  }
+	  else {
+	    storedCart = JSON.parse(sessionStorage.cart);
+	    storedCart.push(artId);
+	    sessionStorage.setItem("cart", JSON.stringify(storedCart));
+ 	  }
+ 	  
 	});
 
 }
