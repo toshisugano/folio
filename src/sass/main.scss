@@ -583,18 +583,22 @@ li {
   color : $vanilla;
 }   
 
+#cartContainer {
+  @extend .maxWidth;
+}
+
 .cartContainer1 {
   @extend .maxWidth;
   background-color : $lightgreen; 
   text-align : center;  
-  height : 200px;  
+  min-height : 200px;  
 }
 
 .cartContainer2 {
   @extend .maxWidth;
   background-color : $midgreen; 
   text-align : center;  
-  height : 200px;  
+  min-height : 200px;  
 }
 
 #footerContainer {

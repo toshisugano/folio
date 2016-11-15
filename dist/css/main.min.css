@@ -5,7 +5,7 @@
 
 /*VARIABLES*/
 /*MIXINS*/
-.maxWidth, #content, #aboutContainer, #aboutDescription, #watchContainer, #newsContainer, .articleContainer, .articleContainer2, .bioContainer2, .innerContainer, #artContainer, #artGallery, #artRow1, #artRow2, #artRow3, #teamContainer, .bioContainer, .bioinnerContainer, .cartContainer1, .cartContainer2, #footerContainer {
+.maxWidth, #content, #aboutContainer, #aboutDescription, #watchContainer, #newsContainer, .articleContainer, .articleContainer2, .bioContainer2, .innerContainer, #artContainer, #artGallery, #artRow1, #artRow2, #artRow3, #teamContainer, .bioContainer, .bioinnerContainer, #cartContainer, .cartContainer1, .cartContainer2, #footerContainer {
   max-width: 1200px;
   margin-left: auto;
   margin-right: auto;
@@ -460,12 +460,12 @@ li {
 .cartContainer1 {
   background-color: #738414;
   text-align: center;
-  height: 200px; }
+  min-height: 200px; }
 
 .cartContainer2 {
   background-color: #5f6f1e;
   text-align: center;
-  height: 200px; }
+  min-height: 200px; }
 
 #footerContainer {
   min-height: 100px;
