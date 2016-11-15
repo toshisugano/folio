@@ -1,11 +1,11 @@
 var express = require('express');
-	http = require('http');
-	paypal = require('paypal-rest-sdk');
-	uuid = require('node-uuid');
-	bodyParser = require('body-parser');
-	app = express();
-	fs = require('fs'); 
-  underscore = require('underscore');
+  	http = require('http');
+  	paypal = require('paypal-rest-sdk');
+  	uuid = require('node-uuid');
+  	bodyParser = require('body-parser');
+  	app = express();
+  	fs = require('fs'); 
+    underscore = require('underscore');
 
 var mainUrl = 'https://cabbitfilm.herokuapp.com/';  
 
@@ -240,6 +240,7 @@ app.get('/cart', function(req, res){
 
 // PayPal payment request
 app.get('/create', function(req, res) { 
+  
     var payReq = {
         'intent': 'sale',
         'redirect_urls': {
@@ -378,6 +379,10 @@ app.get('/art/:artId', function(req, res){
 
 app.get('/team', function(req, res ){
     res.sendFile(__dirname + '/dist/team.html');
+});
+
+app.get('/test', function(req, res ){
+    res.sendFile(__dirname + '/dist/test.html');
 });
 
 app.get('/checkout', function(req, res ){ 

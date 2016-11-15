@@ -17,12 +17,14 @@ var articleTemp;
 var articleTemp2;  
 var bioTemp; 
 var bioTemp2; 
+var cartTemp;
+var cartTemp2;
 var aboutBios = [];
 var socialIcons = {};
 var images = []; 
 //var frameArr = ['#artRow1-a', '#artRow1-b', '#artRow2', '#artRow3-a', '#artRow3-b', '#artRow3-c'];
 //var imgKeys = ['bison', 'cabbit-apocalypse', 'cabbit-balloons', 'cabbit-eclipse', 'cabbit-enters', 'cabbit-mtn', 'cabbit-river', 'cabbit-tea', 'cabbit-trees', 'cabbit-valley', 'clouds', 'deerwood-dr', 'flying-humans', 'house', 'moon-blows', 'walking-humans'];
-var shoppingCart = [];
+ 
 
 var currPage = sessionStorage.currPage || 1;  
 
@@ -46,8 +48,16 @@ function dims(){
 	teamHeight = $('#teamContainer').height() + artHeight; 
 } 
 
-function cartCount() {
-	var currCount = shoppingCart.length;
+function cartCount() { 
+	var currCount;
+	if (sessionStorage.cart === undefined) {
+		currCount = 0;
+	}
+	else {
+		var cart = JSON.parse(sessionStorage.cart);
+		currCount = cart.length;
+	}
+	
 	$('#cartCount').children().children().text(currCount);
 } 
 
@@ -159,41 +169,7 @@ function setIcons(){
 			$('.socialLinks.' + that.name).append(htmlTemp);
 		}
 	}
-}
-
-
-
-// selects ARTRow img objects and fills in params//
-/*function toggleIMG(page, size, speed){  
-	console.log('toggleIMG');
-	var imagePage = images[page];  
-	var keys = Object.keys(imagePage);  
-	var time = speed;
-	var src;
-	if (size === 'small'){
-		src = 'src2';
-	}
-	else if (size === 'large'){
-		src = 'src';
-	}
-	_.each(keys, function(obj, index){
-		return setTimeout(function(){
-			var query = frameArr[index] + ' img';
-            var $img = $(query);
-            var thisObj = imagePage[keys[index]]; 
-             
-            $img.hide();
-            $img.attr({
-            	"id" : keys[index],
-            	"src" : thisObj[src],
-            	"title" : thisObj.title,
-            	"size" : thisObj.size,
-            	"price" : thisObj.price,
-            	"paypal" : thisObj.paypal
-            }).fadeIn(speed);  
-		}, time + (100*index));
-	});
-}*/
+} 
   
 function changePage(input){  
 	var num = Number(input);  
@@ -334,8 +310,7 @@ function getJSONs(){
 
 		initImg();
 
-	}*/
-	 
+	}*/ 
 }	 
 
 $('.links').on('click', function(){  
@@ -400,15 +375,68 @@ $('.artClick').on('click', function(e){
 	sessionStorage.setItem("artId", id);
 }); 
 
-$('.cartButton').on('click', function(){
-	var thisText = $('#key').text();
-	shoppingCart.push(thisText);
-	sessionStorage.setItem(thisText, thisText);
-	cartCount();
+$('.cartButton').on('click', function(e){
+	e.preventDefault();
+	$('#content').empty();
 });
 
-$('#cartCount, .fa-shopping-cart').on('click', function(){
-	alert(shoppingCart); 
+$('#cartCount, .fa-shopping-cart').on('click', function(e){
+	e.preventDefault(); 
+	$('#content').empty(); 
+
+	$.get("templates/cart1.txt", function( data ) {
+        cartTemp = data;
+    }); 
+	$.get("templates/cart2.txt", function( data ) {
+	    cartTemp2 = data;
+	});  
+
+	var cart = sessionStorage.cart;
+	var cartParse = JSON.parse(cart);   
+
+	var imgJSON = $.getJSON("json/images.json"); 
+	var imgObj = []; 
+
+	imgJSON.then(function(res){ 
+
+		_.each(res, function(obj){
+			imgObj.push(obj)
+		}); 
+
+		for (i=0; i<cartParse.length; i++) {
+			var id = cartParse[i]; 
+			_.each(imgObj, function(obj){ 
+				if (obj[id]) {
+					var thisObj = obj[id]; 
+					console.log(thisObj);
+					var modulus = i%2;
+					if (modulus){
+						var template = _.template(cartTemp);
+						var htmlTemp = template();  
+						$('#content').append('htmlTemp');
+					}
+					else {
+						var template = _.template(cartTemp2);
+						var htmlTemp2 = template( );  
+						$('#content').append('htmlTemp2');
+					}
+				} 
+			});
+		}
+
+	});
+	 
+	//get the cart from sessionStorage
+	
+
+	//for each id parsed, go through imgParse and grab price, size, title, src2
+	
+
+	//underscore to go through imgParse length
+		//if index is odd, template = cartTemp
+		//if index is even, template  = cartTemp2
+		//Append out and append to #content container 
+
 });
 
 $('#bars').on('click', function(){  
