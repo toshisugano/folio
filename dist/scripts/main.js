@@ -19,12 +19,12 @@ var bioTemp;
 var bioTemp2; 
 var cartTemp;
 var cartTemp2;
+var totalTemp;
 var aboutBios = [];
 var socialIcons = {};
 var images = []; 
-//var frameArr = ['#artRow1-a', '#artRow1-b', '#artRow2', '#artRow3-a', '#artRow3-b', '#artRow3-c'];
-//var imgKeys = ['bison', 'cabbit-apocalypse', 'cabbit-balloons', 'cabbit-eclipse', 'cabbit-enters', 'cabbit-mtn', 'cabbit-river', 'cabbit-tea', 'cabbit-trees', 'cabbit-valley', 'clouds', 'deerwood-dr', 'flying-humans', 'house', 'moon-blows', 'walking-humans'];
- 
+var shoppingCart = [];
+var grandTotal = 0;  
 
 var currPage = sessionStorage.currPage || 1;  
 
@@ -176,8 +176,7 @@ function changePage(input){
 	if (num === 1 /*&& winWidth > 500*/){
 		$('#prevArrow').css('opacity', '.5').addClass('not-active'); 
 		$('#nextArrow').css('opacity', '1').removeClass('not-active');
-		//toggleIMG(artIndex, "large", 100);
-		 
+		//toggleIMG(artIndex, "large", 100); 
 	}
 	/*else if (input === 1 && winWidth < 500){
 		$('#prevArrow').css('opacity', '.5').addClass('not-active'); 
@@ -239,7 +238,7 @@ function getJSONs(){
 					var htmlTemp2 = template2(obj); 
 					$('#teamContainer').append(htmlTemp2);
 				}  
-			});
+				});
 			}, 500);    
 		});   
 
@@ -287,31 +286,66 @@ function getJSONs(){
 
 	} 
 
-	/*else if (route === "art") { 
+	else if (route === "est") {
 
-		var imageJSON = $.getJSON("json/images.json");  
+		$.get("templates/total.txt", function(data) {
+			console.log(data);
+			totalTemp = data;
+		});
 
-		imageJSON.then(function(data){
-			_.each(data, function(obj, index){
-				var keys = Object.keys(obj);
-				var thisObj = {};
-				for (i=0; i<keys.length; i++){
-					var thisKey = keys[i]; 
-					thisObj[thisKey] = obj[thisKey];
-				}  
-				images.push(thisObj);
-			});  
+		$.get("templates/cart1.txt", function(data) { 
+        	cartTemp = data;
+    	}); 
 
-			var index = Number(sessionStorage.currPage) || 1; 
-			changePage(index, 200);
-			$(document).scrollTop(sessionStorage.scrollTop);  
+		$.get("templates/cart2.txt", function(data) { 
+		    cartTemp2 = data;
+		});   
 
+		var cart = sessionStorage.cart;
+		var cartParse = JSON.parse(cart);   
+
+		var imgJSON = $.getJSON("json/images.json"); 
+		var imgObj = []; 
+
+		imgJSON.then(function(res){ 
+			setTimeout(function(){
+				_.each(res, function(obj){
+					imgObj.push(obj)
+				});  
+				for (i=0; i<cartParse.length; i++) {
+					var id = cartParse[i]; 
+					_.each(imgObj, function(obj){ 
+						if (obj[id]) {
+
+							var thisObj = obj[id]; 
+							console.log(thisObj);
+							grandTotal = grandTotal + Number(thisObj.price);
+							shoppingCart.push(thisObj);
+							var modulus = i%2;
+							if (modulus){
+								var template = _.template(cartTemp);
+								var htmlTemp = template(thisObj);  
+								$('#cartContainer').append(htmlTemp);
+							}
+							else {
+								var template = _.template(cartTemp2);
+								var htmlTemp2 = template(thisObj);  
+								$('#cartContainer').append(htmlTemp2);
+							}
+						} 
+					});
+				} 
+
+				var temp = _.template(totalTemp);
+				$('#cartContainer').append(temp());
+				  
+			}, 500); 
 		});  
 
-		initImg();
-
-	}*/ 
+		//setTimeout(initLinks, 1500);
+	} 
 }	 
+ 
 
 $('.links').on('click', function(){  
 	var that = $(this); 
@@ -336,120 +370,117 @@ $('.nextButton').on('click', function(e){
 		changePage(currPage); 
 		window.location.href =  "?page=" + currPage + "&winWidth=" + winWidth;
 	} 
-}); 
+});  
 
-$('#art').on('click', function(e){
-	e.preventDefault();
-	window.location =  "art" + "?page=1&winWidth=" + winWidth;
-
-});
-
-$('#menuItems').on('click', function(e){ 
-	console.log($(this)[0].children);
-});
-
-$('.close-up').on('click', function(){ 
-	var thisURL = $(this)[0].src;
-	var split = thisURL.split(""); 
-	var spliced = thisURL.substring(0, split.length-6); 
-	var newURL; 
-	if ($(this)[0].id === "detail-d") {
-		newURL = spliced + "-3.jpg";
-	}
-	else {
-		newURL = spliced + ".jpg";
-	} 
-	$('#detail-main').attr("src", newURL);
-});
-
-$('#overlay-close').on('click', function(e){ 
-	e.preventDefault(); 
-	window.location = mainUrl + "art";  
-});
-
-$('.artClick').on('click', function(e){
-	e.preventDefault();   
-	var id = $(this).children().children()[0].id;
-	window.location = "art" + "/" + id;
-	sessionStorage.setItem("scrollTop", scrollTop); 
-	sessionStorage.setItem("artId", id);
-}); 
-
-$('.cartButton').on('click', function(e){
-	e.preventDefault();
-	$('#content').empty();
-});
-
-$('#cartCount, .fa-shopping-cart').on('click', function(e){
-	e.preventDefault(); 
-	$('#content').empty(); 
-
-	$.get("templates/cart1.txt", function( data ) {
-        cartTemp = data;
-    }); 
-	$.get("templates/cart2.txt", function( data ) {
-	    cartTemp2 = data;
-	});  
-
-	var cart = sessionStorage.cart;
-	var cartParse = JSON.parse(cart);   
-
-	var imgJSON = $.getJSON("json/images.json"); 
-	var imgObj = []; 
-
-	imgJSON.then(function(res){ 
-
-		_.each(res, function(obj){
-			imgObj.push(obj)
-		}); 
-
-		for (i=0; i<cartParse.length; i++) {
-			var id = cartParse[i]; 
-			_.each(imgObj, function(obj){ 
-				if (obj[id]) {
-					var thisObj = obj[id]; 
-					console.log(thisObj);
-					var modulus = i%2;
-					if (modulus){
-						var template = _.template(cartTemp);
-						var htmlTemp = template();  
-						$('#content').append('htmlTemp');
-					}
-					else {
-						var template = _.template(cartTemp2);
-						var htmlTemp2 = template( );  
-						$('#content').append('htmlTemp2');
-					}
-				} 
-			});
-		}
-
+function initLinks() { 
+	$('#art').on('click', function(e){
+		e.preventDefault();
+		window.location =  "art" + "?page=1&winWidth=" + winWidth; 
 	});
-	 
-	//get the cart from sessionStorage
-	
 
-	//for each id parsed, go through imgParse and grab price, size, title, src2
-	
+	$('#menuItems').on('click', function(e){ 
+		console.log($(this)[0].children);
+	});
 
-	//underscore to go through imgParse length
-		//if index is odd, template = cartTemp
-		//if index is even, template  = cartTemp2
-		//Append out and append to #content container 
+	$('.close-up').on('click', function(){ 
+		var thisURL = $(this)[0].src;
+		var split = thisURL.split(""); 
+		var spliced = thisURL.substring(0, split.length-6); 
+		var newURL; 
+		if ($(this)[0].id === "detail-d") {
+			newURL = spliced + "-3.jpg";
+		}
+		else {
+			newURL = spliced + ".jpg";
+		} 
+		$('#detail-main').attr("src", newURL);
+	});
 
-});
+	$('#overlay-close').on('click', function(e){ 
+		e.preventDefault(); 
+		window.location = mainUrl + "art";  
+	});
 
-$('#bars').on('click', function(){  
-	$("#menuItems").animate({height: "255px"});
-	$('#announcements').attr('margin-top', '-11px');
-	$('#bars').attr('opacity', '0.5').addClass('inactive');
-	$("#menuItems").append(
-		'<li><a id="about" style="" href="about"><h3>HOME</h3></a></li>' +
-		'<li><a id="news" style="" href="news"><h3>NEWS</h3></a></li>' +
-        '<li><a id="art" style="" href="art"><h3>ART</h3></a></li>' +
-        '<li><a id="team" style="" href="team"><h3>TEAM</h3></a></li>'
-    );
-});
+	$('.artClick').on('click', function(e){
+		e.preventDefault();   
+		var id = $(this).children().children()[0].id;
+		window.location = "art" + "/" + id;
+		sessionStorage.setItem("scrollTop", scrollTop); 
+		sessionStorage.setItem("artId", id);
+	}); 
+
+	$('.cartButton').on('click', function(e){
+		 
+	});
+
+	$('#cartCount, .fa-shopping-cart').on('click', function(e){ 
+		 
+	});
+
+	$('#bars').on('click', function(){  
+		$("#menuItems").animate({height: "255px"});
+		$('#announcements').attr('margin-top', '-11px');
+		$('#bars').attr('opacity', '0.5').addClass('inactive');
+		$("#menuItems").append(
+			'<li><a id="about" style="" href="about"><h3>HOME</h3></a></li>' +
+			'<li><a id="news" style="" href="news"><h3>NEWS</h3></a></li>' +
+	        '<li><a id="art" style="" href="art"><h3>ART</h3></a></li>' +
+	        '<li><a id="team" style="" href="team"><h3>TEAM</h3></a></li>'
+	    );
+	}); 
+
+	$('.plusSign').on('click', function(e){
+		e.stopImmediatePropagation();
+		e.preventDefault();
+		var count = $(this).parent().parent().next().children()[0].innerText;  
+		var price = Number($(this).parent().parent().prev().children().attr("data-price")); 
+		var num = Number(count);
+		num++; 
+		var total = "$" +  price * num + ".00";
+		grandTotal = grandTotal + price;
+		$(this).parent().parent().next().children().html(num);
+		$(this).parent().parent().prev().children().html(total);  
+	});
+
+	$('.minusSign').on('click', function(e){
+		e.preventDefault();
+		e.stopImmediatePropagation();
+		var count = $(this).parent().parent().prev().children()[0].innerText; 
+		var id = $(this).parent().parent().parent()[0].id;
+		var price = Number($(this).parent().parent().prev().prev().prev().children().attr("data-price")); 
+		var num = Number(count); 
+		num--;
+		var total = "$" + price * num + ".00"; 
+		grandTotal = grandTotal - price;
+		if (num < 1) { 
+			$(this).parent().parent().prev().children().html(1);
+			$(this).parent().parent().prev().prev().prev().children().children().html(price);
+		}
+		else {
+			$(this).parent().parent().prev().children().html(num);
+			$(this).parent().parent().prev().prev().prev().children().html(total);
+		} 
+	});
+
+	$('#shipinUS').on('click', function(){   
+		if ($('#shipinUS').attr('checked')) {
+			$('#shipinUS').removeAttr('checked');
+		}
+		else {
+			$('#shipinUS').attr('checked', 'true');
+		}
+	});
+
+	$('#shipoutUS').on('click', function(){   
+		if ($('#shipoutUS').attr('checked')) {
+			$('#shipoutUS').removeAttr('checked');
+		}
+		else {
+			$('#shipoutUS').attr('checked', 'true');
+		}
+	});
+
+} 
  
 //On window resize, run imageBG 
 window.onresize = function() {
@@ -467,16 +498,16 @@ $(window).scroll(function(){
 $(document).ready(function(){ 
 	dims();
 	theDate();
-	cartCount();
-
+	cartCount(); 
 	//Populates the news and team page
-	getJSONs();  
-
+	getJSONs();    
 	//Sets ICONS 
 	setTimeout(setIcons, 1000);  
 	setTimeout(initImg, 1000); 
+	setTimeout(initLinks, 1500);
 	sessionStorage.setItem("mainUrl", mainUrl);  
 	changePage(sessionStorage.currPage || currPage);  
+
 });
 
 

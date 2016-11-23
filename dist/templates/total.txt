@@ -1,0 +1,20 @@
+<div class="totalContainer">
+    <ul id="grandTotal">
+      <li> 
+          <label class="shippingCalc">
+            <input id="shipinUS" type="checkbox"/>&nbsp;Ship inside the US
+          </label> 
+      </li>
+      <li> 
+          <label class="shippingCalc">
+            <input id="shipoutUS" type="checkbox"/>&nbsp;Ship outside the US
+          </label> 
+      </li>
+      <li>
+        <h3 id="shippingTotal" class="shippingCalc">Shipping : $1.00</h3>
+      </li>
+      <li>
+        <h3 id="finalTotal" class="shippingCalc">Total : $100.00</h3>
+      </li>
+    </ul> 
+</div>

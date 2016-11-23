@@ -7,7 +7,7 @@ var express = require('express');
   	fs = require('fs'); 
     underscore = require('underscore');
 
-var mainUrl = 'https://cabbitfilm.herokuapp.com/';  
+var mainUrl = '//cabbitfilm.herokuapp.com/';  
 
 var images = fs.readFileSync(__dirname + '/dist/json/images.json'); 
 
@@ -20,7 +20,7 @@ var clientId = 'Ae6PP_ZnAq9wXIrdeevd9NmfCuT6EnsjQkC-iBVEoiBY4h3HQGlKmpNDWtFJkr7h
 var secret = 'EPJTlVNZoYr_iDdZPVxo3Unc2-fDzOM8SHBxy7QV0RWF-FvrGv4IE3xvo_WwttszRsb2YMRsdQhdIiok';
 // live secret = EEGsBQKsDmlzy2UxBZZqWaSab677tML5wFXPm0Ml_wkO2sgIg8Dd0BorhuYncAQnIopIVdASWK6gKKps
 
-var port = process.env.PORT || 8000;
+var port = process.env.PORT || 8000; 
 
 var artHtml = function(){
     this.el = '<!DOCTYPE html>' +
@@ -62,8 +62,8 @@ var artHtml = function(){
                              '<li id="fbRecommend" >' + 
                              '<div class="fb-like" data-href="https://cabbitfilm.herokuapp.com" data-layout="button" data-action="recommend" data-size="large" data-show-faces="false" data-share="false">' + 
                              '</div></li>' + 
-                             '<li id="cartCount"><a href="create"><h3></h3></a></li>' +  
-                             '<li><a href="create"><i class="fa fa-2x fa-shopping-cart" aria-hidden="true"></i></a></li>' +
+                             '<li id="cartCount"><a href="test"><h3></h3></a></li>' +  
+                             '<li><a href="test"><i class="fa fa-2x fa-shopping-cart" aria-hidden="true"></i></a></li>' +
                             '</ul>' + 
                           '</div>' + 
                           '<div id="menuItems"></div>' + 
@@ -128,7 +128,7 @@ var artHtml = function(){
         this.rtn = function(){
             return this.el;
         }
-};
+}; 
   
 var overlay = function(){
     this.el = '<!DOCTYPE html>' +
