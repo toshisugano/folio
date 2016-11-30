@@ -25,6 +25,8 @@ var socialIcons = {};
 var images = []; 
 var shoppingCart = [];
 var grandTotal = 0;  
+var totalPrints = 0;
+var shipType = undefined;
 
 var currPage = sessionStorage.currPage || 1;  
 
@@ -288,8 +290,9 @@ function getJSONs(){
 
 	else if (route === "est") {
 
-		$.get("templates/total.txt", function(data) {
-			console.log(data);
+		shoppingCart = [];
+
+		$.get("templates/total.txt", function(data) { 
 			totalTemp = data;
 		});
 
@@ -314,11 +317,10 @@ function getJSONs(){
 				});  
 				for (i=0; i<cartParse.length; i++) {
 					var id = cartParse[i]; 
+					totalPrints++;
 					_.each(imgObj, function(obj){ 
-						if (obj[id]) {
-
-							var thisObj = obj[id]; 
-							console.log(thisObj);
+						if (obj[id]) { 
+							var thisObj = obj[id];  
 							grandTotal = grandTotal + Number(thisObj.price);
 							shoppingCart.push(thisObj);
 							var modulus = i%2;
@@ -342,7 +344,9 @@ function getJSONs(){
 			}, 500); 
 		});  
 
-		//setTimeout(initLinks, 1500);
+		totalPrints = shoppingCart.length; 
+		calcShipping();
+
 	} 
 }	 
  
@@ -371,6 +375,22 @@ $('.nextButton').on('click', function(e){
 		window.location.href =  "?page=" + currPage + "&winWidth=" + winWidth;
 	} 
 });  
+
+function calcShipping() {
+	if (shipType === "US") { 
+		$('#shippingTotal').html("Shipping : $0.00"); 
+		$('#finalTotal').html("Total : $" + grandTotal + ".00");
+	} 
+	else if (shipType === "intl") {
+		var shipCal = 1 * totalPrints; 
+		var finalTotal = grandTotal + shipCal;
+		$('#shippingTotal').html("Shipping : $" + shipCal + ".00"); 
+		$('#finalTotal').html("Total : $" + finalTotal + ".00");
+	}
+	else if (shipType === undefined){
+		$('#finalTotal').html("Total : $" + grandTotal + ".00");
+	}
+}
 
 function initLinks() { 
 	$('#art').on('click', function(e){
@@ -432,22 +452,45 @@ function initLinks() {
 	$('.plusSign').on('click', function(e){
 		e.stopImmediatePropagation();
 		e.preventDefault();
+
+		var count = $(this).parent().parent().next().children()[0].innerText; 
+		if (count >= 1) {
+			$(this).parent().parent().next().next().children().children().removeClass("not-active");
+		} 
+
+		totalPrints++;
 		var count = $(this).parent().parent().next().children()[0].innerText;  
-		var price = Number($(this).parent().parent().prev().children().attr("data-price")); 
-		var num = Number(count);
+		var price = Number($(this).parent().parent().prev().children().attr("data-price"));
+		var id = $(this).parent().parent().prev().children().attr("id"); 
+		var num = Number(count); 
 		num++; 
+
+		for (i=0; i<shoppingCart.length; i++) {
+			if (shoppingCart[i].id === id) {
+				shoppingCart[i].quantity = num; 
+			}
+		}
+
 		var total = "$" +  price * num + ".00";
 		grandTotal = grandTotal + price;
 		$(this).parent().parent().next().children().html(num);
-		$(this).parent().parent().prev().children().html(total);  
+		$(this).parent().parent().prev().children().html(total); 
+		calcShipping();
+
 	});
 
 	$('.minusSign').on('click', function(e){
 		e.preventDefault();
 		e.stopImmediatePropagation();
+		totalPrints--;
+
 		var count = $(this).parent().parent().prev().children()[0].innerText; 
-		var id = $(this).parent().parent().parent()[0].id;
-		var price = Number($(this).parent().parent().prev().prev().prev().children().attr("data-price")); 
+		if (count <= 2) {
+			$(this).addClass("not-active");
+		}
+
+		var price = Number($(this).parent().parent().prev().prev().prev().children().attr("data-price"));
+		var id = $(this).parent().parent().prev().prev().prev().children().attr("id");  
 		var num = Number(count); 
 		num--;
 		var total = "$" + price * num + ".00"; 
@@ -460,29 +503,61 @@ function initLinks() {
 			$(this).parent().parent().prev().children().html(num);
 			$(this).parent().parent().prev().prev().prev().children().html(total);
 		} 
+		calcShipping();
 	});
 
-	$('#shipinUS').on('click', function(){   
+	$('#shipinUS').on('click', function(e){  
+		shipType = "US";  
+		calcShipping();
 		if ($('#shipinUS').attr('checked')) {
 			$('#shipinUS').removeAttr('checked');
 		}
 		else {
 			$('#shipinUS').attr('checked', 'true');
+			$('#shipoutUS').removeAttr('checked');
 		}
 	});
 
-	$('#shipoutUS').on('click', function(){   
+	$('#shipoutUS').on('click', function(e){   
+		var shipCal = 1 * totalPrints;
+		shipType = "intl";
+		calcShipping();
+		$('#shippingTotal').html("Shipping : $" + shipCal + ".00"); 
 		if ($('#shipoutUS').attr('checked')) {
 			$('#shipoutUS').removeAttr('checked');
 		}
 		else {
 			$('#shipoutUS').attr('checked', 'true');
+			$('#shipinUS').removeAttr('checked');
 		}
+	}); 
+
+	$('.removeItem').on('click', function(e){
+		e.preventDefault();
+		var id = $(this).parent().prev().prev().prev().prev().children()[0].id;
+		var arr = JSON.parse(sessionStorage.cart); 
+		
+		for (i=0; i<arr.length; i++) {
+			if (arr[i] === id) {
+				console.log(id);
+				arr.splice(i, 1);
+			}
+		} 
+
+		sessionStorage.cart = JSON.stringify(arr); 
+		window.location.href = mainUrl;
 	});
 
-} 
- 
-//On window resize, run imageBG 
+	$('#checkOut').on('click', function(e){
+		e.preventDefault();
+		var url = window.location.href;
+		var split = url.split("");
+		var newUrl = url.slice(0, url.length-4);
+		window.location = newUrl + "create";
+	});
+
+}  
+
 window.onresize = function() {
 	dims();
     initImg(); 
@@ -506,9 +581,5 @@ $(document).ready(function(){
 	setTimeout(initImg, 1000); 
 	setTimeout(initLinks, 1500);
 	sessionStorage.setItem("mainUrl", mainUrl);  
-	changePage(sessionStorage.currPage || currPage);  
-
-});
-
-
- 
+	changePage(sessionStorage.currPage || currPage);   
+}); 

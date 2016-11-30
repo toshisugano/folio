@@ -556,6 +556,22 @@ li {
 .shippingCalc {
   float: right; }
 
+#checkOut {
+  background-color: #384112;
+  border: 3px solid white;
+  display: inline-block;
+  position: relative;
+  height: 50px;
+  width: 120px;
+  float: right;
+  margin-top: 15px; }
+
+#checkOut h3 {
+  font-family: 'Roboto';
+  color: white;
+  margin-top: 10px;
+  margin-left: 12px; }
+
 #footerContainer {
   min-height: 100px;
   width: 100%;
