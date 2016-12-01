@@ -24,6 +24,7 @@ var aboutBios = [];
 var socialIcons = {};
 var images = []; 
 var shoppingCart = [];
+var nodeCart = [];
 var grandTotal = 0;  
 var totalPrints = 0;
 var shipType = undefined;
@@ -377,10 +378,12 @@ $('.nextButton').on('click', function(e){
 });  
 
 function calcShipping() {
+
 	if (shipType === "US") { 
 		$('#shippingTotal').html("Shipping : $0.00"); 
 		$('#finalTotal').html("Total : $" + grandTotal + ".00");
 	} 
+
 	else if (shipType === "intl") {
 		var shipCal = 1 * totalPrints; 
 		var finalTotal = grandTotal + shipCal;
@@ -390,6 +393,15 @@ function calcShipping() {
 	else if (shipType === undefined){
 		$('#finalTotal').html("Total : $" + grandTotal + ".00");
 	}
+
+	for (j=0; j<shoppingCart.length; j++) {
+		var arr = [];
+		arr.push(shoppingCart[j].id);
+		arr.push(shoppingCart[j].quantity);
+		console.log(arr);
+		nodeCart.push(arr);
+	}
+
 }
 
 function initLinks() { 

@@ -24,7 +24,7 @@ var port = process.env.PORT || 8000;
 
 var artHtml = function(){
     this.el = '<!DOCTYPE html>' +
-                '<html>' +
+                '<html>' + 
                 '<head>' +
                 '<script type="text/javascript" src="//code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>' +
                 '<link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" rel="stylesheet" type="text/css" />' +
@@ -240,6 +240,9 @@ app.get('/cart', function(req, res){
 
 // PayPal payment request
 app.get('/create', function(req, res) { 
+
+    var cart = req.query.cart;
+    var total = req.query.total;
   
     var payReq = {
         'intent': 'sale',
@@ -252,10 +255,10 @@ app.get('/create', function(req, res) {
         },
         'transactions': [{
             'amount': {
-                'total': '7.47',
+                'total': total,
                 'currency': 'USD'
             },
-            'description': 'This is the payment transaction description.'
+            'description': cart
         }]
     };
 
