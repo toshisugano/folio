@@ -457,6 +457,9 @@ li {
 .fa {
   color: #eff7d3; }
 
+#cartContainer {
+  padding-top: 10px; }
+
 .cartContainer1 {
   background-color: #eff7d3;
   margin-top: -20px;
