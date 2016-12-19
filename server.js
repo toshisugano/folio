@@ -201,12 +201,12 @@ function artGallery(page, width){
 
     underscore.each(jsonImages[artIndex], function(obj, index){
 
-        Id = 'id' + obj.index;
-        Src = 'src' + obj.index;
-        Title = 'title' + obj.index;
-        Size = 'size' + obj.index;
-        Price = 'price' + obj.index;
-        Paypal = 'paypal' + obj.index; 
+        var Id = 'id' + obj.index;
+        var Src = 'src' + obj.index;
+        var Title = 'title' + obj.index;
+        var Size = 'size' + obj.index;
+        var Price = 'price' + obj.index;
+        var Paypal = 'paypal' + obj.index; 
 
         artObj[Id] = obj.id;
         artObj[Src] = obj[src];
