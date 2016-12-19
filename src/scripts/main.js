@@ -25,7 +25,9 @@ var socialIcons = {};
 var images = []; 
 var shoppingCart = [];
 var nodeCart = [];
-var grandTotal = 0;  
+var grandTotal = 0; 
+var shipCal = 0;
+var finalTotal = 0; 
 var totalPrints = 0;
 var shipType = undefined;
 
@@ -378,6 +380,7 @@ $('.nextButton').on('click', function(e){
 });  
 
 function calcShipping() {
+	nodeCart = [];
 
 	if (shipType === "US") { 
 		$('#shippingTotal').html("Shipping : $0.00"); 
@@ -385,8 +388,8 @@ function calcShipping() {
 	} 
 
 	else if (shipType === "intl") {
-		var shipCal = 1 * totalPrints; 
-		var finalTotal = grandTotal + shipCal;
+		shipCal = 1 * totalPrints; 
+		finalTotal = grandTotal + shipCal;
 		$('#shippingTotal').html("Shipping : $" + shipCal + ".00"); 
 		$('#finalTotal').html("Total : $" + finalTotal + ".00");
 	}
@@ -395,17 +398,22 @@ function calcShipping() {
 	}
 
 	for (j=0; j<shoppingCart.length; j++) {
-		var arr = [];
+		var arr = []; 
 		arr.push(shoppingCart[j].id);
-		arr.push(shoppingCart[j].quantity);
-		console.log(arr);
+		arr.push(shoppingCart[j].quantity); 
 		nodeCart.push(arr);
 	}
 
+	nodeCart = nodeCart.toString();
+
+}
+
+function artLink() {
+	window.location =  "art" + "?page=1&winWidth=" + winWidth; 
 }
 
 function initLinks() { 
-	$('#art').on('click', function(e){
+	$('#art').on('click', function(e){ 
 		e.preventDefault();
 		window.location =  "art" + "?page=1&winWidth=" + winWidth; 
 	});
@@ -441,13 +449,13 @@ function initLinks() {
 		sessionStorage.setItem("artId", id);
 	}); 
 
-	$('.cartButton').on('click', function(e){
+	/*$('.cartButton').on('click', function(e){
 		 
-	});
+	}); 
 
 	$('#cartCount, .fa-shopping-cart').on('click', function(e){ 
 		 
-	});
+	});*/
 
 	$('#bars').on('click', function(){  
 		$("#menuItems").animate({height: "255px"});
@@ -456,7 +464,7 @@ function initLinks() {
 		$("#menuItems").append(
 			'<li><a id="about" style="" href="about"><h3>HOME</h3></a></li>' +
 			'<li><a id="news" style="" href="news"><h3>NEWS</h3></a></li>' +
-	        '<li><a id="art" style="" href="art"><h3>ART</h3></a></li>' +
+	        '<li><a id="art" style="" href=""><h3>ART</h3></a></li>' +
 	        '<li><a id="team" style="" href="team"><h3>TEAM</h3></a></li>'
 	    );
 	}); 
@@ -565,7 +573,7 @@ function initLinks() {
 		var url = window.location.href;
 		var split = url.split("");
 		var newUrl = url.slice(0, url.length-4);
-		window.location = newUrl + "create";
+		window.location = newUrl + "create" + "?total=" + finalTotal + "&cart=" + nodeCart;
 	});
 
 }  
@@ -582,7 +590,7 @@ $(window).scroll(function(){
 	scrollTop = $(document).scrollTop();   
 });  
 
-$(document).ready(function(){ 
+$(document).ready(function(){  
 	dims();
 	theDate();
 	cartCount(); 
@@ -591,7 +599,8 @@ $(document).ready(function(){
 	//Sets ICONS 
 	setTimeout(setIcons, 1000);  
 	setTimeout(initImg, 1000); 
-	setTimeout(initLinks, 1500);
+	setTimeout(initLinks, 1200);
 	sessionStorage.setItem("mainUrl", mainUrl);  
 	changePage(sessionStorage.currPage || currPage);   
+	window.scrollTo(20);
 }); 

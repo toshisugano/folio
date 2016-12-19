@@ -15,10 +15,10 @@ var jsonImages = JSON.parse(images);
    
 var currPage = 1; 
 
-var clientId = 'Ae6PP_ZnAq9wXIrdeevd9NmfCuT6EnsjQkC-iBVEoiBY4h3HQGlKmpNDWtFJkr7h_X37bz8Eqx3NXv3Y';
-// live clientId = Adnckf-8KyL8-pcvcPQ6s3tzDZ9_8DmKT531WbwoxHRk6_3-wHQV4nVNsBZbn0y2RmUVOMM-iu9Gjb9d
-var secret = 'EPJTlVNZoYr_iDdZPVxo3Unc2-fDzOM8SHBxy7QV0RWF-FvrGv4IE3xvo_WwttszRsb2YMRsdQhdIiok';
-// live secret = EEGsBQKsDmlzy2UxBZZqWaSab677tML5wFXPm0Ml_wkO2sgIg8Dd0BorhuYncAQnIopIVdASWK6gKKps
+var clientId = 'Ab-5KXy0DQVuy-RoIt-cM0LXscYCQ0wKMLnBh1X_omBzzv9NgXzw5Hg5samAPS8UxjNAwQfVFwkxIZAp';
+//var clientId = 'AT57UwwDwMyJTgYc4HLxcGyCQVHVHnkJH_B0Av3jsKiMhrh_n3oov8kOSC4PFac2YzZ-C951qRP0mmof';
+var secret = 'EHN-W21_7yKiaz1CDc_7q5q-ldruVyIIRkxZCw7FFQlBnV5_USoCeULdU7gkfr126hlrRNQOqnA5yajL';
+//var secret = 'ENzMgFKmEfIAbYhUQzEQTiQiGlJamwPly8e2ckJYJt-pIS0Wau6yEIx8YuMp35m-r_rwhYz0LoSWAZGl';
 
 var port = process.env.PORT || 8000; 
 
@@ -222,7 +222,9 @@ function artGallery(page, width){
 }
 
 paypal.configure({
-	'mode': 'sandbox', //sandbox or live
+	  'mode': 'sandbox', //sandbox or live
+    "host": "api.paypal.com",
+    "port": "",
     'client_id': clientId,
     'client_secret': secret
 });
