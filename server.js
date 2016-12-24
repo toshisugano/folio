@@ -307,7 +307,7 @@ app.get('/process', function(req, res){
 });
 
 app.get('/', function(req, res ){
-	res.sendFile(__dirname + '/dist/index.html');
+	res.sendFile(__dirname + '/dist/about.html');
 });
 
 app.get('/cancel', function(req, res ){
