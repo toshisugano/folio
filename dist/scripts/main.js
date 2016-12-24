@@ -604,5 +604,4 @@ $(document).ready(function(){
 	setTimeout(initLinks, 1200);
 	sessionStorage.setItem("mainUrl", mainUrl);  
 	changePage(sessionStorage.currPage || currPage);   
-	window.scrollTo(20);
 }); 
