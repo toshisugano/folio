@@ -458,15 +458,17 @@ function initLinks() {
 	});*/
 
 	$('#bars').on('click', function(){  
+
 		$("#menuItems").animate({height: "255px"});
 		$('#announcements').attr('margin-top', '-11px');
 		$('#bars').attr('opacity', '0.5').addClass('inactive');
 		$("#menuItems").append(
 			'<li><a id="about" style="" href="about"><h3>HOME</h3></a></li>' +
 			'<li><a id="news" style="" href="news"><h3>NEWS</h3></a></li>' +
-	        '<li><a id="art" style="" href=""><h3>ART</h3></a></li>' +
+	        '<li><a id="art" style="" href="art?page=1&winWidth=525"><h3>ART</h3></a></li>' +
 	        '<li><a id="team" style="" href="team"><h3>TEAM</h3></a></li>'
 	    );
+	    initLinks();
 	}); 
 
 	$('.plusSign').on('click', function(e){
