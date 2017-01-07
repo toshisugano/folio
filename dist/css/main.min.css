@@ -217,10 +217,18 @@ li {
   margin-left: auto;
   margin-right: auto; }
 
+#addthis {
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 30px; }
+
 #socialLinks li {
   display: inline-block;
   /*line-height : 55px;*/
   vertical-align: middle; }
+
+#copyright {
+  margin-top: 20px; }
 
 #fbRecommend {
   height: 30px; }
@@ -455,7 +463,8 @@ li {
   margin-left: 5px; }
 
 .fa {
-  color: #eff7d3; }
+  color: #eff7d3;
+  margin-left: 30px; }
 
 #cartContainer {
   padding-top: 20px; }

@@ -168,11 +168,6 @@ var overlay = function(){
                       '<h4 id="description">Printed on Epson Fine Art Paper</h4>' +
                       '<h4 id="price"><%= price %></h4>' +
                       '<%= paypal %>' + 
-                      '<a class="addToCart" href="#">' + 
-                        '<div>' +
-                          '<h2>ADD TO CART</h2>' + 
-                        '</div>' + 
-                      '</a>' + 
                     '</div>' +
                   '</div>' +
               '</div>' +
@@ -222,7 +217,7 @@ function artGallery(page, width){
 }
 
 paypal.configure({
-	  'mode': 'sandbox', //sandbox or live
+	  'mode': 'live', //sandbox or live
     "host": "api.paypal.com",
     "port": "",
     'client_id': clientId,
@@ -366,7 +361,7 @@ app.get('/art/:artId', function(req, res){
         artObj.detailB = substr + "-b-2.jpg";
         artObj.detailC = substr + "-c-2.jpg"; 
         artObj.detailD = artObj.src3;  
-
+        
         var divOverlay =  new overlay();
         var template = underscore.template(divOverlay.rtn());
         var thisDiv = template(artObj);  
@@ -392,7 +387,6 @@ app.get('/test', function(req, res ){
 
 app.get('/checkout', function(req, res ){ 
 	console.log("checkout");
-	//res.json();
 });
 
 app.listen(port);

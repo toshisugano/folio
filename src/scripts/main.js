@@ -38,7 +38,7 @@ function winReload(){
 }
 
 function theDate(){
-	$('#footerContainer').append('<footer>&copy;' + year + ' Prospekt Group Films</footer>');
+	$('#footerContainer').append('<footer id="copyright">&copy;' + year + ' SOOGIE & Co.</footer>');
 }  
 
 function dims(){
@@ -466,7 +466,7 @@ function initLinks() {
 			'<li><a id="about" style="" href="about"><h3>HOME</h3></a></li>' +
 			'<li><a id="news" style="" href="news"><h3>NEWS</h3></a></li>' +
 	        '<li><a id="art" style="" href="art?page=1&winWidth=525"><h3>ART</h3></a></li>' +
-	        '<li><a id="team" style="" href="team"><h3>TEAM</h3></a></li>'
+	        '<li><a id="team" style="" href="team"><h3>FRIENDS</h3></a></li>'
 	    );
 	    initLinks();
 	}); 
