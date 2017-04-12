@@ -38,7 +38,7 @@ function winReload(){
 }
 
 function theDate(){
-	$('#footerContainer').append('<footer id="copyright">&copy;' + year + ' SOOGIE & Co.</footer>');
+	//$('#footerContainer').append('<footer id="copyright">&copy;' + year + ' SOOGIE & Co.</footer>');
 }  
 
 function dims(){
@@ -602,8 +602,8 @@ $(document).ready(function(){
 	//Populates the news and team page
 	getJSONs();    
 	//Sets ICONS 
-	setTimeout(setIcons, 1000);  
-	setTimeout(initImg, 1000); 
+	setTimeout(setIcons, 1200);  
+	setTimeout(initImg, 1200); 
 	setTimeout(initLinks, 1200);
 	sessionStorage.setItem("mainUrl", mainUrl);  
 	changePage(sessionStorage.currPage || currPage);   

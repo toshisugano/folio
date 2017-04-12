@@ -220,7 +220,7 @@ li {
 #addthis {
   margin-left: auto;
   margin-right: auto;
-  margin-bottom: 30px; }
+  margin-bottom: 20px; }
 
 #socialLinks li {
   display: inline-block;
@@ -228,7 +228,10 @@ li {
   vertical-align: middle; }
 
 #copyright {
-  margin-top: 20px; }
+  position: relative;
+  display: block;
+  height: 50px;
+  padding-bottom: 20px; }
 
 #fbRecommend {
   height: 30px; }
@@ -585,13 +588,14 @@ li {
   margin-left: 12px; }
 
 #footerContainer {
-  min-height: 100px;
   width: 100%;
   margin-left: 0px;
+  min-height: 125px;
   text-align: center;
   margin-left: auto;
   margin-right: auto;
-  background-color: black; }
+  background-color: black;
+  padding-bottom: 20px; }
 
 @media (max-width: 768px) {
   h3 {
