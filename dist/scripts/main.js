@@ -413,10 +413,11 @@ function artLink() {
 }
 
 function initLinks() { 
-	$('#art').on('click', function(e){ 
+	/*$('#art').on('click', function(e){ 
 		e.preventDefault();
-		window.location =  "art" + "?page=1&winWidth=" + winWidth; 
+		//window.location =  "art" + "?page=1&winWidth=" + winWidth; 
 	});
+*/
 
 	$('#menuItems').on('click', function(e){ 
 		console.log($(this)[0].children);
@@ -459,14 +460,16 @@ function initLinks() {
 
 	$('#bars').on('click', function(){  
 
-		$("#menuItems").animate({height: "255px"});
+		$("#menuItems").animate({height: "355px"});
 		$('#announcements').attr('margin-top', '-11px');
 		$('#bars').attr('opacity', '0.5').addClass('inactive');
 		$("#menuItems").append(
 			'<li><a id="about" style="" href="about"><h3>HOME</h3></a></li>' +
 			'<li><a id="news" style="" href="news"><h3>NEWS</h3></a></li>' +
 	        '<li><a id="art" style="" href="art?page=1&winWidth=525"><h3>ART</h3></a></li>' +
-	        '<li><a id="team" style="" href="team"><h3>FRIENDS</h3></a></li>'
+	        '<li><a id="team" style="" href="team"><h3>FRIENDS</h3></a></li>'+ 
+            '<li><a id="blog" class="links" style="" href="blog"><h3>BLOG</h3></a></li>' + 
+            '<li><a id="contact" class="links" style="" href="contact"><h3><i class="fa fa-envelope" aria-hidden="true"></i>'
 	    );
 	    initLinks();
 	}); 

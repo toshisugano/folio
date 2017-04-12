@@ -56,7 +56,6 @@ var artHtml = function(){
                             '<li><a id="news" class="links" style="" href="news"><h3>NEWS</h3></a></li>' + 
                             '<li><a id="art" class="links" style="" href="art"><h3>ART</h3></a></li>' +
                             '<li><a id="team" class="links" style="" href="team"><h3>FRIENDS</h3></a></li>' +
-                            '<li><a id="blog" class="links" style="" href="blog"><h3>BLOG</h3></a></li>' +  
                             '<li><a id="contact" class="links" style="" href="contact"><h3><i class="fa fa-envelope" aria-hidden="true"></i>' +
                           '</ul>' +
                           '<div id="socialLinks">' + 
@@ -325,7 +324,7 @@ app.get('/about', function(req, res ){
 app.get('/news', function(req, res ){
     res.sendFile(__dirname + '/dist/news.html');
 });
-
+/*
 app.get('/art', function(req, res ){
 
     var page = req.query.page || undefined;
@@ -385,6 +384,7 @@ app.get('/art/:artId', function(req, res){
         res.send(thisDiv);
     }  
 });
+*/
 
 app.get('/team', function(req, res ){
     res.sendFile(__dirname + '/dist/team.html');
