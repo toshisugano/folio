@@ -204,7 +204,7 @@ li {
 #mainContainer {
   background-color : $darkgreen;     
   margin-left : 0px;   
-  margin-right : 0px
+  margin-right : 0px; 
 } 
 
 #pageCenter {  
@@ -270,8 +270,8 @@ li {
 
 #addthis {
   margin-left : auto;
-  margin-right : auto;
-  margin-bottom : 20px;
+  margin-right : auto; 
+  margin-bottom : 20px; 
 }
 
 #socialLinks li {
@@ -745,12 +745,12 @@ li {
   @extend .maxWidth; 
   width : 100%;
   margin-left : 0px;
-  min-height : 125px;
+  min-height : 170px;
   text-align : center;
   margin-left : auto;
   margin-right : auto;
   background-color : black;
-  padding-bottom : 20px;
+  padding-bottom : 100px;
 }  
  
 

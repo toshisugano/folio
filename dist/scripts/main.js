@@ -13,6 +13,12 @@ var teamHeight;
 var date = new Date(); 
 var year = date.getFullYear();  
 
+var mainBG = new Object(); 
+mainBG.large = 'images/main-bg-'; 
+mainBG.construct = function(obj){
+  return obj + '.jpg';
+};
+
 var articleTemp;
 var articleTemp2;  
 var bioTemp; 
@@ -37,8 +43,32 @@ function winReload(){
 	window.location.reload();
 }
 
+function setBG(){
+
+	var num = Math.ceil(Math.random()*10);
+	var div = num/2;
+
+	if (div === 0 || div < 1) {
+	   mainBG.large += 'deerwood';
+	}
+	else if (div === 1 || div < 2) {
+	   mainBG.large += 'tea';
+	}
+	else if (div === 2 || div < 3) {
+	   mainBG.large += 'valley';
+	}
+	else if (div === 3 || div < 4) {
+	   mainBG.large += 'house';
+	}
+	else if (div === 4 || div <= 5) {
+	   mainBG.large += 'moon';
+	}
+
+
+}
+
 function theDate(){
-	//$('#footerContainer').append('<footer id="copyright">&copy;' + year + ' SOOGIE & Co.</footer>');
+	$('#footerContainer').append('<footer id="copyright">&copy;' + year + ' THE SOOGIE</footer>');
 }  
 
 function dims(){
@@ -54,6 +84,7 @@ function dims(){
 } 
 
 function cartCount() { 
+
 	var currCount;
 	if (sessionStorage.cart === undefined) {
 		currCount = 0;
@@ -68,13 +99,14 @@ function cartCount() {
 
 //Changes image sizes depending on window width
 function initImg(){  
+
 	var vidWidth = winWidth/1.5;
 	var vidHeight = vidWidth/1.3333;   
 	var midImgHeight = $('#artRow2').height() + 80;
 	var midHeight = -Math.abs(midImgHeight / 2);
 	$('.nextButton').css('margin-top', midHeight);
 	if (winWidth > 768) {
-		$('#mainBG').attr('src', 'images/main-bg.jpg');
+		$('#mainBG').attr('src', mainBG.construct(mainBG.large));
 		$('#newsHeader').attr('src', 'images/newsBar.jpg');
 		$('#artHeader').attr('src', 'images/artBar.jpg');  
 		$('#teamHeader').attr('src', 'images/teamBar.jpg');
@@ -88,8 +120,8 @@ function initImg(){
 			height : vidHeight
 		});  
 	}
-	else if (winWidth <= 768 && winWidth > 500) { 
-		$('#mainBG').attr('src', 'images/main-bg-m.jpg'); 
+	else if (winWidth <= 768 && winWidth > 500) {  
+		$('#mainBG').attr('src', mainBG.construct(mainBG.large + "-m")); 
 		$('#newsHeader').attr('src', 'images/newsBar-m.jpg');
 		$('#artHeader').attr('src', 'images/artBar.jpg');
 			/*
@@ -112,7 +144,8 @@ function initImg(){
 		});  
 	}
 	else if (winWidth <= 500)  {  
-		$('#mainBG').attr('src', 'images/main-bg-s.jpg');
+		 
+		$('#mainBG').attr('src', mainBG.construct(mainBG.large + "-s"));
 		$('#newsHeader').attr('src', 'images/newsBar-s.jpg');
 		$('#artHeader').attr('src', 'images/artBar-2.jpg');
 			/*
@@ -596,9 +629,10 @@ $(window).scroll(function(){
 });  
 
 $(document).ready(function(){  
+	setBG();
 	dims();
 	theDate();
-	cartCount(); 
+	//cartCount(); 
 	//Populates the news and team page
 	getJSONs();    
 	//Sets ICONS 

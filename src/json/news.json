@@ -1,44 +1,58 @@
 [
     { 
         "id" : 1, 
+        "text" : "New limited edition Risograph prints available through Big Cartel",
+        "source" : "Visit",
+        "url" : "http://thesoogie.bigcartel.com/products"        
+    },
+    { 
+        "id" : 2, 
         "text" : "Those prone to using “twee” as a pejorative, particularly in connection to the films of Wes Anderson, should lay in a supply of antidote before viewing the animated short, Cabbit.",
         "source" : "Open Culture",
         "url" : "http://www.openculture.com/2012/12/watch_icabbiti_a_handmade_animation_by_crosshatch_artist_soogie.html"        
     },
     {
-        "id" : 2,
-        "text" : "Cabbit is a short animation film by the artist, Soogie. It has been in production for over 3 years and is now being co-produced and sound designed by John Kassab (Kickstarter campaign). We spoke to John about his sound design work on ‘Cabbit’ and why he decided to sit in the producer’s chair.",
-        "source" : "Designing Sound",
-        "url" : "http://designingsound.org/2011/11/cabbit-exclusive-interview-with-john-kassab/"
+        "id" : 3,
+        "text" : "Cabbit was featured on Michel Gondry's Gondrybutions",
+        "source" : "Michel Gondry",
+        "url" : "http://www.michelgondry.com/?cat=64" 
     },
     {
-        "id" : 3,
+        "id" : 4,
         "text" : "CABBIT: A DREAMLIKE LABOR OF LOVE",
         "source" : "Visual News",
         "url" : "https://www.visualnews.com/tag/cabbit/"
     },
     {
-        "id" : 4,
+        "id" : 5,
         "text" : "That is how the short film Cabbit came about answering three questions: what happens when you mix a cat and a rabbit (the least important part ...",
         "source" : "Pop Dose",
         "url" : "http://popdose.com/short-film-watch-cabbit/"
     },
     {
-        "id" : 5,
+        "id" : 6,
         "text" : "Cabbit is a stylish animal in a trench coat and a hat who is highly wary of the way humans live their lives. He is chiefly unaware of their existence, however, the intrusion of humans in his living space through factorization and reckless transportation alarms him of the chaos he predicts will come.",
         "source" : "Trendhunter",
         "url" : "http://www.trendhunter.com/trends/cabbit"
     },
     {
-        "id" : 6,
+        "id" : 7,
         "text" : "The entire film was made with Sharpies and a Mac Mini and I suspect it was the toxic fumes from the markers that actually inspired some of the imagery, Soogie said.",
         "source" : "Serial Optimist",
         "url" : "http://www.serialoptimist.com/gallery-art/short-film-spotlight-cabbit-12115.html"
     },
     {
-        "id" : 7,
+        "id" : 8,
         "text" : "Cabbit was featured at the 2014 Collinsville Film Festival - Collinsville, CT USA",
         "source" : "Collinsville Film Festival",
         "url" : "http://www.brownpapertickets.com/event/614841" 
+    },
+    {
+        "id" : 9,
+        "text" : "Cabbit is a short animation film by the artist, Soogie. It has been in production for over 3 years and is now being co-produced and sound designed by John Kassab (Kickstarter campaign). We spoke to John about his sound design work on ‘Cabbit’ and why he decided to sit in the producer’s chair.",
+        "source" : "Designing Sound",
+        "url" : "http://designingsound.org/2011/11/cabbit-exclusive-interview-with-john-kassab/"
     }
+
+
 ]

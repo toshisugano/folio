@@ -590,12 +590,12 @@ li {
 #footerContainer {
   width: 100%;
   margin-left: 0px;
-  min-height: 125px;
+  min-height: 170px;
   text-align: center;
   margin-left: auto;
   margin-right: auto;
   background-color: black;
-  padding-bottom: 20px; }
+  padding-bottom: 100px; }
 
 @media (max-width: 768px) {
   h3 {
