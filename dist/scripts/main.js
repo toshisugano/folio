@@ -64,7 +64,6 @@ function setBG(){
 	   mainBG.large += 'moon';
 	}
 
-
 }
 
 function theDate(){
@@ -72,6 +71,7 @@ function theDate(){
 }  
 
 function dims(){
+
 	win = window; 
 	winWidth = win.innerWidth;  
 	winHeight = win.innerHeight;
@@ -81,11 +81,13 @@ function dims(){
 	newsHeight = watchHeight + $('#newsContainer').height();
 	artHeight = newsHeight + $('#artContainer').height();
 	teamHeight = $('#teamContainer').height() + artHeight; 
+
 } 
 
 function cartCount() { 
 
 	var currCount;
+
 	if (sessionStorage.cart === undefined) {
 		currCount = 0;
 	}
@@ -120,6 +122,7 @@ function initImg(){
 			height : vidHeight
 		});  
 	}
+
 	else if (winWidth <= 768 && winWidth > 500) {  
 		$('#mainBG').attr('src', mainBG.construct(mainBG.large + "-m")); 
 		$('#newsHeader').attr('src', 'images/newsBar-m.jpg');
@@ -143,6 +146,7 @@ function initImg(){
 			height : vidHeight
 		});  
 	}
+
 	else if (winWidth <= 500)  {  
 		 
 		$('#mainBG').attr('src', mainBG.construct(mainBG.large + "-s"));
@@ -166,6 +170,7 @@ function initImg(){
 			$('.kadavre').attr('src', 'images/bio-kadavre-s.png');
 			$('.matt').attr('src', 'images/bio-matt-s.png');
 			$('.andre').attr('src', 'images/bio-andre-s.png');   
+
 		$('#video').attr({
 			width : winWidth,
 			height : vidHeight
@@ -174,8 +179,11 @@ function initImg(){
 }
 
 function setIcons(){
+
 	for (i=0; i<aboutBios.length; i++){
+
 		var that = aboutBios[i];
+
 		if (that.facebook !== ""){ 
 			var template = _.template(socialIcons.facebook);
 			var htmlTemp = template(that);   
@@ -210,7 +218,9 @@ function setIcons(){
 } 
   
 function changePage(input){  
-	var num = Number(input);  
+
+	var num = Number(input); 
+
 	if (num === 1 /*&& winWidth > 500*/){
 		$('#prevArrow').css('opacity', '.5').addClass('not-active'); 
 		$('#nextArrow').css('opacity', '1').removeClass('not-active');
@@ -426,6 +436,7 @@ function calcShipping() {
 		$('#shippingTotal').html("Shipping : $" + shipCal + ".00"); 
 		$('#finalTotal').html("Total : $" + finalTotal + ".00");
 	}
+
 	else if (shipType === undefined){
 		$('#finalTotal').html("Total : $" + grandTotal + ".00");
 	}
@@ -508,6 +519,7 @@ function initLinks() {
 	}); 
 
 	$('.plusSign').on('click', function(e){
+		
 		e.stopImmediatePropagation();
 		e.preventDefault();
 
