@@ -13,12 +13,6 @@ var teamHeight;
 var date = new Date(); 
 var year = date.getFullYear();  
 
-var mainBG = new Object(); 
-mainBG.large = 'images/main-bg-'; 
-mainBG.construct = function(obj){
-  return obj + '.jpg';
-};
-
 var articleTemp;
 var articleTemp2;  
 var bioTemp; 
@@ -43,35 +37,11 @@ function winReload(){
 	window.location.reload();
 }
 
-function setBG(){
-
-	var num = Math.ceil(Math.random()*10);
-	var div = num/2;
-
-	if (div === 0 || div < 1) {
-	   mainBG.large += 'deerwood';
-	}
-	else if (div === 1 || div < 2) {
-	   mainBG.large += 'tea';
-	}
-	else if (div === 2 || div < 3) {
-	   mainBG.large += 'valley';
-	}
-	else if (div === 3 || div < 4) {
-	   mainBG.large += 'house';
-	}
-	else if (div === 4 || div <= 5) {
-	   mainBG.large += 'moon';
-	}
-
-}
-
 function theDate(){
 	$('#footerContainer').append('<footer id="copyright">&copy;' + year + ' THE SOOGIE</footer>');
 }  
 
 function dims(){
-
 	win = window; 
 	winWidth = win.innerWidth;  
 	winHeight = win.innerHeight;
@@ -81,13 +51,10 @@ function dims(){
 	newsHeight = watchHeight + $('#newsContainer').height();
 	artHeight = newsHeight + $('#artContainer').height();
 	teamHeight = $('#teamContainer').height() + artHeight; 
-
 } 
 
 function cartCount() { 
-
 	var currCount;
-
 	if (sessionStorage.cart === undefined) {
 		currCount = 0;
 	}
@@ -101,14 +68,13 @@ function cartCount() {
 
 //Changes image sizes depending on window width
 function initImg(){  
-
 	var vidWidth = winWidth/1.5;
 	var vidHeight = vidWidth/1.3333;   
 	var midImgHeight = $('#artRow2').height() + 80;
 	var midHeight = -Math.abs(midImgHeight / 2);
 	$('.nextButton').css('margin-top', midHeight);
 	if (winWidth > 768) {
-		$('#mainBG').attr('src', mainBG.construct(mainBG.large));
+		$('#mainBG').attr('src', 'images/main-bg.jpg');
 		$('#newsHeader').attr('src', 'images/newsBar.jpg');
 		$('#artHeader').attr('src', 'images/artBar.jpg');  
 		$('#teamHeader').attr('src', 'images/teamBar.jpg');
@@ -122,9 +88,8 @@ function initImg(){
 			height : vidHeight
 		});  
 	}
-
-	else if (winWidth <= 768 && winWidth > 500) {  
-		$('#mainBG').attr('src', mainBG.construct(mainBG.large + "-m")); 
+	else if (winWidth <= 768 && winWidth > 500) { 
+		$('#mainBG').attr('src', 'images/main-bg-m.jpg'); 
 		$('#newsHeader').attr('src', 'images/newsBar-m.jpg');
 		$('#artHeader').attr('src', 'images/artBar.jpg');
 			/*
@@ -146,10 +111,8 @@ function initImg(){
 			height : vidHeight
 		});  
 	}
-
 	else if (winWidth <= 500)  {  
-		 
-		$('#mainBG').attr('src', mainBG.construct(mainBG.large + "-s"));
+		$('#mainBG').attr('src', 'images/main-bg-s.jpg');
 		$('#newsHeader').attr('src', 'images/newsBar-s.jpg');
 		$('#artHeader').attr('src', 'images/artBar-2.jpg');
 			/*
@@ -170,7 +133,6 @@ function initImg(){
 			$('.kadavre').attr('src', 'images/bio-kadavre-s.png');
 			$('.matt').attr('src', 'images/bio-matt-s.png');
 			$('.andre').attr('src', 'images/bio-andre-s.png');   
-
 		$('#video').attr({
 			width : winWidth,
 			height : vidHeight
@@ -179,11 +141,8 @@ function initImg(){
 }
 
 function setIcons(){
-
 	for (i=0; i<aboutBios.length; i++){
-
 		var that = aboutBios[i];
-
 		if (that.facebook !== ""){ 
 			var template = _.template(socialIcons.facebook);
 			var htmlTemp = template(that);   
@@ -218,9 +177,7 @@ function setIcons(){
 } 
   
 function changePage(input){  
-
-	var num = Number(input); 
-
+	var num = Number(input);  
 	if (num === 1 /*&& winWidth > 500*/){
 		$('#prevArrow').css('opacity', '.5').addClass('not-active'); 
 		$('#nextArrow').css('opacity', '1').removeClass('not-active');
@@ -436,7 +393,6 @@ function calcShipping() {
 		$('#shippingTotal').html("Shipping : $" + shipCal + ".00"); 
 		$('#finalTotal').html("Total : $" + finalTotal + ".00");
 	}
-
 	else if (shipType === undefined){
 		$('#finalTotal').html("Total : $" + grandTotal + ".00");
 	}
@@ -511,15 +467,13 @@ function initLinks() {
 			'<li><a id="about" style="" href="about"><h3>HOME</h3></a></li>' +
 			'<li><a id="news" style="" href="news"><h3>NEWS</h3></a></li>' +
 	        '<li><a id="art" style="" href="art?page=1&winWidth=525"><h3>ART</h3></a></li>' +
-	        '<li><a id="team" style="" href="team"><h3>FRIENDS</h3></a></li>'+ 
-            '<li><a id="blog" class="links" style="" href="blog"><h3>BLOG</h3></a></li>' + 
+	        '<li><a id="team" style="" href="team"><h3>FRIENDS</h3></a></li>'+  
             '<li><a id="contact" class="links" style="" href="contact"><h3><i class="fa fa-envelope" aria-hidden="true"></i>'
 	    );
 	    initLinks();
 	}); 
 
 	$('.plusSign').on('click', function(e){
-		
 		e.stopImmediatePropagation();
 		e.preventDefault();
 
@@ -641,10 +595,9 @@ $(window).scroll(function(){
 });  
 
 $(document).ready(function(){  
-	setBG();
 	dims();
 	theDate();
-	//cartCount(); 
+	cartCount(); 
 	//Populates the news and team page
 	getJSONs();    
 	//Sets ICONS 
