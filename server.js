@@ -69,7 +69,7 @@ var artHtml = function(){
                           '</div>' + 
                           '<div id="menuItems"></div>' + 
                           '<div id="announcements">' + 
-                            '<h4>ALL PRINTS ARE CURRENTLY 50% OFF</h4>' + 
+                            '<h4>NEW LIMITED EDITION PRINTS AVAILABLE</h4>' + 
                           '</div>' +
                         '</div>' +  
                       '<div id="content">' +
