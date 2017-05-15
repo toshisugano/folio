@@ -324,6 +324,10 @@ app.get('/about', function(req, res ){
 app.get('/news', function(req, res ){
     res.sendFile(__dirname + '/dist/news.html');
 });
+
+app.get('/folio', function(req, res ){
+    res.sendFile(__dirname + '/dist/folio.html');
+});
 /*
 app.get('/art', function(req, res ){
 
