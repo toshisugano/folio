@@ -1,17 +1,19 @@
 /*VARIABLES*/
-$vanilla : #eff7d3;
+$vanilla : #ecf2d9;
 $vanillaDark : #dbe0cb;
 $lightgreen : #738414;
-$midgreen : #5f6f1e;
-$darkgreen : #384112;
+$midgreen : #aaa9a9;
+$darkgreen : #c2c7cb;
 $grey : #6e6e6e;
 $darkgrey : #494745;
 $offwhite : #eff7d9; 
+$babyblue : #d6dbdf;
+$darkbabyblue : #dce5ec;
 $image-width : 100%;
 
 /*MIXINS*/
 .maxWidth {
-  max-width: 1200px;
+  max-width: 955px;
   margin-left : auto;
   margin-right : auto; 
   display : block;
@@ -19,7 +21,7 @@ $image-width : 100%;
 
 .vanillaFont {
   font-family : 'Roboto';
-  color : $vanilla;
+  color : $offwhite;
 }  
 
 .stylishFont {
@@ -37,12 +39,12 @@ $image-width : 100%;
   position : relative;
   width : 100%;  
   display : inline-block;
-  background-color : $offwhite;  
-  box-shadow: 0px 5px 10px black;
+  background-color : $babyblue;  
   text-align : center;  
   padding-bottom : 20px; 
   padding-top : 20px;
-  h3 { 
+  h3 {  
+    color : $darkgrey;
     padding-left : 30px;
     padding-right : 30px;
   }
@@ -52,8 +54,7 @@ $image-width : 100%;
   position : relative;
   width : 100%; 
   display : block;
-  background-color : $lightgreen;  
-  box-shadow: 0px 5px 10px black;
+  background-color : black;  
   text-align : center;  
   padding-top : 10px; 
   margin-bottom : -10px;
@@ -65,12 +66,12 @@ $image-width : 100%;
 
 .tag {
     padding: 5px 5px 5px 5px;
-    background: rgba(56,31,26,10);
+    background: $darkgrey;
     display: inline-block;
     border: #fceecb 2px solid;
     border-radius: 7px;
     margin: 5px 5px 0 0;
-    color: white;
+    color: $vanilla;
 }
 
 html { 
@@ -129,7 +130,7 @@ li {
 
 hr {
   max-width : 90%;
-  background-color : $lightgreen;
+  background-color : black;
   height : 3px;
 }
  
@@ -510,14 +511,14 @@ hr {
 
 .articleContainer {
   @extend .maxWidth;
-  background-color : $vanilla; 
+  background-color : $babyblue; 
   text-align : center;  
   min-height : 300px;  
 }
 
 .articleContainer2 {
   @extend .articleContainer;
-  background-color : $vanillaDark;
+  background-color : $darkbabyblue;
 }
 
 .articleHeader {
@@ -683,7 +684,7 @@ hr {
 
 .bioContainer {
   @extend .maxWidth;
-  background-color : $lightgreen; 
+  background-color : $darkbabyblue; 
   text-align : center;  
   min-height : 200px;  
 }
@@ -695,7 +696,7 @@ hr {
 
 .bioContainer2 {
   @extend .articleContainer;
-  background-color : $midgreen;
+  background-color : $babyblue;
   text-align : center;  
   min-height : 200px;
 } 
@@ -727,7 +728,7 @@ hr {
 }
 
 .fa {
-  color : $vanilla;
+  color : white;
   margin-left : 5px;
 }   
 
