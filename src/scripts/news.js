@@ -1,4 +1,4 @@
-var mongoose = require('mongoose');
+/*var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 var NewsSchema = new Schema({
@@ -18,4 +18,4 @@ var News = mongoose.model('news', NewsSchema);
 //the second argument is the schema we want to base out models on
 //User represents the entire collection of data based on the user model
 
-module.exports = News;
+module.exports = News;*/

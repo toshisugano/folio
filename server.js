@@ -6,11 +6,11 @@ var express = require('express');
   	app = express();
   	fs = require('fs'); 
     underscore = require('underscore');
-    mongoose = require('mongoose');
-    Schema = mongoose.Schema;
-    NewsArticle = require('./src/scripts/news');
+    //mongoose = require('mongoose');
+    //Schema = mongoose.Schema;
+    //NewsArticle = require('./src/scripts/news');
 
- NewsArticle.showMethods = function(obj){
+ /*NewsArticle.showMethods = function(obj){
     console.log(this.collection);
  };
 
@@ -38,7 +38,7 @@ NewsArticle.findOne({text : 'New Portolio section up and running!'}, (err, obj) 
   else {
     console.log(err);
   }
-});
+});*/
 
 var mainUrl = '//www.thesoogie.com/';  
 
