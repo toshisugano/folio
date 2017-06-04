@@ -6,8 +6,41 @@ var express = require('express');
   	app = express();
   	fs = require('fs'); 
     underscore = require('underscore');
+    mongoose = require('mongoose');
+    Schema = mongoose.Schema;
+    NewsArticle = require('./src/scripts/news');
 
-var mainUrl = '//cabbitfilm.herokuapp.com/';  
+ NewsArticle.showMethods = function(obj){
+    console.log(this.collection);
+ };
+
+NewsArticle.showMethods();
+
+mongoose.Promise = global.Promise; 
+
+mongoose.connect('mongodb://localhost/users_test', () => { 
+  mongoose.connection.db.dropCollection('news', (err, result) => {}); 
+   
+    var news = new NewsArticle({
+        text : "New Portolio section up and running!",
+        source : "Link",
+        url : "http://WWW.thesoogie.com/folio"  
+    }); 
+
+  news.save(); 
+
+});     
+
+NewsArticle.findOne({text : 'New Portolio section up and running!'}, (err, obj) => {
+  if (obj) {
+    console.log(obj.url);
+  }
+  else {
+    console.log(err);
+  }
+});
+
+var mainUrl = '//www.thesoogie.com/';  
 
 var images = fs.readFileSync(__dirname + '/dist/json/images.json'); 
 
