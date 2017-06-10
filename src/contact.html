@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head>
+<link href="https://code.getmdl.io/1.2.1/material.indigo-pink.min.css" rel="stylesheet" type="text/css" />
+<script src="https://code.getmdl.io/1.2.1/material.min.js"></script>
+<script src="https://fonts.googleapis.com/icon?family=Material+Icons"></script>
 <script src="//code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="   crossorigin="anonymous"></script>
 <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
 <script src="//use.fontawesome.com/4a77a9db4c.js"></script>
@@ -12,7 +15,7 @@
   <meta name="viewport" content="width=device-width; initial-scale=1.0; user-scalable=0;"> 
   <title>Cabbit</title>
 </head>
-<body>  
+<body>   
   <div id="fb-root"></div>
   <div class="row" id="mainContainer"> 
         <!-- NAVIGATION --> 
@@ -35,23 +38,23 @@
           </div> 
           <div id="menuItems"></div>
           <div id="announcements"> 
-            <h4>New Limited Edition Prints Available!</h4>
+            <h4>NEW LIMITED EDITION PRINTS AVAILABLE</h4>
           </div> 
         </div> 
       <!-- ABOUT -->
-      <div id="content">
-          <div class="row" id="aboutContainer">
-            <img id="mainBG" src="">  
-            <div class="row" id="aboutDescription"> 
-              <h1>Featured Project : Cabbit - An Interpretive Eco-Fable</h1>
-              <h1>'Cabbit' was a short film produced by Prospekt Films.</h1>
-              <h2>Learn more about it <a href="">HERE</a></h2>
-            </div>
-          </div>  
-          <!--  
-          <div class="row" id="watchContainer">
-            <iframe id="video" src="//player.vimeo.com/video/55738572?title=0&byline=0&portrait=0" width="" height=""  webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
-          </div> -->
+      <div id="content"> 
+        <img id="contactHeader" src=""> 
+        <div id="contactContainer">   
+           <form method="post" id="contact-f">
+            <p><label for="name" class="contact-input-label">Name</label> <br/>
+              <input class="contact-input-text" name="firstname" type="text" maxlength="30" autofocus required /></p> 
+            <p><label for="email" class="contact-input-label">E-Mail</label> <br/>
+              <input class="contact-input-text" name="email" type="email" maxlength="40" required/></p>
+            <p><label for="message" class="contact-input-label">Message</label> <br/>
+              <textarea class="contact-input-text" id="contact-text-message" name="message"></textarea></p>
+              <button class="mdl-button mdl-js-button mdl-button--raised">SUBMIT</button>
+            </form> 
+        </div>
       </div>
       <!-- FOOTER -->
       <div class="row" id="footerContainer">

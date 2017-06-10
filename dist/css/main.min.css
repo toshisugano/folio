@@ -6,17 +6,17 @@
 /*VARIABLES*/
 /*MIXINS*/
 .maxWidth, #content, #aboutContainer, #aboutDescription, #watchContainer, #newsContainer, .articleContainer, .articleContainer2, .bioContainer2, .innerContainer, #folioContainer, #artContainer, #artGallery, #artRow1, #artRow2, #artRow3, #teamContainer, .bioContainer, .bioinnerContainer, #cartContainer, .cartContainer1, .cartContainer2, .totalContainer, #footerContainer {
-  max-width: 955px;
+  max-width: 1100px;
   margin-left: auto;
   margin-right: auto;
   display: block; }
 
-.vanillaFont, h1, h2, h3, h4, #pageCenter h3 {
+.vanillaFont, h1, h3, h4, #pageCenter h3 {
   font-family: 'Roboto';
   color: #eff7d9; }
 
 .stylishFont, h2.articleHeader, h2.bioHeader, .cartContainer1 h2, .cartContainer2 h2 {
-  font-family: 'Merriweather';
+  font-family: 'Impact';
   color: #6e6e6e;
   line-height: 135%; }
 
@@ -79,13 +79,13 @@ h2 {
   font-size: 2.5rem; }
 
 h2.bioHeader {
-  color: #ecf2d9; }
+  color: black; }
 
 h3 {
   font-size: 2rem; }
 
 h4 {
-  font-size: 1.25rem; }
+  font-size: 1.5rem; }
 
 h5 {
   font-family: 'Anton';
@@ -201,7 +201,8 @@ hr {
 #mainContainer {
   background-color: #c2c7cb;
   margin-left: 0px;
-  margin-right: 0px; }
+  margin-right: 0px;
+  height: 100%; }
 
 #pageCenter {
   width: 100%;
@@ -225,7 +226,7 @@ hr {
 
 #navLinks {
   max-width: 600px;
-  height: 40px;
+  height: 50px;
   position: relative;
   margin-right: auto;
   margin-left: auto;
@@ -303,7 +304,7 @@ hr {
 
 #announcements h4 {
   line-height: 20px;
-  color: #ecf2d9;
+  color: black;
   margin-top: 0px; }
 
 #folioArticle2 {
@@ -377,7 +378,7 @@ hr {
   padding-bottom: 20px; }
 
 #watchContainer {
-  background-color: #ecf2d9;
+  background-color: #d6dbdf;
   text-align: center;
   padding-top: 20px;
   padding-bottom: 20px; }
@@ -389,7 +390,7 @@ hr {
   margin-left: 9px;
   padding-right: 20px;
   background-color: black;
-  border: 6px solid #738414; }
+  border: 6px solid #dce5ec; }
 
 #newsHeader {
   width: 100%; }
@@ -560,6 +561,42 @@ hr {
 .socialLinks li {
   display: inline-block;
   margin-left: 5px; }
+
+#contactContainer {
+  width: 100%;
+  text-align: center;
+  position: relative;
+  display: block;
+  background-color: #494745;
+  min-height: 250px;
+  padding-top: 125px;
+  padding-bottom: 125px; }
+
+#contactHeader {
+  position: relative;
+  width: 100%;
+  display: block;
+  background-color: black;
+  text-align: center;
+  padding-top: 10px;
+  margin-bottom: -10px; }
+  #contactHeader h3 {
+    margin-top: -10px;
+    color: #eff7d9; }
+
+#contact-f {
+  position: relative;
+  display: inline-block;
+  margin: 0 auto; }
+
+#sample1 {
+  background-color: white; }
+
+#inputFont {
+  color: black; }
+
+#address {
+  margin-top: 50px; }
 
 .fa {
   color: white;

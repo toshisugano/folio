@@ -6,39 +6,48 @@ var express = require('express');
   	app = express();
   	fs = require('fs'); 
     underscore = require('underscore');
-    //mongoose = require('mongoose');
-    //Schema = mongoose.Schema;
-    //NewsArticle = require('./src/scripts/news');
-
- /*NewsArticle.showMethods = function(obj){
-    console.log(this.collection);
- };
-
-NewsArticle.showMethods();
+    mongoose = require('mongoose');
+    Schema = mongoose.Schema;
+    NewsArticle = require('./src/scripts/news'); 
+    api = 'FIFTXsj31ugm8JR-8QJM_rodJAei8QyS';
+    mongoLocal = 'mongodb://localhost/users_test';
+    mongoLabs = 'mongodb://thesoogie:Sugi21!!@ds161931.mlab.com:61931/soogiedb/collections/news_test?apiKey=FIFTXsj31ugm8JR-8QJM_rodJAei8QyS';
+    options = { 
+                server: { socketOptions: { keepAlive: 300000, connectTimeoutMS: 30000 } }, 
+                replset: { socketOptions: { keepAlive: 300000, connectTimeoutMS : 30000 } } 
+              }; 
 
 mongoose.Promise = global.Promise; 
 
-mongoose.connect('mongodb://localhost/users_test', () => { 
-  mongoose.connection.db.dropCollection('news', (err, result) => {}); 
-   
+//mongoose.connect(mongoLabs, options); 
+mongoose.connect(mongoLocal); 
+ 
+  var conn = mongoose.connection;
+  conn.on('error', console.error.bind(console, 'connection error:'));  
+  conn.on('open', function() {
+
+    //conn.db.dropCollection('news', (err, result) => {});
+
     var news = new NewsArticle({
-        text : "New Portolio section up and running!",
-        source : "Link",
-        url : "http://WWW.thesoogie.com/folio"  
-    }); 
+        title : "New Portolio section up and running!",
+        linkText : "Link",
+        url : "http://WWW.thesoogie.com/friends"  
+    });  
 
-  news.save(); 
+    news.save(); 
 
-});     
+  });  
 
-NewsArticle.findOne({text : 'New Portolio section up and running!'}, (err, obj) => {
+NewsArticle.find({title : 'New Portolio section up and running!'}, (err, obj) => {
   if (obj) {
-    console.log(obj.url);
+     for (i=0; i<obj.length; i++) {
+      console.log(obj[i].url);
+     }
   }
   else {
     console.log(err);
   }
-});*/
+});
 
 var mainUrl = '//www.thesoogie.com/';  
 
@@ -55,7 +64,7 @@ var secret = 'ENzMgFKmEfIAbYhUQzEQTiQiGlJamwPly8e2ckJYJt-pIS0Wau6yEIx8YuMp35m-r_
 
 var port = process.env.PORT || 8000; 
 
-var artHtml = function(){
+/*var artHtml = function(){
     this.el = '<!DOCTYPE html>' +
                 '<html>' + 
                 '<head>' +
@@ -169,9 +178,9 @@ var artHtml = function(){
         this.rtn = function(){
             return this.el;
         }
-}; 
+}; */
   
-var overlay = function(){
+/*var overlay = function(){
     this.el = '<!DOCTYPE html>' +
                 '<html>' +
                 '<head>' +
@@ -218,7 +227,7 @@ var overlay = function(){
     this.rtn = function(){
         return this.el;
     }
-};
+};*/
 
 // selects ARTRow img objects and fills in params//
 function artGallery(page, width){    
@@ -257,13 +266,13 @@ function artGallery(page, width){
     
 }
 
-paypal.configure({
+/*paypal.configure({
 	  'mode': 'live', //sandbox or live
     "host": "api.paypal.com",
     "port": "",
     'client_id': clientId,
     'client_secret': secret
-});
+});*/
 
 app.use(bodyParser.json());
 app.use('/css', express.static(__dirname + '/dist/css'));
@@ -277,7 +286,7 @@ app.get('/cart', function(req, res){
 });
 
 // PayPal payment request
-app.get('/create', function(req, res) { 
+/*app.get('/create', function(req, res) { 
 
     var cart = req.query.cart;
     var total = req.query.total;
@@ -321,7 +330,7 @@ app.get('/create', function(req, res) {
         }
     }); 
 
-});
+});*/
 
 //To complete payment, provide route to handle the return
 app.get('/process', function(req, res){
@@ -360,6 +369,10 @@ app.get('/news', function(req, res ){
 
 app.get('/folio', function(req, res ){
     res.sendFile(__dirname + '/dist/folio.html');
+});
+
+app.get('/contact', function(req, res){
+  res.sendFile(__dirname + '/dist/contact.html');
 });
 /*
 app.get('/art', function(req, res ){

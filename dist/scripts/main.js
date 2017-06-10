@@ -44,7 +44,7 @@ var currPage = sessionStorage.currPage || 1;
 
 function winReload(){
 	window.location.reload();
-}
+} 
 
 function setBG(){
 
@@ -74,8 +74,7 @@ function flickrAPI(){
     //create a var that makes a call to the flickr API
     var getIMG = "https://api.flickr.com/services/rest/?format=json&method=flickr.photosets.getPhotos&photoset_id=72157645079323413&+description+&api_key=814796ef7eee08b0534ae009b71b62aa&jsoncallback=?";
     //pass the getIMG var through the getJSON function
-    $.getJSON(getIMG, function(data){
-
+    $.getJSON(getIMG, function(data){ 
     	flickrLength = data.photoset.photo.length;
         //Loop through each of the photos
         $.each(data.photoset.photo, function(index, photo){ 
@@ -109,8 +108,7 @@ function flickrAPI(){
                     //Create a variable that stores each of the tags
                     var tagString = object.raw;
                     var regex = /www/i;
-                    var testregex = regex.test(tagString);
-
+                    var testregex = regex.test(tagString); 
                     var substr = tagString.substr(4, tagString.split("").length);
                     var soogStr = substr.substr(0,3);
                     var a_href = 'http://' + substr;
@@ -129,19 +127,19 @@ function flickrAPI(){
                         //Wrap valueLink with class tagWhite
                         //Append to folio
                         }
-         
                  });
 				
 				folioHeights.push($(folio).height());
-				if (flickrLength === folioHeights.length) {
-					var Num = folioHeights.sort().pop();
-					$('.folioDiv20').each(function(index, obj){
-						var that = $(obj);
-						var height = that.css("height");
-						that.css("height", Num);
-					});
-					 
-				}
+
+					if (flickrLength === folioHeights.length) {
+						var Num = folioHeights.sort().pop();
+						$('.folioDiv20').each(function(index, obj){
+							var that = $(obj);
+							var height = that.css("height");
+							that.css("height", Num);
+						});
+					}
+
             }); 
                
         });
@@ -190,7 +188,7 @@ function initImg(){
 	var midHeight = -Math.abs(midImgHeight / 2);
 	$('.nextButton').css('margin-top', midHeight);
 	if (winWidth > 768) {
-		$('#mainBG').attr('src', mainBG.construct(mainBG.large));
+		$('#mainBG').attr('src', mainBG.construct(mainBG.large)); 
 		$('#newsHeader').attr('src', 'images/newsBar.jpg');
 		$('#folioHeader').attr('src', 'images/folioBar.jpg');
 		$('#artHeader').attr('src', 'images/artBar.jpg');  
@@ -200,11 +198,13 @@ function initImg(){
 			$('.kadavre').attr('src', 'images/bio-kadavre.png');
 			$('.matt').attr('src', 'images/bio-matt.png');
 			$('.andre').attr('src', 'images/bio-andre.png');
+		$('#contactHeader').attr('src', 'images/contactBar.jpg');
 		$('#video').attr({
 			width : vidWidth,
 			height : vidHeight
 		});  
 	}
+
 	else if (winWidth <= 768 && winWidth > 500) { 
 		$('#mainBG').attr('src', mainBG.construct(mainBG.large + "-m")); 
 		$('#newsHeader').attr('src', 'images/newsBar-m.jpg');
@@ -224,11 +224,13 @@ function initImg(){
 			$('.kadavre').attr('src', 'images/bio-kadavre-m.png');
 			$('.matt').attr('src', 'images/bio-matt-m.png');
 			$('.andre').attr('src', 'images/bio-andre-m.png'); 
+		$('#contactHeader').attr('src', 'images/contactBar-m.jpg');
 		$('#video').attr({
 			width : winWidth,
 			height : vidHeight
 		});  
 	}
+
 	else if (winWidth <= 500)  {  
 		$('#mainBG').attr('src', mainBG.construct(mainBG.large + "-s"));
 		$('#newsHeader').attr('src', 'images/newsBar-s.jpg');
@@ -252,6 +254,7 @@ function initImg(){
 			$('.kadavre').attr('src', 'images/bio-kadavre-s.png');
 			$('.matt').attr('src', 'images/bio-matt-s.png');
 			$('.andre').attr('src', 'images/bio-andre-s.png');   
+		$('#contactHeader').attr('src', 'images/contactBar-s.jpg');
 		$('#video').attr({
 			width : winWidth,
 			height : vidHeight

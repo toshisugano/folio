@@ -13,7 +13,7 @@ $image-width : 100%;
 
 /*MIXINS*/
 .maxWidth {
-  max-width: 955px;
+  max-width: 1100px;
   margin-left : auto;
   margin-right : auto; 
   display : block;
@@ -25,7 +25,7 @@ $image-width : 100%;
 }  
 
 .stylishFont {
-  font-family : 'Merriweather';
+  font-family : 'Impact';
   color : $grey;
   line-height : 135%;
 }
@@ -96,7 +96,7 @@ h1 {
 }
 
 h2 {
-  @extend .vanillaFont;
+  
   font-size: 2.5rem
 }
 
@@ -106,7 +106,7 @@ h2.articleHeader {
 
 h2.bioHeader {
   @extend .stylishFont;
-  color : $vanilla;
+  color : black;
 }
 
 h3 {
@@ -116,7 +116,7 @@ h3 {
 
 h4 {
   @extend .vanillaFont;
-  font-size : 1.25rem;
+  font-size : 1.5rem;
 }
 
 h5 {
@@ -253,6 +253,7 @@ hr {
   background-color : $darkgreen;     
   margin-left : 0px;   
   margin-right : 0px; 
+  height : 100%;
 } 
 
 #pageCenter {  
@@ -280,7 +281,7 @@ hr {
 
 #navLinks {
   max-width : 600px; 
-  height : 40px;
+  height : 50px;
   position : relative;
   margin-right: auto;
   margin-left : auto;
@@ -367,12 +368,12 @@ hr {
   background-color : $midgreen;  
   text-align : center;  
   box-shadow : 0px 0px 25px black;
-  margin-top : 0px;
+  margin-top : 0px; 
 }  
 
 #announcements h4 {
   line-height : 20px;
-  color: $vanilla;
+  color: black;
   margin-top : 0px;
 }
 
@@ -464,24 +465,25 @@ hr {
 #aboutContainer { 
   @extend .maxWidth;
   background-color : black;  
-  margin-top : 20px;
+  margin-top : 20px; 
 }
 
 #mainBG {
   margin-top : -11px;
-  width : 100%
+  width : 100%; 
 }
 
 #aboutDescription { 
   @extend .maxWidth;  
   background-color : black;
   text-align : center;
-  padding-bottom : 20px;
+  padding-bottom : 20px; 
 }
 
 #watchContainer {
   @extend .maxWidth;
-  background-color : $vanilla; 
+  background-color : $babyblue;
+  ; 
   text-align : center;
   padding-top : 20px;
   padding-bottom : 20px;
@@ -494,7 +496,7 @@ hr {
   margin-left : 9px;
   padding-right : 20px;
   background-color : black;
-  border : 6px solid $lightgreen;
+  border : 6px solid $darkbabyblue;
 }
  
 #newsContainer {
@@ -725,6 +727,50 @@ hr {
 .socialLinks li {
   display : inline-block;
   margin-left : 5px; 
+}
+
+#contactContainer { 
+  width : 100%;
+  text-align : center;
+  position : relative;
+  display : block;
+  background-color : $darkgrey;
+  min-height : 250px;
+  padding-top : 125px;
+  padding-bottom : 125px;
+}
+
+#contactHeader {
+  position : relative;
+  width : 100%; 
+  display : block;
+  background-color : black;  
+  text-align : center;  
+  padding-top : 10px; 
+  margin-bottom : -10px;
+  h3 {
+    margin-top : -10px;
+    color : $offwhite;
+  }
+}
+
+#contact-f {  
+  position : relative;
+  display : inline-block;
+  margin : 0 auto;
+
+}
+
+#sample1 {
+  background-color : white;
+}
+
+#inputFont {
+  color : black;
+}
+
+#address {
+  margin-top : 50px;
 }
 
 .fa {
