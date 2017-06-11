@@ -52,10 +52,10 @@ function setBG(){
 	var div = num/2;
 
 	if (div === 0 || div < 1) {
-	   mainBG.large += 'deerwood';
+	   mainBG.large += 'house';
 	}
 	else if (div === 1 || div < 2) {
-	   mainBG.large += 'tea';
+	   mainBG.large += 'house';
 	}
 	else if (div === 2 || div < 3) {
 	   mainBG.large += 'valley';
