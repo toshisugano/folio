@@ -324,7 +324,7 @@ app.get('/projects/:projectId', function(req, res){
     var project = new ProjectArticle({
         title : projectId,
         linkText : "Link",
-        url : "http://WWW.thesoogie.com/friends"  
+        url : "http://WWW.thesoogie.com/cabbitfilm"  
     });  
 
     project.save(); 
