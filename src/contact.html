@@ -45,14 +45,14 @@
       <div id="content"> 
         <img id="contactHeader" src=""> 
         <div id="contactContainer">   
-           <form method="post" id="contact-f">
+           <form method="POST" action="/contact" id="contact-f">
             <p><label for="name" class="contact-input-label">Name</label> <br/>
-              <input class="contact-input-text" name="firstname" type="text" maxlength="30" autofocus required /></p> 
+              <input class="contact-input-text" name="name" type="text" maxlength="30" autofocus required /></p> 
             <p><label for="email" class="contact-input-label">E-Mail</label> <br/>
               <input class="contact-input-text" name="email" type="email" maxlength="40" required/></p>
             <p><label for="message" class="contact-input-label">Message</label> <br/>
-              <textarea class="contact-input-text" id="contact-text-message" name="message"></textarea></p>
-              <button class="mdl-button mdl-js-button mdl-button--raised">SUBMIT</button>
+              <textarea class="contact-input-text" id="contact-text-message" name="message"></textarea></p> 
+              <button type="submit" class="mdl-button mdl-js-button mdl-button--raised">SUBMIT</button>  
             </form> 
         </div>
       </div>

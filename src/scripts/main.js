@@ -40,7 +40,7 @@ var finalTotal = 0;
 var totalPrints = 0;
 var shipType = undefined;
 
-var currPage = sessionStorage.currPage || 1;  
+var currPage = sessionStorage.currPage || 1;   
 
 function winReload(){
 	window.location.reload();
@@ -53,18 +53,33 @@ function setBG(){
 
 	if (div === 0 || div < 1) {
 	   mainBG.large += 'house';
+	   $('#aboutDescription').html('<h1>Featured Project : Cabbit - An Interpretive Eco-Fable</h1>' +
+              					 '<h1>Cabbit was a short film produced by Prospekt Films.</h1>' +
+              					 '<h2>Learn more about it <a href="/projects/cabbitfilm">HERE</a></h2>');
 	}
 	else if (div === 1 || div < 2) {
 	   mainBG.large += 'house';
+	   $('#aboutDescription').html('<h1>Featured Project : Cabbit - An Interpretive Eco-Fable</h1>' +
+              					 '<h1>Cabbit was a short film produced by Prospekt Films.</h1>' +
+              					 '<h2>Learn more about it <a href="/projects/cabbitfilm">HERE</a></h2>');
 	}
 	else if (div === 2 || div < 3) {
-	   mainBG.large += 'valley';
+	   mainBG.large += 'house';
+	   $('#aboutDescription').html('<h1>Featured Project : Cabbit - An Interpretive Eco-Fable</h1>' +
+              					 '<h1>Cabbit was a short film produced by Prospekt Films.</h1>' +
+              					 '<h2>Learn more about it <a href="/projects/cabbitfilm">HERE</a></h2>');
 	}
 	else if (div === 3 || div < 4) {
 	   mainBG.large += 'house';
+	   $('#aboutDescription').html('<h1>Featured Project : Cabbit - An Interpretive Eco-Fable</h1>' +
+              					 '<h1>Cabbit was a short film produced by Prospekt Films.</h1>' +
+              					 '<h2>Learn more about it <a href="/projects/cabbitfilm">HERE</a></h2>');
 	}
 	else if (div === 4 || div <= 5) {
 	   mainBG.large += 'moon';
+	   $('#aboutDescription').html('<h1>Featured Project : Cabbit - An Interpretive Eco-Fable</h1>' +
+              					 '<h1>Moon was a short film produced by Prospekt Films.</h1>' +
+              					 '<h2>Learn more about it <a href="/projects/cabbitfilm">HERE</a></h2>');
 	}
 
 }
@@ -335,9 +350,9 @@ function changePage(input){
 function getJSONs(){  
 	//Load article1 template
 	var split = mainUrl.split("");
-	var route = mainUrl.slice(split.length-3, split.length); 
+	var route = mainUrl.slice(split.length-4, split.length); 
 
-	if (route === "eam"){ 
+	if (route === "team"){ 
 		
 		var aboutJSON = $.getJSON("json/about.json");
 		var socialJSON = $.getJSON("templates/socialMedia.json"); 
@@ -381,7 +396,7 @@ function getJSONs(){
 
 	} 
 
-	else if (route === "ews") {
+	else if (route === "news") {
 
 		$.get("templates/article1.txt", function( data ) {
         	articleTemp = data;
@@ -412,67 +427,7 @@ function getJSONs(){
 		});
 
 	} 
-
-	else if (route === "est") {
-
-		shoppingCart = [];
-
-		$.get("templates/total.txt", function(data) { 
-			totalTemp = data;
-		});
-
-		$.get("templates/cart1.txt", function(data) { 
-        	cartTemp = data;
-    	}); 
-
-		$.get("templates/cart2.txt", function(data) { 
-		    cartTemp2 = data;
-		});   
-
-		var cart = sessionStorage.cart;
-		var cartParse = JSON.parse(cart);   
-
-		var imgJSON = $.getJSON("json/images.json"); 
-		var imgObj = []; 
-
-		imgJSON.then(function(res){ 
-			setTimeout(function(){
-				_.each(res, function(obj){
-					imgObj.push(obj)
-				});  
-				for (i=0; i<cartParse.length; i++) {
-					var id = cartParse[i]; 
-					totalPrints++;
-					_.each(imgObj, function(obj){ 
-						if (obj[id]) { 
-							var thisObj = obj[id];  
-							grandTotal = grandTotal + Number(thisObj.price);
-							shoppingCart.push(thisObj);
-							var modulus = i%2;
-							if (modulus){
-								var template = _.template(cartTemp);
-								var htmlTemp = template(thisObj);  
-								$('#cartContainer').append(htmlTemp);
-							}
-							else {
-								var template = _.template(cartTemp2);
-								var htmlTemp2 = template(thisObj);  
-								$('#cartContainer').append(htmlTemp2);
-							}
-						} 
-					});
-				} 
-
-				var temp = _.template(totalTemp);
-				$('#cartContainer').append(temp());
-				  
-			}, 500); 
-		});  
-
-		totalPrints = shoppingCart.length; 
-		calcShipping();
-
-	} 
+  
 }	 
  
 

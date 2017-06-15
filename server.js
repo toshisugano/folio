@@ -1,17 +1,18 @@
 var express = require('express');
-  	http = require('http');
-  	paypal = require('paypal-rest-sdk');
-  	uuid = require('node-uuid');
+  	http = require('http'); 
   	bodyParser = require('body-parser');
   	app = express();
-  	fs = require('fs'); 
-    underscore = require('underscore');
-    mongoose = require('mongoose');
+  	fs = require('fs');  
+    mongoose = require('mongoose'); 
     Schema = mongoose.Schema;
     NewsArticle = require('./src/scripts/news'); 
+    ProjectArticle = require('./src/scripts/projects');
+    Message = require('./src/scripts/messages');
     api = 'FIFTXsj31ugm8JR-8QJM_rodJAei8QyS';
     mongoLocal = 'mongodb://localhost/users_test';
-    mongoLabs = 'mongodb://thesoogie:Sugi21!!@ds161931.mlab.com:61931/soogiedb/collections/news_test?apiKey=FIFTXsj31ugm8JR-8QJM_rodJAei8QyS';
+    mongoLabsNews = 'mongodb://thesoogie:Sugi21!!@ds161931.mlab.com:61931/soogiedb/collections/news?apiKey=FIFTXsj31ugm8JR-8QJM_rodJAei8QyS';
+    mongoLabsProjects = 'mongodb://thesoogie:Sugi21!!@ds161931.mlab.com:61931/soogiedb/collections/projects?apiKey=FIFTXsj31ugm8JR-8QJM_rodJAei8QyS';
+    
     options = { 
                 server: { socketOptions: { keepAlive: 300000, connectTimeoutMS: 30000 } }, 
                 replset: { socketOptions: { keepAlive: 300000, connectTimeoutMS : 30000 } } 
@@ -20,23 +21,23 @@ var express = require('express');
 mongoose.Promise = global.Promise; 
 
 //mongoose.connect(mongoLabs, options); 
-mongoose.connect(mongoLocal); 
+/*mongoose.connect(mongoLabsNews); 
  
   var conn = mongoose.connection;
   conn.on('error', console.error.bind(console, 'connection error:'));  
   conn.on('open', function() {
 
-    //conn.db.dropCollection('news', (err, result) => {});
+    conn.db.dropCollection('news', (err, result) => {});  
 
     var news = new NewsArticle({
-        title : "New Portolio section up and running!",
+        title : "New Portolio section up and runningnowwwww",
         linkText : "Link",
         url : "http://WWW.thesoogie.com/friends"  
     });  
 
     news.save(); 
 
-  });  
+  });  */
 
 NewsArticle.find({title : 'New Portolio section up and running!'}, (err, obj) => {
   if (obj) {
@@ -47,6 +48,10 @@ NewsArticle.find({title : 'New Portolio section up and running!'}, (err, obj) =>
   else {
     console.log(err);
   }
+}); 
+
+var urlencodedParser = bodyParser.urlencoded({
+  extended : false
 });
 
 var mainUrl = '//www.thesoogie.com/';  
@@ -265,14 +270,7 @@ function artGallery(page, width){
     return artObj;
     
 }
-
-/*paypal.configure({
-	  'mode': 'live', //sandbox or live
-    "host": "api.paypal.com",
-    "port": "",
-    'client_id': clientId,
-    'client_secret': secret
-});*/
+ 
 
 app.use(bodyParser.json());
 app.use('/css', express.static(__dirname + '/dist/css'));
@@ -284,72 +282,7 @@ app.use('/json', express.static(__dirname + '/dist/json'));
 app.get('/cart', function(req, res){
     res.sendFile(__dirname + '/dist/index.html');
 });
-
-// PayPal payment request
-/*app.get('/create', function(req, res) { 
-
-    var cart = req.query.cart;
-    var total = req.query.total;
-  
-    var payReq = {
-        'intent': 'sale',
-        'redirect_urls': {
-            'return_url': mainUrl + 'process',
-            'cancel_url': mainUrl + 'cancel'
-        },
-        'payer': {
-            'payment_method': 'paypal'
-        },
-        'transactions': [{
-            'amount': {
-                'total': total,
-                'currency': 'USD'
-            },
-            'description': cart
-        }]
-    };
-
-    paypal.payment.create(payReq, function(error, payment) {
-        if (error) {
-            console.error(error);
-        } else {
-            //capture HATEOAS links
-            var links = {};
-            payment.links.forEach(function(linkObj) {
-                links[linkObj.rel] = {
-                    'href': linkObj.href,
-                    'method': linkObj.method
-                };
-            }) 
-            //if redirect url present, redirect user
-            if (links.hasOwnProperty('approval_url')) {
-                res.redirect(links['approval_url'].href);
-            } else {
-                console.error('no redirect URI present');
-            }
-        }
-    }); 
-
-});*/
-
-//To complete payment, provide route to handle the return
-app.get('/process', function(req, res){
-
-    var paymentId = req.query.paymentId;
-    var payerId = { 'payer_id': req.query.PayerID };
-
-    paypal.payment.execute(paymentId, payerId, function(error, payment){
-        if(error){
-            console.error(error);
-        } else {
-            if (payment.state === 'approved'){ 
-                res.sendFile(__dirname + '/dist/cleared.html');
-            } else {
-                res.send('payment not successful');
-            }
-        }
-    });
-});
+ 
 
 app.get('/', function(req, res ){
 	res.sendFile(__dirname + '/dist/about.html');
@@ -374,6 +307,33 @@ app.get('/folio', function(req, res ){
 app.get('/contact', function(req, res){
   res.sendFile(__dirname + '/dist/contact.html');
 });
+
+app.get('/projects/:projectId', function(req, res){
+
+  var projectId = req.params['projectId'];
+  console.log(projectId);
+
+  mongoose.connect(mongoLabsProjects); 
+ 
+  var conn = mongoose.connection;
+  conn.on('error', console.error.bind(console, 'connection error:'));  
+  conn.on('open', function() {
+
+    conn.db.dropCollection('projects', (err, result) => {});  
+
+    var project = new ProjectArticle({
+        title : projectId,
+        linkText : "Link",
+        url : "http://WWW.thesoogie.com/friends"  
+    });  
+
+    project.save(); 
+
+  });  
+
+  res.sendFile(__dirname + '/dist/blank.html');
+});
+
 /*
 app.get('/art', function(req, res ){
 
@@ -436,16 +396,26 @@ app.get('/art/:artId', function(req, res){
 });
 */
 
+app.post('/contact', urlencodedParser, function(req, res){  
+
+    var message = new Message({
+        name : req.body.name,
+        email : req.body.email,
+        message : req.body.message  
+    });  
+
+    message.save(); 
+
+    res.sendFile(__dirname + '/dist/contact.html');
+
+});
+
 app.get('/team', function(req, res ){
     res.sendFile(__dirname + '/dist/team.html');
 });
 
 app.get('/test', function(req, res ){
     res.sendFile(__dirname + '/dist/test.html');
-});
-
-app.get('/checkout', function(req, res ){ 
-	console.log("checkout");
-});
+}); 
 
 app.listen(port);
