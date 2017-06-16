@@ -159,8 +159,6 @@ function flickrAPI(){
                
         });
 
-
-
     });//end
 
   
@@ -183,7 +181,9 @@ function dims(){
 } 
 
 function cartCount() { 
+
 	var currCount;
+	
 	if (sessionStorage.cart === undefined) {
 		currCount = 0;
 	}
@@ -362,6 +362,10 @@ function getJSONs(){
 
 	} 
 
+	else if (route === "olio") {
+		flickrAPI();
+	}
+
 	else if (route === "news") {
 
 		$.get("templates/article1.txt", function( data ) {
@@ -395,6 +399,7 @@ function getJSONs(){
 	} 
   
 }	   
+
  
 function initLinks() {  
 
@@ -495,8 +500,7 @@ $(window).scroll(function(){
 });  
 
 $(document).ready(function(){  
-	setBG();
-	flickrAPI();  
+	setBG(); 
 	dims();
 	theDate(); 
 	getJSONs();    
