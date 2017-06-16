@@ -199,7 +199,7 @@ app.post('/contact', urlencodedParser, function(req, res){
 
       var mailOptions = {
         from: 'youremail@gmail.com',
-        to: 'myfriend@yahoo.com',
+        to: 'onagususa@gmail.com',
         subject: 'Sending Email using Node.js',
         text: 'You received a message from' + req.body.email;
       };    
