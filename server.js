@@ -1,4 +1,5 @@
 var express = require('express');
+    nodemailer = require('nodemailer');
   	http = require('http'); 
   	bodyParser = require('body-parser');
   	app = express();
@@ -147,28 +148,28 @@ app.get('/contact', function(req, res){
 
 app.get('/projects/:projectId', function(req, res){
 
-  var projectId = req.params['projectId'];
-  console.log(projectId);
+    var projectId = req.params['projectId'];
+    console.log(projectId);
 
-  mongoose.connect(mongoLabsProjects); 
- 
-  var conn = mongoose.connection;
-  conn.on('error', console.error.bind(console, 'connection error:'));  
-  conn.on('open', function() {
+    mongoose.connect(mongoLabsProjects); 
+   
+    var conn = mongoose.connection;
+    conn.on('error', console.error.bind(console, 'connection error:'));  
+    conn.on('open', function() {
 
-    conn.db.dropCollection('projects', (err, result) => {});  
+        conn.db.dropCollection('projects', (err, result) => {});  
 
-    var project = new ProjectArticle({
-        title : projectId,
-        linkText : "Link",
-        url : "http://WWW.thesoogie.com/cabbitfilms"  
+        var project = new ProjectArticle({
+            title : projectId,
+            linkText : "Link",
+            url : "http://WWW.thesoogie.com/cabbitfilms"  
+        });  
+
+        project.save(); 
+
     });  
 
-    project.save(); 
-
-  });  
-
-  res.sendFile(__dirname + '/dist/blank.html');
+    res.sendFile(__dirname + '/dist/blank.html');
 
 }); 
 
@@ -180,13 +181,36 @@ app.post('/contact', urlencodedParser, function(req, res){
   conn.on('error', console.error.bind(console, 'connection error:'));  
   conn.on('open', function() { 
     
-    var message = new Message({
-        name : req.body.name,
-        email : req.body.email,
-        message : req.body.message  
-    });  
+      var message = new Message({
+          name : req.body.name,
+          email : req.body.email,
+          message : req.body.message  
+      });  
 
-    message.save(); 
+      message.save(); 
+
+      var transporter = nodemailer.createTransport({
+        service: 'gmail',
+        auth: {
+          user: 'onagususa@gmail.com',
+          pass: 'Toshi2121'
+        }
+      });
+
+      var mailOptions = {
+        from: 'youremail@gmail.com',
+        to: 'myfriend@yahoo.com',
+        subject: 'Sending Email using Node.js',
+        text: 'You received a message from' + req.body.email;
+      };    
+
+      transporter.sendMail(mailOptions, function(error, info){
+        if (error) {
+          console.log(error);
+        } else {
+          console.log('Email sent: ' + info.response);
+        }
+      });   
 
   });    
 
