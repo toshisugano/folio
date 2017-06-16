@@ -437,6 +437,7 @@ $('.links').on('click', function(){
 	var id = that[0].id; 
 	var child = $('#' + id).children()[0]; 
 	$(child).attr('style', 'color : red'); 
+	window.location.href = "http://www.thesoogie.com/" + id;
 });  
 
 $('.nextButton').on('click', function(e){
@@ -455,6 +456,7 @@ $('.nextButton').on('click', function(e){
 		window.location.href =  "?page=" + currPage + "&winWidth=" + winWidth;
 	} 
 });  
+
 
 function calcShipping() {
 	nodeCart = [];
