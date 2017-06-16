@@ -273,6 +273,7 @@ function artGallery(page, width){
  
 
 app.use(bodyParser.json());
+app.use('/projects/scripts', express.static(__dirname + '/dist/scripts'));
 app.use('/css', express.static(__dirname + '/dist/css'));
 app.use('/images', express.static(__dirname + '/dist/images'));
 app.use('/scripts', express.static(__dirname + '/dist/scripts'));
@@ -283,7 +284,6 @@ app.get('/cart', function(req, res){
     res.sendFile(__dirname + '/dist/index.html');
 });
  
-
 app.get('/', function(req, res ){
 	res.sendFile(__dirname + '/dist/about.html');
 });
@@ -332,69 +332,7 @@ app.get('/projects/:projectId', function(req, res){
   });  
 
   res.sendFile(__dirname + '/dist/blank.html');
-});
-
-/*
-app.get('/art', function(req, res ){
-
-    var page = req.query.page || undefined;
-    var width = req.query.winWidth || undefined;
-
-    if (page === undefined) {
-      res.sendFile(__dirname + '/dist/art.html'); 
-    } 
-
-    else { 
-      var html =  new artHtml(); 
-      var template = underscore.template(html.rtn());
-      var thisDiv = template(artGallery(page, width));   
-      res.send(thisDiv); 
-    }
-    
-});
-
-app.get('/art/:artId', function(req, res){ 
-
-    var artId = req.params['artId'];  
-    var artObj;
-    currPage = req.query.page;
-
-    for (i=0; i<jsonImages.length; i++){
-        if (jsonImages[i][artId]) {
-            artObj = jsonImages[i][artId];
-        }
-        else {
-            continue;
-        }
-    } 
-     
-    if (artObj.detailD === undefined) { 
-
-        artObj.src = mainUrl + artObj.src;  
-        var split = artObj.src.split("");  
-        var substr = artObj.src.substring(0, split.length-4); 
-
-        artObj.src3 = substr + "-3.jpg";
-        artObj.detailA = substr + "-a-2.jpg";
-        artObj.detailB = substr + "-b-2.jpg";
-        artObj.detailC = substr + "-c-2.jpg"; 
-        artObj.detailD = artObj.src3;  
-        
-        var divOverlay =  new overlay();
-        var template = underscore.template(divOverlay.rtn());
-        var thisDiv = template(artObj);  
-
-        res.send(thisDiv);
-    } 
-
-    else {
-        var divOverlay =  new overlay();
-        var template = underscore.template(divOverlay.rtn());
-        var thisDiv = template(artObj);   
-        res.send(thisDiv);
-    }  
-});
-*/
+}); 
 
 app.post('/contact', urlencodedParser, function(req, res){  
 

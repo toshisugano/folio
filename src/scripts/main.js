@@ -311,41 +311,7 @@ function setIcons(){
 			$('.socialLinks.' + that.name).append(htmlTemp);
 		}
 	}
-} 
-  
-function changePage(input){  
-	var num = Number(input);  
-	if (num === 1 /*&& winWidth > 500*/){
-		$('#prevArrow').css('opacity', '.5').addClass('not-active'); 
-		$('#nextArrow').css('opacity', '1').removeClass('not-active');
-		//toggleIMG(artIndex, "large", 100); 
-	}
-	/*else if (input === 1 && winWidth < 500){
-		$('#prevArrow').css('opacity', '.5').addClass('not-active'); 
-		 //toggleIMG(artIndex, "small", 100);
-	}*/
-	else if (num === 2 /*&& winWidth > 500*/){
-		$('#prevArrow').css('opacity', '1').removeClass('not-active');
-		$('#nextArrow').css('opacity', '.5').addClass('not-active');
-		//toggleIMG(artIndex, "large", 100);
-		 
-	}
-	/*else if (input === 2 && winWidth < 500){
-		$('#prevArrow').css('opacity', '1').removeClass('not-active');
-		$('#nextArrow').css('opacity', '1').removeClass('not-active');
-		//toggleIMG(artIndex, "small", 100);
-	}
-	else if (input === 3 && winWidth > 500) {
-		$('#nextArrow').css('opacity', '.5').addClass('not-active'); 
-		//toggleIMG(artIndex, "large", 100);
-	} 
-	else if (input === 3 && winWidth < 500) {
-		$('#nextArrow').css('opacity', '.5').addClass('not-active'); 
-		//toggleIMG(artIndex, "small"); 
-        $('#artRow3-b img').css("display", "none");  
-        $('#artRow3-c img').hide();
-	} */
-}     
+}  
  
 function getJSONs(){  
 	//Load article1 template
@@ -428,115 +394,21 @@ function getJSONs(){
 
 	} 
   
-}	 
+}	   
  
+function initLinks() {  
 
-$('.links').on('click', function(){  
-	var that = $(this); 
-	that.parent().siblings().children().children().attr('style', 'color : $vanilla');
-	var id = that[0].id; 
-	var child = $('#' + id).children()[0]; 
-	$(child).attr('style', 'color : red'); 
-	window.location.href = "http://www.thesoogie.com/" + id;
-	console.log(id);
-});  
-
-$('.nextButton').on('click', function(e){
-	e.preventDefault();
-	var thisId = $(this).attr('id'); 
-	if (thisId === 'prevArrow'){ 
-		currPage--; 
-		sessionStorage.setItem("currPage", currPage); 
-		changePage(currPage);
-		window.location.href = "?page=" + currPage + "&winWidth=" + winWidth;
-	}
-	if (thisId === 'nextArrow'){
-		currPage++; 
-		sessionStorage.setItem("currPage", currPage); 
-		changePage(currPage); 
-		window.location.href =  "?page=" + currPage + "&winWidth=" + winWidth;
-	} 
-});  
-
-
-function calcShipping() {
-	nodeCart = [];
-
-	if (shipType === "US") { 
-		$('#shippingTotal').html("Shipping : $0.00"); 
-		$('#finalTotal').html("Total : $" + grandTotal + ".00");
-	} 
-
-	else if (shipType === "intl") {
-		shipCal = 1 * totalPrints; 
-		finalTotal = grandTotal + shipCal;
-		$('#shippingTotal').html("Shipping : $" + shipCal + ".00"); 
-		$('#finalTotal').html("Total : $" + finalTotal + ".00");
-	}
-	else if (shipType === undefined){
-		$('#finalTotal').html("Total : $" + grandTotal + ".00");
-	}
-
-	for (j=0; j<shoppingCart.length; j++) {
-		var arr = []; 
-		arr.push(shoppingCart[j].id);
-		arr.push(shoppingCart[j].quantity); 
-		nodeCart.push(arr);
-	}
-
-	nodeCart = nodeCart.toString();
-
-}
-
-function artLink() {
-	window.location =  "art" + "?page=1&winWidth=" + winWidth; 
-}
-
-function initLinks() { 
-	/*$('#art').on('click', function(e){ 
+	$('.links').on('click', function(e){  
 		e.preventDefault();
-		//window.location =  "art" + "?page=1&winWidth=" + winWidth; 
-	});
-*/
-
-	$('#menuItems').on('click', function(e){ 
-		console.log($(this)[0].children);
-	});
-
-	$('.close-up').on('click', function(){ 
-		var thisURL = $(this)[0].src;
-		var split = thisURL.split(""); 
-		var spliced = thisURL.substring(0, split.length-6); 
-		var newURL; 
-		if ($(this)[0].id === "detail-d") {
-			newURL = spliced + "-3.jpg";
-		}
-		else {
-			newURL = spliced + ".jpg";
-		} 
-		$('#detail-main').attr("src", newURL);
-	});
-
-	$('#overlay-close').on('click', function(e){ 
-		e.preventDefault(); 
-		window.location = mainUrl + "art";  
-	});
-
-	$('.artClick').on('click', function(e){
-		e.preventDefault();   
-		var id = $(this).children().children()[0].id;
-		window.location = "art" + "/" + id;
-		sessionStorage.setItem("scrollTop", scrollTop); 
-		sessionStorage.setItem("artId", id);
-	}); 
-
-	/*$('.cartButton').on('click', function(e){
-		 
-	}); 
-
-	$('#cartCount, .fa-shopping-cart').on('click', function(e){ 
-		 
-	});*/
+		alert("done");
+		var that = $(this); 
+		that.parent().siblings().children().children().attr('style', 'color : $vanilla');
+		var id = that[0].id; 
+		var child = $('#' + id).children()[0]; 
+		$(child).attr('style', 'color : red'); 
+		location.href = "http://www.thesoogie.com/" + id;
+		console.log(id + "this");
+	});   
 
 	$('#bars').on('click', function(){  
 
@@ -606,59 +478,8 @@ function initLinks() {
 		else {
 			$(this).parent().parent().prev().children().html(num);
 			$(this).parent().parent().prev().prev().prev().children().html(total);
-		} 
-		calcShipping();
-	});
-
-	$('#shipinUS').on('click', function(e){  
-		shipType = "US";  
-		calcShipping();
-		if ($('#shipinUS').attr('checked')) {
-			$('#shipinUS').removeAttr('checked');
-		}
-		else {
-			$('#shipinUS').attr('checked', 'true');
-			$('#shipoutUS').removeAttr('checked');
-		}
-	});
-
-	$('#shipoutUS').on('click', function(e){   
-		var shipCal = 1 * totalPrints;
-		shipType = "intl";
-		calcShipping();
-		$('#shippingTotal').html("Shipping : $" + shipCal + ".00"); 
-		if ($('#shipoutUS').attr('checked')) {
-			$('#shipoutUS').removeAttr('checked');
-		}
-		else {
-			$('#shipoutUS').attr('checked', 'true');
-			$('#shipinUS').removeAttr('checked');
-		}
+		}  
 	}); 
-
-	$('.removeItem').on('click', function(e){
-		e.preventDefault();
-		var id = $(this).parent().prev().prev().prev().prev().children()[0].id;
-		var arr = JSON.parse(sessionStorage.cart); 
-		
-		for (i=0; i<arr.length; i++) {
-			if (arr[i] === id) {
-				console.log(id);
-				arr.splice(i, 1);
-			}
-		} 
-
-		sessionStorage.cart = JSON.stringify(arr); 
-		window.location.href = mainUrl;
-	});
-
-	$('#checkOut').on('click', function(e){
-		e.preventDefault();
-		var url = window.location.href;
-		var split = url.split("");
-		var newUrl = url.slice(0, url.length-4);
-		window.location = newUrl + "create" + "?total=" + finalTotal + "&cart=" + nodeCart;
-	});
 
 }  
 
@@ -678,14 +499,11 @@ $(document).ready(function(){
 	setBG();
 	flickrAPI();  
 	dims();
-	theDate();
-	cartCount(); 
-	//Populates the news and team page
+	theDate(); 
 	getJSONs();    
 	//Sets ICONS 
 	setTimeout(setIcons, 1200);  
 	setTimeout(initImg, 1200); 
 	setTimeout(initLinks, 1200); 
-	sessionStorage.setItem("mainUrl", mainUrl);  
-	changePage(sessionStorage.currPage || currPage);   
+	sessionStorage.setItem("mainUrl", mainUrl);      
 }); 
