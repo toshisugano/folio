@@ -201,7 +201,7 @@ app.post('/contact', urlencodedParser, function(req, res){
         from: 'youremail@gmail.com',
         to: 'onagususa@gmail.com',
         subject: 'Sending Email using Node.js',
-        text: 'You received a message from' + req.body.email;
+        text: 'You received a message from' + req.body.email
       };    
 
       transporter.sendMail(mailOptions, function(error, info){
