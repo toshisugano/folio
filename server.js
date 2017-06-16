@@ -189,7 +189,7 @@ app.post('/contact', urlencodedParser, function(req, res){
 
       message.save(); 
 
-      var transporter = nodemailer.createTransport({
+      /*var transporter = nodemailer.createTransport({
         service: 'gmail',
         auth: {
           user: 'onagususa@gmail.com',
@@ -210,7 +210,7 @@ app.post('/contact', urlencodedParser, function(req, res){
         } else {
           console.log('Email sent: ' + info.response);
         }
-      });   
+      });   */
 
   });    
 
