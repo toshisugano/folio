@@ -200,8 +200,7 @@ function initImg(){
 	var vidWidth = winWidth/1.5;
 	var vidHeight = vidWidth/1.3333;   
 	var midImgHeight = $('#artRow2').height() + 80;
-	var midHeight = -Math.abs(midImgHeight / 2);
-	$('.nextButton').css('margin-top', midHeight);
+	var midHeight = -Math.abs(midImgHeight / 2); 
 	if (winWidth > 768) {
 		$('#mainBG').attr('src', mainBG.construct(mainBG.large)); 
 		$('#newsHeader').attr('src', 'images/newsBar.jpg');
@@ -400,20 +399,6 @@ function getJSONs(){
   
 }	
 
-$('#bars').on('click', function(){  
-
-		$("#menuItems").animate({height: "355px"});
-		$('#announcements').attr('margin-top', '-11px');
-		$('#bars').attr('opacity', '0.5').addClass('inactive');
-		$("#menuItems").append(
-			'<li><a id="about" style="" href="about"><h3>HOME</h3></a></li>' +
-			'<li><a id="news" style="" href="news"><h3>NEWS</h3></a></li>' +
-	        '<li><a id="art" style="" href="art?page=1&winWidth=525"><h3>ART</h3></a></li>' +
-	        '<li><a id="team" style="" href="team"><h3>FRIENDS</h3></a></li>'+  
-            '<li><a id="contact" class="links" style="" href="contact"><h3><i class="fa fa-envelope" aria-hidden="true"></i>'
-	    );
-	    initLinks();
-	});    
 
  
 function initLinks() {  
@@ -429,7 +414,21 @@ function initLinks() {
 		console.log(id + "this");
 	});   
 
-	
+	$('#bars').on('click', function(){  
+
+		$("#menuItems").animate({height: "355px"});
+		$('#announcements').attr('margin-top', '-11px');
+		$('#bars').attr('opacity', '0.5').addClass('inactive');
+		$("#menuItems").append(
+			'<li><a id="about" style="" href="about"><h3>HOME</h3></a></li>' +
+			'<li><a id="news" style="" href="news"><h3>NEWS</h3></a></li>' +
+	        '<li><a id="art" style="" href="art?page=1&winWidth=525"><h3>ART</h3></a></li>' +
+	        '<li><a id="team" style="" href="team"><h3>FRIENDS</h3></a></li>'+  
+            '<li><a id="contact" class="links" style="" href="contact"><h3><i class="fa fa-envelope" aria-hidden="true"></i>'
+	    );
+	    initLinks();
+	});    
+
 
 	$('.plusSign').on('click', function(e){
 		e.stopImmediatePropagation();
