@@ -61,13 +61,7 @@ var mainUrl = '//www.thesoogie.com/';
 var images = fs.readFileSync(__dirname + '/dist/json/images.json'); 
 
 var jsonImages = JSON.parse(images);
-   
-var currPage = 1; 
-
-//var clientId = 'Ab-5KXy0DQVuy-RoIt-cM0LXscYCQ0wKMLnBh1X_omBzzv9NgXzw5Hg5samAPS8UxjNAwQfVFwkxIZAp';
-var clientId = 'AT57UwwDwMyJTgYc4HLxcGyCQVHVHnkJH_B0Av3jsKiMhrh_n3oov8kOSC4PFac2YzZ-C951qRP0mmof';
-//var secret = 'EHN-W21_7yKiaz1CDc_7q5q-ldruVyIIRkxZCw7FFQlBnV5_USoCeULdU7gkfr126hlrRNQOqnA5yajL';
-var secret = 'ENzMgFKmEfIAbYhUQzEQTiQiGlJamwPly8e2ckJYJt-pIS0Wau6yEIx8YuMp35m-r_rwhYz0LoSWAZGl';
+    
 
 var port = process.env.PORT || 8000;  
 
@@ -180,6 +174,8 @@ app.post('/contact', urlencodedParser, function(req, res){
   var conn = mongoose.connection;
   conn.on('error', console.error.bind(console, 'connection error:'));  
   conn.on('open', function() { 
+
+      console.log('db open');
     
       var message = new Message({
           name : req.body.name,
