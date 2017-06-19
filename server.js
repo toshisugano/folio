@@ -161,10 +161,7 @@ app.get('/projects/:projectId', function(req, res){
             url : "http://WWW.thesoogie.com/cabbitfilms"  
         });  
 
-        project.save().then(function(){
-          console.log('db closed');
-          conn.close();
-        });
+        project.save(); 
 
 
 
@@ -191,7 +188,10 @@ app.post('/contact', urlencodedParser, function(req, res){
           message : req.body.message  
       });  
 
-      message.save(); 
+      message.save().then(function(){
+        console.log('db closed');
+        conn.close();
+      }); 
 
       /*var transporter = nodemailer.createTransport({
         service: 'gmail',

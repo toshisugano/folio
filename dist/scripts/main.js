@@ -362,7 +362,9 @@ function getJSONs(){
 	} 
 
 	else if (route === "olio") {
-		flickrAPI();
+		setTimeout(function(){
+			flickrAPI();
+		}, 500);
 	}
 
 	else if (route === "news") {
@@ -507,7 +509,7 @@ $(document).ready(function(){
 	getJSONs();    
 	//Sets ICONS 
 	setTimeout(setIcons, 1200);  
-	setTimeout(initImg, 1200); 
+	setTimeout(initImg, 1500); 
 	setTimeout(initLinks, 1200); 
 	sessionStorage.setItem("mainUrl", mainUrl);      
 }); 
