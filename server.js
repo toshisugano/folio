@@ -22,6 +22,8 @@ var express = require('express');
 
 mongoose.Promise = global.Promise; 
 
+mongoose.connection.close();
+
 //mongoose.connect(mongoLabs, options); 
 /*mongoose.connect(mongoLabsNews); 
  
@@ -159,9 +161,15 @@ app.get('/projects/:projectId', function(req, res){
             url : "http://WWW.thesoogie.com/cabbitfilms"  
         });  
 
-        project.save(); 
+        project.save().then(function(){
+          console.log('db closed');
+          conn.close();
+        });
+
+
 
     });  
+
 
     res.sendFile(__dirname + '/dist/blank.html');
 
