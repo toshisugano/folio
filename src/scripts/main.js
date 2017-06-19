@@ -362,7 +362,9 @@ function getJSONs(){
 	} 
 
 	else if (route === "olio") {
-		flickrAPI();
+		setTimeout(function(){
+			flickrAPI();
+		}, 500);
 	}
 
 	else if (route === "news") {
