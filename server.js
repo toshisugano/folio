@@ -139,84 +139,59 @@ app.get('/folio', function(req, res ){
 });
 
 app.get('/contact', function(req, res){
-  res.sendFile(__dirname + '/dist/contact.html');
-});
-
-app.get('/projects/:projectId', function(req, res){
-
-    var projectId = req.params['projectId'];
-    console.log(projectId);
-
-    mongoose.connect(mongoLabsProjects); 
-   
-    var conn = mongoose.connection;
-    conn.on('error', console.error.bind(console, 'connection error:'));  
-    conn.on('open', function() {
-
-        conn.db.dropCollection('projects', (err, result) => {});  
-
-        var project = new ProjectArticle({
-            title : projectId,
-            linkText : "Link",
-            url : "http://WWW.thesoogie.com/cabbitfilms"  
-        });  
-
-        project.save(); 
-
-
-
-    });  
-
-
-    res.sendFile(__dirname + '/dist/blank.html');
-
-}); 
-
-app.post('/contact', urlencodedParser, function(req, res){  
 
   mongoose.connect(mongoLabsMessages, options); 
  
   var conn = mongoose.connection;
   conn.on('error', console.error.bind(console, 'connection error:'));  
-  conn.on('open', function() { 
+  conn.on('open', function() {  
+    console.log('db opened'); 
+  });
 
-      console.log('db open');
-    
-      var message = new Message({
-          name : req.body.name,
-          email : req.body.email,
-          message : req.body.message  
+  res.sendFile(__dirname + '/dist/contact.html');
+
+});
+
+app.get('/projects/:projectId', function(req, res){
+
+  var projectId = req.params['projectId'];
+  console.log(projectId);
+
+  mongoose.connect(mongoLabsProjects); 
+ 
+  var conn = mongoose.connection;
+  conn.on('error', console.error.bind(console, 'connection error:'));  
+  conn.on('open', function() {
+
+      conn.db.dropCollection('projects', (err, result) => {});  
+
+      var project = new ProjectArticle({
+          title : projectId,
+          linkText : "Link",
+          url : "http://WWW.thesoogie.com/cabbitfilms"  
       });  
 
-      message.save().then(function(){
-        console.log('db closed');
-        conn.close();
-      }); 
+      project.save();  
 
-      /*var transporter = nodemailer.createTransport({
-        service: 'gmail',
-        auth: {
-          user: 'onagususa@gmail.com',
-          pass: 'Toshi2121'
-        }
-      });
+  });   
 
-      var mailOptions = {
-        from: 'youremail@gmail.com',
-        to: 'onagususa@gmail.com',
-        subject: 'Sending Email using Node.js',
-        text: 'You received a message from' + req.body.email
-      };    
+  res.sendFile(__dirname + '/dist/blank.html');
 
-      transporter.sendMail(mailOptions, function(error, info){
-        if (error) {
-          console.log(error);
-        } else {
-          console.log('Email sent: ' + info.response);
-        }
-      });   */
+}); 
 
-  });    
+app.post('/contact', urlencodedParser, function(req, res){    
+
+  var message = new Message({
+      name : req.body.name,
+      email : req.body.email,
+      message : req.body.message  
+  });  
+
+  console.log(message);
+
+  message.save();   
+  
+  conn.close();
 
   res.sendFile(__dirname + '/dist/contact.html');
 
