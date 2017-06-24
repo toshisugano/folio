@@ -1,0 +1,151 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Leeches</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width">
+        <link rel="shortcut icon" href="/favicon.ico">
+        <link rel="stylesheet" type="text/css" href="styles/main.css"> 
+    
+        <script src="bower_components/jquery/dist/jquery.js"></script> 
+        <script src="bower_components/underscore/underscore-min.js"></script>
+        <script src="bower_components/backbone/backbone.js"></script>
+        <!-- endbuild -->
+    <script type="text/javascript" src="scripts/preloader.js"> 
+    
+    </script>
+        
+    </head>
+    <body>
+    <!--[if lt IE 10]>
+        <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]--> 
+ 
+
+    <div id="image-loader">
+        <ul>
+            <!--<li><img src="images/Leeches-Header-1-Large.jpg" onload="preloaded('A')"/></li>-->
+            <li><img src="images/Leeches-Header-2-Large.jpg" onload="preloaded('B')"/></li>
+            <li><img src="images/Leeches-Header-3-Large.jpg" onload="preloaded('C')"/></li>
+            <li><img src="images/Leeches-Header-4-Large.jpg" onload="preloaded('D')"/></li>
+            <li><img src="images/Leeches-Header-5-Large.jpg" onload="preloaded('E')"/></li>
+        </ul>
+    </div>
+
+    <!-- This is the container for the admin panel -->
+    <div id="overlaycontainer">
+        <div id="overlay-nav">
+        </div>
+        <div id="overlay-app">
+        </div>
+    </div> 
+
+    <div id="sidePanel">
+            <a id="closeButton" onclick="closeSidePanel()" style="float: right;">
+                <div id="closer" style="height:35px; width: 75px; border: 1px solid white">  CLOSE - X </div></a> 
+            <ul id="sidePanelUi">
+                <li><a id="nav-home" href="#/">HOME</a></li>
+                <li><a id="nav-synopsis" href="#/about">ABOUT</a></li>
+                <li><a id="nav-news" href="#/updates">UPDATES</a></li>
+                <li><a id="nav-diary" href="#/festivals">FESTIVALS</a></li>
+                <li><a id="nav-team" href="#/team">TEAM</a></li>
+                <li><a id="nav-news" href="#/watch">WATCH</a></li>
+                <li><a id="nav-contact" href="#/contact">CONTACT</a></li>
+            </ul>
+        </div>
+    <div id="main-container">
+        
+        <!-- This is the black bar where all the social media links reside -->
+        <section class="social-media">
+            <div id="float-right">
+                <a href="https://www.facebook.com/leechesfilm" target="blank"><i class="fa fa-facebook-square sm">&nbsp </i></a>
+                <a href="https://twitter.com/leechesfilm" target="blank"><i class="fa fa-twitter-square sm">&nbsp </i></a>
+                <a href="https://www.youtube.com/user/farfara1561" target="blank"><i class="fa fa-youtube sm">&nbsp </i></a>
+                <a href="https://www.flickr.com/photos/133104268@N05/" target="blank"><i class="fa fa-flickr sm">&nbsp </i></a>
+            </div>
+        </section>
+        <!-- This is the header where the image slider takes place -->
+        <section class="header-container">
+            <img id="img-header" src="images/Leeches-Header-Large.jpg"/>
+        </section>
+        <!-- Container for the navigation -->
+        <nav class="nav-container">
+        </nav>
+        <!-- Container for all the content resides -->
+        <div id="app"> 
+        </div>
+
+        <footer id="footer">
+            <div id="hruler"></div>
+            <div class="footer-container">
+                <div class="float-left">
+                    <a href="http://www.filmkaravan.com" target="blank"><img src="images/logo.png"/></a>
+                    <a href="http://www.laughistan.com" target="blank"><img src="images/logo-2.png"/></a>
+                    <a href="https://www.facebook.com/leechesfilm" target="blank"><i class="fa fa-facebook-square">&nbsp </i></a>
+                    <a href="https://twitter.com/leechesfilm" target="blank"><i class="fa fa-twitter-square">&nbsp </i></a>
+                    <a href="https://www.youtube.com/user/farfara1561" target="blank"><i class="fa fa-youtube">&nbsp </i></a>
+                    <a href="https://www.flickr.com/photos/133104268@N05/" target="blank"><i class="fa fa-flickr">&nbsp </i></a>
+                </div>
+                <div class="float-left" id="footer-text">
+                    <div>
+                    <ul>
+                        <li><a href="#/">HOME</a></li>   
+                        <li><a href="#/about">ABOUT</a></li>
+                        <li><a href="#/team">TEAM</a></li>
+                        <li><a href="#/updates">UPDATES</a></li>
+                        <li><a href="#/contact">CONTACT</a></li>
+                    </ul>
+                    </div>
+                </div>
+                <div class="float-left" id="footer-text">
+                    <div>
+                    <ul>
+                        <li><a href="#/login">LOGIN</a></li>   
+                        <li><a href="#/synopsis">FESTIVALS</a></li>
+                        <li><a href="#/team">CROWDFUNDERS</a></li>
+                    </ul>
+                    </div>
+                </div>
+                <div id="notes">
+                    <div>
+                        <p id="notes-copyright"></p>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- build:js scripts/vendor.js -->
+    <!-- bower:js -->
+    
+    
+    <!-- endbower -->
+    <!-- endbuild -->
+
+    <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+    <script>
+        (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
+        function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
+        e=o.createElement(i);r=o.getElementsByTagName(i)[0];
+        e.src='//www.google-analytics.com/analytics.js';
+        r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
+        ga('create','UA-XXXXX-X');ga('send','pageview');
+    </script>
+
+    <!-- build:js({app,.tmp}) scripts/main.js -->
+    
+    <script type="text/javascript" src="scripts/layout.js"></script>
+    <script type="text/javascript" src="scripts/dates.js"></script>
+    <script type="text/javascript" src="scripts/ajaxAPI.js"></script>
+    <script type="text/javascript" src="scripts/backboneModels.js"></script>
+    <script type="text/javascript" src="scripts/backboneViews.js"></script>
+    <script type="text/javascript" src="scripts/backboneCollections.js"></script>
+    <script type="text/javascript" src="scripts/backboneCollectionViews.js"></script>
+    <script type="text/javascript" src="scripts/backboneRouters.js"></script>
+  
+        
+        
+         
+</body>
+</html>

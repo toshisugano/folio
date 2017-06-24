@@ -3,12 +3,14 @@ var express = require('express');
   	http = require('http'); 
   	bodyParser = require('body-parser');
   	app = express();
+    router = express.Router();
   	fs = require('fs');  
     mongoose = require('mongoose'); 
     Schema = mongoose.Schema;
     NewsArticle = require('./src/scripts/news'); 
     ProjectArticle = require('./src/scripts/projects');
     Message = require('./src/scripts/messages');
+
     api = 'FIFTXsj31ugm8JR-8QJM_rodJAei8QyS';
     mongoLocal = 'mongodb://localhost/users_test';
     mongoLabsNews = 'mongodb://thesoogie:Sugi21!!@ds161931.mlab.com:61931/soogiedb/collections/news?apiKey=FIFTXsj31ugm8JR-8QJM_rodJAei8QyS';
@@ -18,7 +20,9 @@ var express = require('express');
     options = { 
                 server: { socketOptions: { keepAlive: 300000, connectTimeoutMS: 30000 } }, 
                 replset: { socketOptions: { keepAlive: 300000, connectTimeoutMS : 30000 } } 
-              }; 
+              };
+
+    projects = require('./routes/projects'); 
 
 mongoose.Promise = global.Promise; 
 
@@ -62,57 +66,18 @@ var mainUrl = '//www.thesoogie.com/';
 
 var images = fs.readFileSync(__dirname + '/dist/json/images.json'); 
 
-var jsonImages = JSON.parse(images);
-    
+var jsonImages = JSON.parse(images); 
 
 var port = process.env.PORT || 8000;  
 
-
-// selects ARTRow img objects and fills in params//
-function artGallery(page, width){    
-
-    var artIndex = page - 1;
-    var artObj = {}; 
-    var src;
-    var count = 0;
-
-    if (width <= 500){
-        src = 'src2';
-    }
-    else {
-        src = 'src';
-    }
-
-    underscore.each(jsonImages[artIndex], function(obj, index){
-
-        var Id = 'id' + obj.index;
-        var Src = 'src' + obj.index;
-        var Title = 'title' + obj.index;
-        var Size = 'size' + obj.index;
-        var Price = 'price' + obj.index;
-        var Paypal = 'paypal' + obj.index; 
-
-        artObj[Id] = obj.id;
-        artObj[Src] = obj[src];
-        artObj[Title] = obj.title;
-        artObj[Size] = obj.size;
-        artObj[Price] = obj.price;
-        artObj[Paypal] = obj.paypal; 
-         
-    });
-
-    return artObj;
-    
-}
- 
-
 app.use(bodyParser.json());
-app.use('/projects/scripts', express.static(__dirname + '/dist/scripts'));
+app.use('/projects', express.static(__dirname + '/projects'));
 app.use('/css', express.static(__dirname + '/dist/css'));
 app.use('/images', express.static(__dirname + '/dist/images'));
 app.use('/scripts', express.static(__dirname + '/dist/scripts'));
 app.use('/templates', express.static(__dirname + '/dist/templates'));
-app.use('/json', express.static(__dirname + '/dist/json'));
+app.use('/json', express.static(__dirname + '/dist/json'));   
+app.use('/projects', projects);
 
 app.get('/cart', function(req, res){
     res.sendFile(__dirname + '/dist/index.html');
@@ -152,32 +117,16 @@ app.get('/contact', function(req, res){
 
 });
 
-app.get('/projects/:projectId', function(req, res){
+//app.get('/projects/*', function(req, res){
 
-  var projectId = req.params['projectId'];
-  console.log(projectId);
+  //var Id = req.params['projectId'];
+  //var projectId = url.slice(10,strLen);
+   
+  //var url = '/projects/' + url+ '/index.html'; 
+  
+  //res.sendFile(__dirname + '/projects/leechesfilm/index.html');
 
-  mongoose.connect(mongoLabsProjects); 
- 
-  var conn = mongoose.connection;
-  conn.on('error', console.error.bind(console, 'connection error:'));  
-  conn.on('open', function() {
-
-      conn.db.dropCollection('projects', (err, result) => {});  
-
-      var project = new ProjectArticle({
-          title : projectId,
-          linkText : "Link",
-          url : "http://WWW.thesoogie.com/cabbitfilms"  
-      });  
-
-      project.save();  
-
-  });   
-
-  res.sendFile(__dirname + '/dist/blank.html');
-
-}); 
+//}); 
 
 app.post('/contact', urlencodedParser, function(req, res){    
 
@@ -185,9 +134,7 @@ app.post('/contact', urlencodedParser, function(req, res){
       name : req.body.name,
       email : req.body.email,
       message : req.body.message  
-  });  
-
-  console.log(message);
+  });   
 
   message.save();   
   
@@ -199,10 +146,6 @@ app.post('/contact', urlencodedParser, function(req, res){
 
 app.get('/team', function(req, res ){
     res.sendFile(__dirname + '/dist/team.html');
-});
-
-app.get('/test', function(req, res ){
-    res.sendFile(__dirname + '/dist/test.html');
 }); 
 
 app.listen(port);
