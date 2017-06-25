@@ -7,5 +7,11 @@ router.get('/leechesfilm', (req, res, next) => {
 	let sliced = routes.slice(0, routes.length-6 );
 	res.sendFile(sliced + 'morgue/leechesfilm/index.html');
 });
+
+router.get('/cabbitfilm', (req, res, next) => { 
+	let routes = __dirname;
+	let sliced = routes.slice(0, routes.length-6 );
+	res.sendFile(sliced + 'morgue/cabbitfilm/index.html');
+});
  
 module.exports = router;

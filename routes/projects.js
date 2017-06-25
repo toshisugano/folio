@@ -14,4 +14,10 @@ router.get('/leechesposter', (req, res, next) => {
 	res.sendFile(sliced + 'projects/leechesposter/about.html');
 });
 
+router.get('/cabbitfilm', (req, res, next) => { 
+	let routes = __dirname;
+	let sliced = routes.slice(0, routes.length-6 );
+	res.sendFile(sliced + 'projects/cabbitfilm/about.html');
+});
+
 module.exports = router;
