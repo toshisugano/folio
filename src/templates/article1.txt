@@ -1,1 +1,0 @@
-<div class="row articleContainer"><div class="innerContainer"><div class="textCenter"><h2 class="articleHeader" > <%= text %> &nbsp--&nbsp<a href="<%= url %>" target="blank"><%= source %></a></h2></div></div></div>
