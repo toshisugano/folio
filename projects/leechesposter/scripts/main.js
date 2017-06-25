@@ -188,12 +188,13 @@ function initLinks() {
 
 	$('.links').on('click', function(e){  
 		e.preventDefault(); 
+		alert('clicked');
 		var that = $(this); 
 		that.parent().siblings().children().children().attr('style', 'color : $vanilla');
 		var id = that[0].id; 
 		var child = $('#' + id).children()[0]; 
 		$(child).attr('style', 'color : red'); 
-		location.href = "http://www.thesoogie.com/" + id;
+		window.location = "http://www.thesoogie.com/" + id;
 		console.log(id + "this");
 	});   
 
