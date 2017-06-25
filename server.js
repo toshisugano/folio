@@ -7,9 +7,9 @@ var express = require('express');
   	fs = require('fs');  
     mongoose = require('mongoose'); 
     Schema = mongoose.Schema;
-    NewsArticle = require('./src/scripts/news'); 
-    ProjectArticle = require('./src/scripts/projects');
-    Message = require('./src/scripts/messages');
+    NewsArticle = require('./dist/scripts/news'); 
+    ProjectArticle = require('./dist/scripts/projects');
+    Message = require('./dist/scripts/messages');
 
     api = 'FIFTXsj31ugm8JR-8QJM_rodJAei8QyS';
     mongoLocal = 'mongodb://localhost/users_test';
