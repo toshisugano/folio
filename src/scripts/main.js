@@ -13,8 +13,7 @@ var folioHeights = [];
 var flickrLength = 0;
 
 var date = new Date(); 
-var year = date.getFullYear();  
-
+var year = date.getFullYear();
 
 var mainBG = new Object(); 
 mainBG.large = 'images/main-bg-'; 
@@ -87,6 +86,7 @@ function setBG(){
 
 function flickrAPI(){
     //create a var that makes a call to the flickr API
+    console.log("I am working");
     var getIMG = "https://api.flickr.com/services/rest/?format=json&method=flickr.photosets.getPhotos&photoset_id=72157645079323413&+description+&api_key=814796ef7eee08b0534ae009b71b62aa&jsoncallback=?";
     //pass the getIMG var through the getJSON function
     $.getJSON(getIMG, function(data){ 
@@ -122,15 +122,18 @@ function flickrAPI(){
                 $.each(data.photo.tags.tag, function(index, object){
                     //Create a variable that stores each of the tags
                     var tagString = object.raw;
-                    var regex = /www/i;
-                    var testregex = regex.test(tagString); 
+                    console.log("TAGSTRING : " + tagString);
+                    var regex = /www/i;  
+                    var testregex = regex.test(tagString);  
+
                     var substr = tagString.substr(4, tagString.split("").length);
-                    var soogStr = substr.substr(0,3);
-                    var a_href = 'http://' + substr;
+                    var soogStr = substr.substr(0,3); 
+                    var a_href = 'http://' + substr; 
                     if (soogStr === "the") {
-                    	a_href = 'http://' + 'www.thesoogie.com';
+                    	a_href = 'http://' + tagString;
                     } 
-                    if (testregex == true) { 
+
+                    if (testregex === true) { 
                         //Create a JQuery div whose class is folioTag
                         var folioFooter = $("<div></div>", {"class": "folioTag"}).appendTo(folio);
                         //Create a variable called valueLink that creates an href incorporating tagString
@@ -142,6 +145,7 @@ function flickrAPI(){
                         //Wrap valueLink with class tagWhite
                         //Append to folio
                         }
+
                  });
 				
 				folioHeights.push($(folio).height());

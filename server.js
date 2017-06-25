@@ -117,17 +117,6 @@ app.get('/contact', function(req, res){
 
 });
 
-//app.get('/projects/*', function(req, res){
-
-  //var Id = req.params['projectId'];
-  //var projectId = url.slice(10,strLen);
-   
-  //var url = '/projects/' + url+ '/index.html'; 
-  
-  //res.sendFile(__dirname + '/projects/leechesfilm/index.html');
-
-//}); 
-
 app.post('/contact', urlencodedParser, function(req, res){    
 
   var message = new Message({
