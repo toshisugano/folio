@@ -185,6 +185,42 @@ function getJSONs(){
   
 }	
   
+
+function setIcons(){
+	for (i=0; i<aboutBios.length; i++){
+		var that = aboutBios[i];
+		if (that.facebook !== ""){ 
+			var template = _.template(socialIcons.facebook);
+			var htmlTemp = template(that);   
+			$('.socialLinks.' + that.name).append(htmlTemp);
+		}
+		if (that.instagram !== ""){
+			var template = _.template(socialIcons.instagram);
+			var htmlTemp = template(that);   
+			$('.socialLinks.' + that.name).append(htmlTemp);
+		}
+		if (that.site !== ""){
+			var template = _.template(socialIcons.site);
+			var htmlTemp = template(that);   
+			$('.socialLinks.' + that.name).append(htmlTemp); 
+		}
+		if (that.vimeo !== ""){
+			var template = _.template(socialIcons.vimeo);
+			var htmlTemp = template(that);   
+			$('.socialLinks.' + that.name).append(htmlTemp);
+		}
+		if (that.twitter !== ""){
+			var template = _.template(socialIcons.twitter);
+			var htmlTemp = template(that);   
+			$('.socialLinks.' + that.name).append(htmlTemp);
+		}
+		if (that.linkedin !== ""){
+			var template = _.template(socialIcons.linkedin);
+			var htmlTemp = template(that);   
+			$('.socialLinks.' + that.name).append(htmlTemp);
+		}
+	}
+}  
  
 function initLinks() {  
 
