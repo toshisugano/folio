@@ -48,6 +48,7 @@ mongoose.connection.close();
   });  */
 
 NewsArticle.find({title : 'New Portolio section up and running!'}, (err, obj) => {
+
   if (obj) {
      for (i=0; i<obj.length; i++) {
       console.log(obj[i].url);
@@ -56,6 +57,7 @@ NewsArticle.find({title : 'New Portolio section up and running!'}, (err, obj) =>
   else {
     console.log(err);
   }
+  
 }); 
 
 var urlencodedParser = bodyParser.urlencoded({

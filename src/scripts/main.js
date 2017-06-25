@@ -85,8 +85,7 @@ function setBG(){
 
 
 function flickrAPI(){
-    //create a var that makes a call to the flickr API
-    console.log("I am working");
+    //create a var that makes a call to the flickr API 
     var getIMG = "https://api.flickr.com/services/rest/?format=json&method=flickr.photosets.getPhotos&photoset_id=72157645079323413&+description+&api_key=814796ef7eee08b0534ae009b71b62aa&jsoncallback=?";
     //pass the getIMG var through the getJSON function
     $.getJSON(getIMG, function(data){ 
@@ -129,6 +128,7 @@ function flickrAPI(){
                     var substr = tagString.substr(4, tagString.split("").length);
                     var soogStr = substr.substr(0,3); 
                     var a_href = 'http://' + substr; 
+
                     if (soogStr === "the") {
                     	a_href = 'http://' + tagString;
                     } 
