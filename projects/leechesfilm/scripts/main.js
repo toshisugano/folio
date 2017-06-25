@@ -40,8 +40,10 @@ function winReload(){
 } 
 
 function setBG(){ 
-	$('#aboutDescription').html('<h1>Project : Leeches Film Poster Design' +
-              					 '<h1>Designer : Toshi Sugano</h1>');
+	$('#aboutDescription').html('<h1>Project : Leeches Film Site' +
+              					'<h1>Designer/Developer : Toshi Sugano</h1>' + 
+              					'<h2>Click <a target="_blank" href="../../morgue/leechesfilm/index.html">HERE </a>to launch site.</h2>'
+              					 );
 } 
 
 function theDate(){
