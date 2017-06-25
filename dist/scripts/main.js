@@ -120,23 +120,28 @@ function flickrAPI(){
 
                 $.each(data.photo.tags.tag, function(index, object){
                     //Create a variable that stores each of the tags
-                    var tagString = object.raw; 
+                    var tagString = object.raw;  
                     var regex = /www/i;  
                     var testregex = regex.test(tagString);   
                     var substr = tagString.substr(4, tagString.split("").length);
-                    var soogStr = substr.substr(0,3); 
-                    var a_href;
-                    var target;
 
-                    if (soogStr === 'htt') {
+                    var soogStr = substr.substr(0,3); 
+                    var a_href = 'http://' + tagString;
+                    var target = "_blank";
+
+                    /*if (soogStr === 'htt') {
                     	a_href = tagString;
                     	target = "_blank";
-                    }
+                    }*/
 
                     if (soogStr === 'the') {
                     	a_href = 'http://' + tagString;
                     	target = '_self';
                     } 
+
+                    if (soogStr === 'tos') {
+                    	a_href = 'http://toshiblog.herokuapp.com';
+                    }
 
                     if (testregex === true) { 
                         //Create a JQuery div whose class is folioTag
