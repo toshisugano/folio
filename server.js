@@ -23,6 +23,7 @@ var express = require('express');
               };
 
     projects = require('./routes/projects'); 
+    morgue = require('./routes/morgue');
 
 mongoose.Promise = global.Promise; 
 
@@ -74,12 +75,14 @@ var port = process.env.PORT || 8000;
 
 app.use(bodyParser.json());
 app.use('/projects', express.static(__dirname + '/projects'));
+app.use('/morgue', express.static(__dirname + '/morgue'));
 app.use('/css', express.static(__dirname + '/dist/css'));
 app.use('/images', express.static(__dirname + '/dist/images'));
 app.use('/scripts', express.static(__dirname + '/dist/scripts'));
 app.use('/templates', express.static(__dirname + '/dist/templates'));
 app.use('/json', express.static(__dirname + '/dist/json'));   
 app.use('/projects', projects);
+app.use('/morgue', morgue);
 
 app.get('/cart', function(req, res){
     res.sendFile(__dirname + '/dist/index.html');
