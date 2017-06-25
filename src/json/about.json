@@ -1,0 +1,62 @@
+[
+    { 
+        "id" : 1, 
+        "name" : "john",
+        "text" : "John is a producer and sound designer from Los Angeles.",
+        "img" : "images/bio-john.jpg",
+        "facebook" : "",
+        "twitter" : "https://twitter.com/designingsound",
+        "linkedin" : "https://www.linkedin.com/in/john-kassab-a3591810",
+        "vimeo" : "https://vimeo.com/prospektfilm",
+        "instagram" : "",
+        "site" : "http://www.johnkassab.com/"       
+    },
+    {
+        "id" : 2,
+        "name" : "emma",
+        "text" : "Emma Koster is a digital artist from Berlin.",
+        "img" : "images/bio-emma.jpg",
+        "facebook" : "",
+        "twitter" : "",
+        "linkedin" : "https://au.linkedin.com/in/emmakoster",
+        "instagram" : "",
+        "vimeo" : "",
+        "site" : "http://www.theloop.com.au/emmakoster/portfolio/Production-Project-Manager/Melbourne"   
+    },
+    {
+        "id" : 3,
+        "name" : "kadavre",
+        "text" : "Kadavre Exquis is an animator and graphic designer from France.",
+        "img" : "images/bio-kadavre.jpg",
+        "facebook" : "https://www.facebook.com/Kadavrexquis/",
+        "twitter" : "https://twitter.com/kadavreexquis",
+        "linkedin" : "",
+        "instagram" : "",
+        "vimeo" : "",
+        "site" : "http://kadavrexquis.com"   
+    },
+    {
+        "id" : 4,
+        "name" : "matt",
+        "text" : "Matt Arnold is a video effects artist from Melbourne.", 
+        "img" : "images/bio-matt.jpg",
+        "facebook" : "",
+        "twitter" : "",
+        "linkedin" : "https://au.linkedin.com/in/matt-arnold-ba71a770",
+        "instagram" : "",
+        "vimeo" : "https://vimeo.com/user5081418",
+        "site" : "http://mattarnold.com.au/"   
+    }, 
+    {
+        "id" : 5,
+        "name" : "andre",
+        "text" : "Andre Gorgievski is a talented video editor from Melbourne.", 
+        "img" : "images/bio-andre.jpg",
+        "facebook" : "https://www.facebook.com/andre.gorgievski",
+        "twitter" : "",
+        "linkedin" : "https://au.linkedin.com/in/andregorgievski",
+        "instagram" : "https://www.instagram.com/andregphotoart/",
+        "vimeo" : "https://vimeo.com/user1772475",
+        "site" : ""   
+    }
+]

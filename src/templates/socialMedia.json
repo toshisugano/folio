@@ -1,0 +1,15 @@
+[
+	{
+		"facebook" : "<li><a style='' href='<%= facebook %>' target='blank'><h3><i class='fa fa-facebook-official fa-lg' aria-hidden='true'></i></h3></a></li>",
+		"twitter" : "<li><a style='' href='<%= twitter %>' target='blank'><h3><i class='fa fa-twitter fa-lg' aria-hidden='true'></i></h3></a></li>",
+		"linkedin" : "<li><a style='' href='<%= linkedin %>' target='blank'><h3><i class='fa fa-linkedin fa-lg' aria-hidden='true'></i></h3></a></li>",
+		"vimeo" : "<li><a style='' href='<%= vimeo %>' target='blank'><h3><i class='fa fa-vimeo-square fa-lg' aria-hidden='true'></i></h3></a></li>",
+		"instagram" : "<li><a style='' href='<%= instagram %>' target='blank'><h3><i class='fa fa-instagram fa-lg' aria-hidden='true'></i></h3></a></li>",
+		"site" : "<li><a style='' href='<%= site %>' target='blank'><h3><i class='fa fa-home fa-lg' aria-hidden='true'></i></h3></a></li>"
+	}
+]
+
+
+
+
+

@@ -1,0 +1,1139 @@
+/*VARIABLES*/
+$vanilla : #ecf2d9;
+$vanillaDark : #dbe0cb;
+$lightgreen : #738414;
+$midgreen : #aaa9a9;
+$darkgreen : #c2c7cb;
+$grey : #6e6e6e;
+$darkgrey : #494745;
+$offwhite : #eff7d9; 
+$babyblue : #d6dbdf;
+$darkbabyblue : #dce5ec;
+$image-width : 100%;
+
+/*MIXINS*/
+.maxWidth {
+  max-width: 1100px;
+  margin-left : auto;
+  margin-right : auto; 
+  display : block;
+}
+
+.vanillaFont {
+  font-family : 'Roboto';
+  color : $offwhite;
+}  
+
+.stylishFont {
+  font-family : 'Impact';
+  color : $grey;
+  line-height : 135%;
+}
+
+.not-active {
+   pointer-events: none;
+   cursor: default;
+}
+
+.folioArticle {
+  position : relative;
+  width : 100%;  
+  display : inline-block;
+  background-color : $babyblue;  
+  text-align : center;  
+  padding-bottom : 20px; 
+  padding-top : 20px;
+  h3 {  
+    color : $darkgrey;
+    padding-left : 30px;
+    padding-right : 30px;
+  }
+}
+
+.folioHeader {
+  position : relative;
+  width : 100%; 
+  display : block;
+  background-color : black;  
+  text-align : center;  
+  padding-top : 10px; 
+  margin-bottom : -10px;
+  h3 {
+    margin-top : -10px;
+    color : $offwhite;
+  }
+}
+
+.tag {
+    padding: 5px 5px 5px 5px;
+    background: $darkgrey;
+    display: inline-block;
+    border: #fceecb 2px solid;
+    border-radius: 7px;
+    margin: 5px 5px 0 0;
+    color: $vanilla;
+}
+
+html { 
+    -webkit-font-smoothing: antialiased;
+    -webkit-text-stroke: rgba(255,255,255,0.01) 0.1px;
+    width : 100%; 
+} 
+
+body { 
+    background: white;
+    color: white; 
+    text-decoration: none;
+    font-size: 14px;
+    line-height: 1;
+    background-position: center; 
+    width: 100%;    
+} 
+
+h1 {
+  @extend .vanillaFont;
+  font-size : 3rem;
+}
+
+h2 {
+  
+  font-size: 2.5rem
+}
+
+h2.articleHeader {
+  @extend .stylishFont;
+}
+
+h2.bioHeader {
+  @extend .stylishFont;
+  color : black;
+}
+
+h3 {
+  @extend .vanillaFont;
+  font-size : 2rem;
+}
+
+h4 {
+  @extend .vanillaFont;
+  font-size : 1.5rem;
+}
+
+h5 {
+  font-family : 'Anton';
+  font-size : 5rem;
+}
+
+li {
+  list-style-type: none;
+}
+
+hr {
+  max-width : 90%;
+  background-color : black;
+  height : 3px;
+}
+ 
+#overlaycontainer {
+  display: block;
+  height: 100%;
+  width: 100%; 
+  position: fixed;
+  z-index: 100;  
+  border : solid 4px $darkgreen;
+  background-color: $vanilla;
+  overflow : scroll;
+}
+
+#overlay-app { 
+  height: 100%;
+  width: 100%;
+  padding: 5px 5px 3px 5px;
+  text-align: center; 
+  display: block;
+  position: relative;   
+} 
+
+#overlay-close {
+  background-color : $lightgreen;
+  border-radius : 5px; 
+  height : 40px;
+}
+
+#overlay-close h2{
+  line-height : 40px;
+  vertical-align : center;
+  display : inline;
+  position : relative;
+  top : 0;
+}  
+  
+#overlay-close-up { 
+  width : 45%;
+  float : left;
+  position : relative;
+  display : inline-block;
+}
+
+#detail-main {
+  width : 100%; 
+  margin-top : 5px; 
+  margin-bottom : 5px;
+}
+
+.close-up {
+  width : 25%; 
+  margin-top : 0;
+  margin-left : 0;
+  margin-right : -4px;
+  display : inline; 
+  border : 0px;
+  margin-bottom : -6px;
+}
+
+#overlay-description { 
+  width : 54%;
+  float : left;
+  height : 100%;
+  position : relative;
+  display : inline-block;
+}
+
+#overlay-description hr{
+  width : 90%;
+  border : 1px solid $darkgreen;
+} 
+
+#overlay-description h2, h3, h4 {
+  color : $darkgreen;
+}
+
+#add-cart{
+  background-color : $darkgreen;
+  border-radius : 5px; 
+  height : 40px;
+  width : 200px;
+}
+
+#add-cart h2{
+  line-height : 40px;
+  vertical-align : center;
+  display : inline;
+  position : relative;
+  top : 0;
+}  
+
+.cartButton {
+  height : 50px;
+  width : 150px;
+  background-color : $midgreen;
+  text-align : center;
+  margin-left : auto;
+  margin-right : auto;
+}
+
+.cartButton h3 {
+  color : $vanilla;
+  line-height : 50px;
+  vertical-align : center;
+}
+
+#buyitnow { 
+  margin-left : auto;
+  margin-right : auto;
+  padding-top : 20px; 
+  padding-bottom : 30px;
+}
+
+#key {
+  display : none;
+}  
+
+#mainContainer {
+  background-color : $darkgreen;     
+  margin-left : 0px;   
+  margin-right : 0px; 
+  height : 100%;
+} 
+
+#pageCenter {  
+  width : 100%;  
+  height : 50px;  
+  background-color : black;
+  margin-top : 0px; 
+  position : fixed; 
+  margin-left : auto;
+  margin-right : auto;
+  display : block;  
+  z-index : 10;  
+}
+
+#pageCenter h3{ 
+  top : 0;  
+  margin-top : 5px;
+  display : inline-block;
+  line-height : 40px;
+  vertical-align : middle;
+  padding-top : 0px;
+  padding-left : 15px; 
+  @extend .vanillaFont;
+}
+
+#navLinks {
+  max-width : 600px; 
+  height : 50px;
+  position : relative;
+  margin-right: auto;
+  margin-left : auto;
+  display : block;
+  text-align : center;
+  left : -15px;
+} 
+
+#navLinks li {
+  display :  inline-block; 
+}
+
+#bars {
+  margin-top : 8px;
+  margin-bottom : 5px;
+  opacity : 1.0;
+}
+
+.inactive {
+  pointer-events: none;
+  cursor: default;
+}
+
+#socialLinks {   
+  float : right; 
+  display : inline;  
+  height : 40px; 
+  margin-top : -55px;   
+  padding-bottom : 10px; 
+  padding-right : 10px;
+  border-radius : 15px;   
+  margin-left : auto;
+  margin-right : auto; 
+}
+
+#addthis {
+  margin-left : auto;
+  margin-right : auto; 
+  margin-bottom : 20px; 
+}
+
+#socialLinks li {
+  display : inline-block; 
+  /*line-height : 55px;*/
+  vertical-align : middle;
+} 
+
+#copyright {
+  position : relative;
+  display : block;
+  height : 50px;
+  padding-bottom : 20px;
+}
+
+#fbRecommend { 
+  height : 30px;
+} 
+
+.fa-shopping-cart {
+  line-height : 55px;
+  margin-right : 10px;
+}
+
+#cartCount h3{
+  margin-top : 8px;
+}
+
+#menu {
+  display : none;
+}
+
+#menuItems {
+  position : relative; 
+  margin-top : -11px;
+  background-color : black;
+  height : 0px;
+};
+
+#announcements {
+  position : relative;
+  width : 100%;
+  height : 20px;
+  display : inline-block;
+  background-color : $midgreen;  
+  text-align : center;  
+  box-shadow : 0px 0px 25px black;
+  margin-top : 0px; 
+}  
+
+#announcements h4 {
+  line-height : 20px;
+  color: black;
+  margin-top : 0px;
+}
+
+#folioArticle1 { 
+  @extend .folioArticle; 
+} 
+
+#folioHeader1 { 
+  @extend .folioHeader;  
+} 
+
+#folioArticle2 { 
+  @extend .folioArticle;
+  padding-top : 20px;
+  h3 { 
+    padding-left : 30px;
+    padding-right : 30px;
+  }
+} 
+
+#folioHeader2 { 
+  @extend .folioHeader; 
+  h3 {
+    color : $offwhite;
+  }
+} 
+
+
+.folioDiv20 {
+    margin: 0px 20px 0px 0px;
+    display: inline-block;
+    position : relative;
+    width: 250px;
+    height : 100%; 
+    background-color: #494745;
+    vertical-align: top;  
+    margin-bottom : 20px;  
+}
+
+
+.folioImage20 {
+    width: 100%;
+}
+
+.folioImage20 img{ 
+    width: 100%;
+    background-color: #494745;
+}
+
+.folioDescription20 {
+    background-color: #494745;
+    padding: 10px 2px 10px 2px;
+    overflow: hidden;
+    margin: 0px auto;
+    font-size: 2rem;
+    font-family:  arial, sans-serif;
+}
+
+.folioTitle {
+    padding-top: 5px;
+    background-color: #494745;
+    font-family: 'Roboto', arial, sans-serif;
+    font-size: 2em;
+    margin-top : 5px;
+}
+
+.folioTag {
+    background-color: #f7b321;
+    padding: 5px 10px 5px 10px;
+    border-radius: 6px;
+    color: white;
+    margin: 0px auto;
+    white-space: nowrap;
+    width: 50%; 
+    margin-bottom : 20px;
+
+}
+
+.folioTag a {
+    font-size : 1.25rem;
+}
+
+
+#content {
+  @extend .maxWidth;
+  margin-top : 58px;
+}
+
+#aboutContainer { 
+  @extend .maxWidth;
+  background-color : black;  
+  margin-top : 20px; 
+}
+
+#mainBG {
+  margin-top : -11px;
+  width : 100%; 
+}
+
+#aboutDescription { 
+  @extend .maxWidth;  
+  background-color : black;
+  text-align : center;
+  padding-bottom : 20px; 
+}
+
+#watchContainer {
+  @extend .maxWidth;
+  background-color : $babyblue;
+  ; 
+  text-align : center;
+  padding-top : 20px;
+  padding-bottom : 20px;
+}
+
+#video {
+  max-width : 640px;
+  max-height : 480px;
+  display : inline-block;
+  margin-left : 9px;
+  padding-right : 20px;
+  background-color : black;
+  border : 6px solid $darkbabyblue;
+}
+ 
+#newsContainer {
+  @extend .maxWidth;  
+}   
+
+#newsHeader {
+  width : 100%;
+}
+
+#folioHeader {
+  width : 100%;
+}
+
+.articleContainer {
+  @extend .maxWidth;
+  background-color : $babyblue; 
+  text-align : center;  
+  min-height : 300px;  
+}
+
+.articleContainer2 {
+  @extend .articleContainer;
+  background-color : $darkbabyblue;
+}
+
+.articleHeader {
+  color : $grey; 
+  text-align : center;
+}
+
+.innerContainer {
+  padding-right : 20px;
+  padding-left : 20px;
+  padding-top : 20px;
+  padding-bottom : 20px;
+  @extend .maxWidth;
+  display : table; 
+  min-height : 300px;
+}
+
+.textCenter {
+  vertical-align : middle;
+  max-width : 1000px;
+  width : 100%;
+  display : table-cell;
+  position : relative; 
+}
+
+#folioContainer {
+  @extend .maxWidth;  
+} 
+
+#artContainer {
+  @extend .maxWidth;
+}
+
+#artHeader {
+  width : 100%;
+}
+
+#artGallery {
+@extend .maxWidth;
+  background-color : $offwhite; 
+}
+
+.nextButton {  
+  position : relative;  
+  background-color : white;
+  height : 50px; 
+  margin-top : -200px;
+}
+
+#prevArrow { 
+  float : left;  
+  box-shadow: 0px 0px 30px #fff;
+  opacity : .5;
+}
+
+#nextArrow { 
+  float : right; 
+  box-shadow: 0px 0px 30px #fff;
+}
+
+#artFrame {  
+  margin-left : 20px;
+  margin-right : 20px;
+  margin-top : 20px;
+  margin-bottom : 20px;
+  display : block; 
+}
+
+#artRow1 {
+  @extend .maxWidth;
+  min-height : 50px;   
+  margin-bottom : 10px;
+  width : 90%;
+}
+
+#artRow1-a {
+  float : left; 
+  position : relative; 
+  min-height : 50px; 
+  width : 50%;
+}
+
+#artRow1-a img{
+  width : 100%;
+  padding-right : 5px;
+}
+
+#artRow1-b {
+  float : right; 
+  position : relative; 
+  min-height : 50px; 
+  width : 50%; 
+}
+
+#artRow1-b img{
+  width : 100%;
+  padding-left : 5px; 
+}
+
+#artRow2 { 
+  @extend .maxWidth; 
+  position : relative;    
+  margin-top : 10px; 
+  margin-bottom : 10px;
+  width : 90%;
+}
+
+#artRow2 img{
+  width : 100%; 
+} 
+
+#artRow3 {
+  @extend .maxWidth;
+  min-height : 50px; 
+  position : relative; 
+  margin-top : 10px;  
+  width : 90%;
+}
+
+#artRow3-a {
+  float : left; 
+  position : relative;  
+  width : 33.3333%;  
+  min-height : 50px; 
+  display : inline-block; 
+}
+
+#artRow3-a img{
+  width : 100%; 
+}
+
+#artRow3-b {
+  float : left; 
+  position : relative; 
+  min-height : 50px; 
+  width : 33.333%;   
+  display : inline-block; 
+}
+
+#artRow3-b img{
+  width : 100%; 
+}
+
+#artRow3-c {
+  float : left; 
+  position : relative; 
+  min-height : 50px; 
+  width : 33.3333%;  
+  display : inline-block; 
+}
+
+#artRow3-c img{
+  width : 100%; 
+} 
+
+#teamContainer {
+  @extend .maxWidth;
+}
+
+#teamHeader {
+  width : 100%;
+} 
+
+.bioContainer {
+  @extend .maxWidth;
+  background-color : $darkbabyblue; 
+  text-align : center;  
+  min-height : 200px;  
+}
+
+.bioHeader {
+  margin-top : 7px;
+  width : 100%;
+}
+
+.bioContainer2 {
+  @extend .articleContainer;
+  background-color : $babyblue;
+  text-align : center;  
+  min-height : 200px;
+} 
+ 
+.bioinnerContainer { 
+  padding-top : 50px;
+  padding-bottom : 20px;
+  @extend .maxWidth;
+  display : table; 
+  min-height : 200px;
+  padding-left : 10px;
+  padding-right : 10px;
+}
+
+.socialLinks {
+  clear : both;  
+  position : relative;
+  margin-right: auto;
+  margin-left : auto;
+  display : block;  
+  text-align : center; 
+  left : -25px;
+  top : -15px;
+} 
+
+.socialLinks li {
+  display : inline-block;
+  margin-left : 5px; 
+}
+
+#contactContainer { 
+  width : 100%;
+  text-align : center;
+  position : relative;
+  display : block;
+  background-color : $darkgrey;
+  min-height : 250px;
+  padding-top : 125px;
+  padding-bottom : 125px;
+}
+
+#contactHeader {
+  position : relative;
+  width : 100%; 
+  display : block;
+  background-color : black;  
+  text-align : center;   
+  margin-bottom : -10px;
+  h3 {
+    margin-top : -10px;
+    color : $offwhite;
+  }
+}
+
+#contact-f {  
+  position : relative;
+  display : inline-block;
+  margin : 0 auto;
+
+}
+
+#sample1 {
+  background-color : white;
+}
+
+#inputFont {
+  color : black;
+}
+
+.contact-input-text {
+  color : black;
+}
+
+#address {
+  margin-top : 50px;
+}
+
+.fa {
+  color : white;
+  margin-left : 5px;
+}   
+
+#cartContainer {
+  @extend .maxWidth; 
+  padding-top : 20px;
+}
+
+.cartContainer1 {
+  @extend .maxWidth;
+  background-color : $vanilla;   
+  margin-top : -20px;
+  padding-top : 10px;
+  padding-bottom : 10px;
+  padding-left : 10px;
+  min-height : 200px;  
+}
+
+.cartContainer1 h2 {
+  @extend .stylishFont;
+  color : $darkgreen; 
+  margin-top : 55px;
+}
+
+.cartContainer2 {
+  @extend .maxWidth;
+  background-color : $vanillaDark;  
+  margin-top : -20px;
+  padding-top : 10px;
+  padding-bottom : 10px;
+  padding-left : 10px;
+  min-height : 200px;  
+}
+
+.cartContainer2 h2 {
+  @extend .stylishFont;
+  color : $darkgreen; 
+  margin-top : 55px; 
+}
+
+.cartImg {
+  position : relative;
+  float : left;
+  width : 200px;
+  display : inline; 
+  margin-right : 20px;
+}
+
+.counterBox {
+   margin-top : -40px;
+}
+
+.counterMinus {
+  border : 5px solid;
+  width : 35px;
+  height : 35px;
+  float : right;
+  display : inline; 
+  background-color : white;
+} 
+
+.counterBox a {
+  color : white;
+}
+
+.counter {
+  border : 5px solid $darkgreen;
+  width : 35px;
+  height : 35px;
+  float : right;
+  display : inline; 
+}
+
+.counterPlus {
+  border : 5px solid;
+  width : 35px;
+  height : 35px;
+  float : right;
+  display : inline; 
+  background-color : white;
+} 
+
+.counter h3, .counterPlus h3{
+  position : relative; 
+  margin-top : 1px;
+  margin-left : 6px;
+}
+
+.counterMinus h3 {
+  position : relative; 
+  margin-top : 1px;
+  margin-left : 8px;
+}
+
+.removeItem {
+  float : right;
+  display : inline;
+  margin-top : 2px;
+  margin-right : 15px;
+}
+
+.itemPrice {
+  float : right;
+  display : inline;
+  margin-top : -0px;
+  margin-right : 15px; 
+  margin-left : 15px;
+}
+
+.totalContainer {
+  @extend .maxWidth;
+  background-color : $vanillaDark; 
+  border-top : 5px solid $lightgreen; 
+  margin-top : -20px;
+  padding-top : 10px;
+  padding-bottom : 10px;
+  padding-left : 10px;
+  min-height : 300px;  
+}
+
+#grandTotal {
+  float : right;
+  margin-right : 20px;
+}
+
+.shippingCalc {
+  float : right;
+}
+
+#checkOut {
+  background-color : $darkgreen;
+  border : 3px solid white;
+  display : inline-block;
+  position : relative;
+  height : 50px;
+  width : 120px;
+  float : right;
+  margin-top : 15px;
+}
+
+#checkOut h3 {
+  font-family : 'Roboto';
+  color : white;
+  margin-top : 10px;
+  margin-left : 12px;
+}
+
+#footerContainer {
+  @extend .maxWidth; 
+  width : 100%;
+  margin-left : 0px;
+  min-height : 170px;
+  text-align : center;
+  margin-left : auto;
+  margin-right : auto;
+  background-color : black;
+  padding-bottom : 50px;
+}  
+ 
+
+@media (max-width: 768px) {
+  h3 {
+    font-size: 1.9rem;
+  }
+  h2 {
+    font-size : 1.85rem;
+  }
+  h1 {
+    font-size: 2rem;
+  }
+  #video {
+    border : none;
+  } 
+  #watchContainer {
+    padding-top : 0px;
+    padding-bottom : 20px; 
+    background-color : black;
+  }  
+  .articleContainer, .articleContainer2, .innerContainer {
+    min-height : 225px;
+  } 
+  #overlay-frame {
+    width : 100%;
+  }   
+  #overlay-close-up {
+    margin-top : 10px;
+    width : 100%;
+    clear : both;
+  }
+  #overlay-description{
+    width : 100%;
+    height : 100%;
+  } 
+  #mainImg {
+    width : 100%;
+  }
+  #mainDescription {
+    width : 100%;
+  }
+}
+
+@media (max-width: 600px) {
+    h3 {
+      font-size: 1.75rem;
+    }
+    h2 {
+      font-size : 1.75rem;
+    }
+    h1 {
+      font-size: 1.8rem;
+    }
+    #navLinks {
+      margin-left : auto;
+      margin-right : auto;
+    }
+    .articleContainer, .articleContainer2,  .innerContainer {
+      min-height : 175px;
+    }    
+    #navLinks {
+      display : block;
+      height : 50px;
+    }
+    #navLinks li{ 
+      line-height : 55px; 
+      display : inline-block;
+    }
+    #mainContainer {
+      background-color : black;
+    }
+}
+
+@media (max-width : 500px) {
+  #artRow1 { 
+      display : block; 
+      width : 100%;
+    }
+  #artRow1-a {
+    float : none; 
+    position : relative; 
+    min-height : 50px; 
+    width : 100%; 
+    margin-bottom : 10px;
+  } 
+  #artRow1-a img{
+    width : 101%; 
+    display : inline-block; 
+    margin-right : 0px; 
+  } 
+  #artRow1-b {
+    float : none; 
+    position : relative; 
+    min-height : 50px; 
+    width : 100%; 
+  }
+  #artRow1-b img{
+    width : 101%;  
+    clear : both;
+    display : inline-block; 
+    margin-left : -5px;
+  }
+  #artRow2 {
+    float : none; 
+    position : relative; 
+    min-height : 50px; 
+    width : 100%; 
+  }
+  #artRow2 img{
+    width : 99%;  
+    clear : both;
+    display : inline-block;  
+  }
+  #artRow3 {
+    float : none; 
+    position : relative; 
+    min-height : 50px; 
+    width : 100%; 
+  }
+  #artRow3-a {
+    float : none; 
+    position : relative; 
+    min-height : 50px; 
+    width : 100%; 
+    margin-bottom : 10px;
+  }
+  #artRow3-a img{
+    width : 99%;  
+    clear : both;
+    display : inline-block;  
+  }
+  #artRow3-b {
+    float : none; 
+    position : relative; 
+    min-height : 50px; 
+    width : 100%; 
+    margin-bottom : 10px;
+  }
+  #artRow3-b img{
+    width : 99%;  
+    clear : both;
+    display : inline-block;  
+  }
+  #artRow3-c {
+    float : none; 
+    position : relative; 
+    min-height : 50px; 
+    width : 100%; 
+    margin-bottom : 10px;
+  }
+  #artRow3-c img{
+    width : 99%;  
+    clear : both;
+    display : inline-block;  
+  } 
+  #socialLinks {
+    display : none;
+  } 
+  #navLinks {
+    display : none;
+    height : 0px;
+  }
+  #navLinks li {
+    display : none; 
+  }
+  #menu {
+    display : inline-block;
+  } 
+}
+
+@media (max-width: 400px) {
+  h3 {
+    font-size : 1.6rem;
+  }
+  h2 {
+    font-size : 1.6rem;
+  }
+  h1 {
+    font-size: 1.75rem;
+  }
+  .articleContainer, .articleContainer2,  .innerContainer {
+      min-height : 150px;
+  }
+ 
+}
+
+@media (max-width: 300px) {
+  h3 {
+    font-size : 1rem;
+  }
+
+  h2 {
+    font-size : 1.25rem;
+  }
+  h1 {
+    font-size: 1.5rem;
+  }
+  .articleContainer, .articleContainer2,  .innerContainer {
+      min-height : 125px;
+  }  
+}
