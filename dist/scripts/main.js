@@ -125,8 +125,8 @@ function flickrAPI(){
                     var testregex = regex.test(tagString);   
                     var substr = tagString.substr(4, tagString.split("").length);
                     var soogStr = substr.substr(0,3); 
-                    var a_href;
-                    var target;
+                    var a_href = 'http://' + tagString;
+                    var target = '_blank';
 
                     if (soogStr === 'htt') {
                     	a_href = tagString;
@@ -138,6 +138,11 @@ function flickrAPI(){
                     	target = '_self';
                     } 
 
+                    if (soogStr === 'tos') {
+                    	a_href = 'http://toshiblog.herokuapp.com';
+                    	target = '_blank';
+                    }
+
                     if (testregex === true) { 
                         //Create a JQuery div whose class is folioTag
                         var folioFooter = $("<div></div>", {"class": "folioTag"}).appendTo(folio);
@@ -146,9 +151,7 @@ function flickrAPI(){
                             href : a_href,
                             text : "Visit Site",
                             target : target
-                        }).appendTo(folioFooter);
-                        //Wrap valueLink with class tagWhite
-                        //Append to folio
+                        }).appendTo(folioFooter); 
                         }
 
                  });
@@ -441,7 +444,7 @@ function initLinks() {
 	});    
 
 
-	$('.plusSign').on('click', function(e){
+	/*$('.plusSign').on('click', function(e){
 		e.stopImmediatePropagation();
 		e.preventDefault();
 
@@ -469,7 +472,7 @@ function initLinks() {
 		$(this).parent().parent().prev().children().html(total); 
 		calcShipping();
 
-	});
+	}); 
 
 	$('.minusSign').on('click', function(e){
 		e.preventDefault();
@@ -495,7 +498,7 @@ function initLinks() {
 			$(this).parent().parent().prev().children().html(num);
 			$(this).parent().parent().prev().prev().prev().children().html(total);
 		}  
-	}); 
+	}); */
 
 }  
 
