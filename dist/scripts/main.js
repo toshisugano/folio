@@ -51,31 +51,31 @@ function setBG(){
 	var div = num/2;
 
 	if (div === 0 || div < 1) {
-	   mainBG.large += 'house';
+	   mainBG.large += 'bear';
 	   $('#aboutDescription').html('<h1>Featured Project : Cabbit - An Interpretive Eco-Fable</h1>' +
               					 '<h1>Cabbit was a short film produced by Prospekt Films.</h1>' +
               					 '<h2>Learn more about it <a href="/projects/cabbitfilm">HERE</a></h2>');
 	}
 	else if (div === 1 || div < 2) {
-	   mainBG.large += 'house';
+	   mainBG.large += 'bear';
 	   $('#aboutDescription').html('<h1>Featured Project : Cabbit - An Interpretive Eco-Fable</h1>' +
               					 '<h1>Cabbit was a short film produced by Prospekt Films.</h1>' +
               					 '<h2>Learn more about it <a href="/projects/cabbitfilm">HERE</a></h2>');
 	}
 	else if (div === 2 || div < 3) {
-	   mainBG.large += 'house';
+	   mainBG.large += 'bear';
 	   $('#aboutDescription').html('<h1>Featured Project : Cabbit - An Interpretive Eco-Fable</h1>' +
               					 '<h1>Cabbit was a short film produced by Prospekt Films.</h1>' +
               					 '<h2>Learn more about it <a href="/projects/cabbitfilm">HERE</a></h2>');
 	}
 	else if (div === 3 || div < 4) {
-	   mainBG.large += 'house';
+	   mainBG.large += 'bear';
 	   $('#aboutDescription').html('<h1>Featured Project : Cabbit - An Interpretive Eco-Fable</h1>' +
               					 '<h1>Cabbit was a short film produced by Prospekt Films.</h1>' +
               					 '<h2>Learn more about it <a href="/projects/cabbitfilm">HERE</a></h2>');
 	}
 	else if (div === 4 || div <= 5) {
-	   mainBG.large += 'moon';
+	   mainBG.large += 'house';
 	   $('#aboutDescription').html('<h1>Featured Project : Cabbit - An Interpretive Eco-Fable</h1>' +
               					 '<h1>Moon was a short film produced by Prospekt Films.</h1>' +
               					 '<h2>Learn more about it <a href="/projects/cabbitfilm">HERE</a></h2>');
@@ -120,28 +120,23 @@ function flickrAPI(){
 
                 $.each(data.photo.tags.tag, function(index, object){
                     //Create a variable that stores each of the tags
-                    var tagString = object.raw;  
+                    var tagString = object.raw; 
                     var regex = /www/i;  
                     var testregex = regex.test(tagString);   
                     var substr = tagString.substr(4, tagString.split("").length);
-
                     var soogStr = substr.substr(0,3); 
-                    var a_href = 'http://' + tagString;
-                    var target = "_blank";
+                    var a_href;
+                    var target;
 
-                    /*if (soogStr === 'htt') {
+                    if (soogStr === 'htt') {
                     	a_href = tagString;
                     	target = "_blank";
-                    }*/
+                    }
 
                     if (soogStr === 'the') {
                     	a_href = 'http://' + tagString;
                     	target = '_self';
                     } 
-
-                    if (soogStr === 'tos') {
-                    	a_href = 'http://toshiblog.herokuapp.com';
-                    }
 
                     if (testregex === true) { 
                         //Create a JQuery div whose class is folioTag
