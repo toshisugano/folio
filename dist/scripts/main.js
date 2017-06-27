@@ -429,8 +429,7 @@ function initLinks() {
 		}
 		else {
 			location.href = "http://www.thesoogie.com/" + id; 
-		}
-		
+		} 
 	});   
 
 	$('#bars').on('click', function(){  
