@@ -424,8 +424,13 @@ function initLinks() {
 		var id = that[0].id; 
 		var child = $('#' + id).children()[0]; 
 		$(child).attr('style', 'color : red'); 
-		location.href = "http://www.thesoogie.com/" + id;
-		console.log(id + "this");
+		if (id === 'art') {
+			 window.open("https://thesoogie.bigcartel.com"); 
+		}
+		else {
+			location.href = "http://www.thesoogie.com/" + id; 
+		}
+		
 	});   
 
 	$('#bars').on('click', function(){  
