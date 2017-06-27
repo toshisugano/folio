@@ -52,31 +52,31 @@ function setBG(){
 
 	if (div === 0 || div < 1) {
 	   mainBG.large += 'bear';
-	   $('#aboutDescription').html('<h1>Featured Project : Cabbit - An Interpretive Eco-Fable</h1>' +
+	   $('#aboutDescription').html('<h1>Featured : Cabbit - An Interpretive Eco-Fable</h1>' +
               					 '<h1>Cabbit was a short film produced by Prospekt Films.</h1>' +
               					 '<h2>Learn more about it <a href="/projects/cabbitfilm">HERE</a></h2>');
 	}
 	else if (div === 1 || div < 2) {
 	   mainBG.large += 'bear';
-	   $('#aboutDescription').html('<h1>Featured Project : Cabbit - An Interpretive Eco-Fable</h1>' +
+	   $('#aboutDescription').html('<h1>Featured : Cabbit - An Interpretive Eco-Fable</h1>' +
               					 '<h1>Cabbit was a short film produced by Prospekt Films.</h1>' +
               					 '<h2>Learn more about it <a href="/projects/cabbitfilm">HERE</a></h2>');
 	}
 	else if (div === 2 || div < 3) {
 	   mainBG.large += 'bear';
-	   $('#aboutDescription').html('<h1>Featured Project : Cabbit - An Interpretive Eco-Fable</h1>' +
+	   $('#aboutDescription').html('<h1>Featured : Cabbit - An Interpretive Eco-Fable</h1>' +
               					 '<h1>Cabbit was a short film produced by Prospekt Films.</h1>' +
               					 '<h2>Learn more about it <a href="/projects/cabbitfilm">HERE</a></h2>');
 	}
 	else if (div === 3 || div < 4) {
 	   mainBG.large += 'bear';
-	   $('#aboutDescription').html('<h1>Featured Project : Cabbit - An Interpretive Eco-Fable</h1>' +
+	   $('#aboutDescription').html('<h1>Featured : Cabbit - An Interpretive Eco-Fable</h1>' +
               					 '<h1>Cabbit was a short film produced by Prospekt Films.</h1>' +
               					 '<h2>Learn more about it <a href="/projects/cabbitfilm">HERE</a></h2>');
 	}
 	else if (div === 4 || div <= 5) {
 	   mainBG.large += 'house';
-	   $('#aboutDescription').html('<h1>Featured Project : Cabbit - An Interpretive Eco-Fable</h1>' +
+	   $('#aboutDescription').html('<h1>Featured : Cabbit - An Interpretive Eco-Fable</h1>' +
               					 '<h1>Moon was a short film produced by Prospekt Films.</h1>' +
               					 '<h2>Learn more about it <a href="/projects/cabbitfilm">HERE</a></h2>');
 	}
