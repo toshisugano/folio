@@ -82,29 +82,56 @@ app.use('/scripts', express.static(__dirname + '/dist/scripts'));
 app.use('/templates', express.static(__dirname + '/dist/templates'));
 app.use('/json', express.static(__dirname + '/dist/json'));   
 app.use('/projects', projects);
-app.use('/morgue', morgue);
-
-app.get('/cart', function(req, res){
-    res.sendFile(__dirname + '/dist/index.html');
-});
+app.use('/morgue', morgue); 
  
 app.get('/', function(req, res ){
+  mongoose.connection.close();
 	res.sendFile(__dirname + '/dist/about.html');
 });
-
-app.get('/cancel', function(req, res ){
-    res.sendFile(__dirname + '/dist/index.html');
-});
+ 
 
 app.get('/about', function(req, res ){
+    mongoose.connection.close();
     res.sendFile(__dirname + '/dist/about.html');
 });
 
 app.get('/news', function(req, res ){
+    mongoose.connection.close();
     res.sendFile(__dirname + '/dist/news.html');
 });
 
+app.get('/editnews', function(req, res ){  
+    res.sendFile(__dirname + '/dist/editNews.html');   
+});
+
+app.post('/editnews', urlencodedParser, function(req, res ){
+
+  mongoose.connect(mongoLabsNews, options); 
+ 
+  var conn = mongoose.connection; 
+  conn.on('error', console.error.bind(console, 'connection error:'));   
+  conn.on('open', function() {  
+    console.log('db opened'); 
+  });
+
+  var news = new NewsArticle({
+      title : req.body.text,
+      linkText : req.body.source,
+      url : req.body.url  
+  });   
+
+  news.save();    
+ 
+  setTimeout(function(){
+    conn.close();
+  }, 2000);
+
+  res.sendFile(__dirname + '/dist/editNews.html');
+
+});
+
 app.get('/folio', function(req, res ){
+    mongoose.connection.close();
     res.sendFile(__dirname + '/dist/folio.html');
 });
 
@@ -139,6 +166,7 @@ app.post('/contact', urlencodedParser, function(req, res){
 });
 
 app.get('/team', function(req, res ){
+    mongoose.connection.close();
     res.sendFile(__dirname + '/dist/team.html');
 }); 
 

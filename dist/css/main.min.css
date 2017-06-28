@@ -588,6 +588,32 @@ hr {
   display: inline-block;
   margin: 0 auto; }
 
+#editContainer {
+  width: 100%;
+  text-align: center;
+  position: relative;
+  display: block;
+  background-color: #494745;
+  min-height: 250px;
+  padding-top: 125px;
+  padding-bottom: 125px; }
+
+#editHeader {
+  position: relative;
+  width: 100%;
+  display: block;
+  background-color: black;
+  text-align: center;
+  margin-bottom: -10px; }
+  #editHeader h3 {
+    margin-top: -10px;
+    color: #eff7d9; }
+
+#edit-f {
+  position: relative;
+  display: inline-block;
+  margin: 0 auto; }
+
 #sample1 {
   background-color: white; }
 
@@ -595,6 +621,9 @@ hr {
   color: black; }
 
 .contact-input-text {
+  color: black; }
+
+.edit-input-text {
   color: black; }
 
 #address {

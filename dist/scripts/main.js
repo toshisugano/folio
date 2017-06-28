@@ -225,6 +225,7 @@ function initImg(){
 			$('.matt').attr('src', 'images/bio-matt.png');
 			$('.andre').attr('src', 'images/bio-andre.png');
 		$('#contactHeader').attr('src', 'images/contactBar.jpg');
+		$('#editHeader').attr('src', 'images/editBar.jpg');
 		$('#video').attr({
 			width : vidWidth,
 			height : vidHeight
@@ -251,6 +252,7 @@ function initImg(){
 			$('.matt').attr('src', 'images/bio-matt-m.png');
 			$('.andre').attr('src', 'images/bio-andre-m.png'); 
 		$('#contactHeader').attr('src', 'images/contactBar-m.jpg');
+		$('#editHeader').attr('src', 'images/editBar-m.jpg');
 		$('#video').attr({
 			width : winWidth,
 			height : vidHeight
@@ -281,6 +283,7 @@ function initImg(){
 			$('.matt').attr('src', 'images/bio-matt-s.png');
 			$('.andre').attr('src', 'images/bio-andre-s.png');   
 		$('#contactHeader').attr('src', 'images/contactBar-s.jpg');
+		$('#editHeader').attr('src', 'images/editBar-s.jpg');
 		$('#video').attr({
 			width : winWidth,
 			height : vidHeight
