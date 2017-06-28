@@ -77,7 +77,7 @@ function setBG(){
 	else if (div === 4 || div <= 5) {
 	   mainBG.large += 'house';
 	   $('#aboutDescription').html('<h1>Featured : Cabbit - An Interpretive Eco-Fable</h1>' +
-              					 '<h1>Moon was a short film produced by Prospekt Films.</h1>' +
+              					 '<h1>Cabbit was a short film produced by Prospekt Films.</h1>' +
               					 '<h2>Learn more about it <a href="/projects/cabbitfilm">HERE</a></h2>');
 	}
 
