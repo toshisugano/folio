@@ -154,31 +154,33 @@ app.get('/folio', function(req, res ){
 
 app.get('/contact', function(req, res){
 
-  mongoose.connect(mongoLabsMessages, options); 
- 
-  var conn = mongoose.connection;
-  conn.on('error', console.error.bind(console, 'connection error:'));  
-  conn.on('open', function() {  
-    console.log('db opened'); 
-  });
+  
 
   res.sendFile(__dirname + '/dist/contact.html');
 
 });
 
-app.post('/contact', urlencodedParser, function(req, res){    
+app.post('/contact', urlencodedParser, function(req, res){   
 
-  var message = new Message({
-      name : req.body.name,
-      email : req.body.email,
-      message : req.body.message  
-  });   
+  mongoose.connect(mongoLabsMessages, options); 
+ 
+  var conn = mongoose.connection;
+  conn.on('error', console.error.bind(console, 'connection error:'));  
+  conn.on('open', function() {  
+    
+    var message = new Message({
+        name : req.body.name,
+        email : req.body.email,
+        message : req.body.message  
+    });   
 
-  message.save();   
+    message.save();   
   
-  setTimeout(function(){
-    conn.close();
-  }, 2000);
+    setTimeout(function(){
+      conn.close();
+    }, 2000);
+  }); 
+
 
   res.sendFile(__dirname + '/dist/contact.html');
 
