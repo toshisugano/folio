@@ -105,11 +105,15 @@ app.get('/newsjson', function(req, res){
           console.log(err);
         }
 
-        conn.close();
+        
   
       }); 
 
     }); 
+
+    setTimeout(function(){
+      conn.close();
+    }, 2000);
 
 });
 
@@ -172,7 +176,9 @@ app.post('/contact', urlencodedParser, function(req, res){
 
   message.save();   
   
-  conn.close();
+  setTimeout(function(){
+    conn.close();
+  }, 2000);
 
   res.sendFile(__dirname + '/dist/contact.html');
 
