@@ -46,20 +46,7 @@ mongoose.connection.close();
 
     news.save(); 
 
-  });  */
-
-NewsArticle.find({title : 'New Portolio section up and running!'}, (err, obj) => {
-
-  if (obj) {
-     for (i=0; i<obj.length; i++) {
-      console.log(obj[i].url);
-     }
-  }
-  else {
-    console.log(err);
-  }
-  
-}); 
+  });  */ 
 
 var urlencodedParser = bodyParser.urlencoded({
   extended : false
@@ -98,6 +85,32 @@ app.get('/about', function(req, res ){
 app.get('/news', function(req, res ){
     mongoose.connection.close();
     res.sendFile(__dirname + '/dist/news.html');
+});
+
+app.get('/newsjson', function(req, res){
+
+    mongoose.connect(mongoLabsNews, options); 
+ 
+    var conn = mongoose.connection;
+    conn.on('error', console.error.bind(console, 'connection error:'));  
+    conn.on('open', function() {
+    
+      NewsArticle.find({}, (err, obj) => {
+
+        if (obj) {  
+            res.end(JSON.stringify(obj));
+        }
+
+        else {
+          console.log(err);
+        }
+
+        conn.close();
+  
+      }); 
+
+    }); 
+
 });
 
 app.get('/editnews', function(req, res ){  

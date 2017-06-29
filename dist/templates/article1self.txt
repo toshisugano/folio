@@ -1,0 +1,1 @@
+<div class="row articleContainer"><div class="innerContainer"><div class="textCenter"><h2 class="articleHeader" > <%= title %> &nbsp--&nbsp<a class="newsLink" href="<%= url %>" target="_self"><%= linkText %></a></h2></div></div></div>

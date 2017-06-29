@@ -42,6 +42,10 @@ function winReload(){
 function setBG(){ 
 	$('#aboutDescription').html('<h1>Project : Leeches Film Site' +
               					'<h1>Designer/Developer : Toshi Sugano</h1>' + 
+              					"<p>(Now Defunct) Leeches was an independently produced film" + 
+              						"documenting one day prostitute brides India. I designed and" +
+              						"developed their site using Backbone.js, Grunt, Javascript," + 
+              						"Php, SASS, and Flickr's API. I also designed the logo.</p>" +
               					'<h2>Click <a target="_blank" href="../../morgue/leechesfilm/index.html">HERE </a>to launch site.</h2>'
               					 );
 } 

@@ -83,7 +83,6 @@ function setBG(){
 
 }
 
-
 function flickrAPI(){
     //create a var that makes a call to the flickr API 
     var getIMG = "https://api.flickr.com/services/rest/?format=json&method=flickr.photosets.getPhotos&photoset_id=72157645079323413&+description+&api_key=814796ef7eee08b0534ae009b71b62aa&jsoncallback=?";
@@ -392,22 +391,57 @@ function getJSONs(){
 	        articleTemp2 = data;
 	    }); 
 
-	    var newsJSON = $.getJSON("json/news.json");
+	    $.get("templates/article1self.txt", function( data ) {
+        	articleTempSelf = data;
+    	});
+     
+	    $.get("templates/article2self.txt", function( data ) {
+	        articleTemp2Self = data;
+	    }); 
+
+	    var newsJSON = $.getJSON("newsjson"); 
 
 	    newsJSON.then(function(json){
 			setTimeout(function(){
-			_.each(json, function(obj){ 
-				var modulus = obj.id%2;
-				if (modulus){
+			var reverseArr = json.reverse();
+			counter = 0;
+			_.each(reverseArr, function(data){ 
+				var obj = data;  
+				var state;
+				(function(){ 
+					var url = data.url;
+					var sliced = url.slice(7, 20);
+					if (sliced === "www.thesoogie"){
+						state = "self";
+					}
+					else {
+						state = "blank";
+					}
+				})();
+				if (counter === 0 && state === "blank"){ 
 					var template = _.template(articleTemp);
 					var htmlTemp = template(obj);  
 					$('#newsContainer').append(htmlTemp);
-				}
-				else {
-					var template2 = _.template(articleTemp2);
-					var htmlTemp2 = template2(obj); 
-					$('#newsContainer').append(htmlTemp2);
-				}   
+					counter++;
+				} 
+				else if (counter === 0 && state === "self"){ 
+					var template = _.template(articleTempSelf);
+					var htmlTemp = template(obj);  
+					$('#newsContainer').append(htmlTemp);
+					counter++;
+				} 
+				else if (counter === 1 && state === "blank"){ 
+					var template = _.template(articleTemp2);
+					var htmlTemp = template(obj);  
+					$('#newsContainer').append(htmlTemp);
+					counter--;
+				} 
+				else if (counter === 1 && state === "self"){ 
+					var template = _.template(articleTemp2Self);
+					var htmlTemp = template(obj);  
+					$('#newsContainer').append(htmlTemp);
+					counter--;
+				} 
 			}); 
 			}, 500);  
 		});
@@ -449,6 +483,7 @@ function initLinks() {
 	    );
 	    initLinks();
 	});    
+ 
 
 
 	/*$('.plusSign').on('click', function(e){
