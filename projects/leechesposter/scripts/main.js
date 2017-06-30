@@ -211,64 +211,7 @@ function initLinks() {
             '<li><a id="contact" class="links" style="" href="contact"><h3><i class="fa fa-envelope" aria-hidden="true"></i>'
 	    );
 	    initLinks();
-	});    
-
-
-	$('.plusSign').on('click', function(e){
-		e.stopImmediatePropagation();
-		e.preventDefault();
-
-		var count = $(this).parent().parent().next().children()[0].innerText; 
-		if (count >= 1) {
-			$(this).parent().parent().next().next().children().children().removeClass("not-active");
-		} 
-
-		totalPrints++;
-		var count = $(this).parent().parent().next().children()[0].innerText;  
-		var price = Number($(this).parent().parent().prev().children().attr("data-price"));
-		var id = $(this).parent().parent().prev().children().attr("id"); 
-		var num = Number(count); 
-		num++; 
-
-		for (i=0; i<shoppingCart.length; i++) {
-			if (shoppingCart[i].id === id) {
-				shoppingCart[i].quantity = num; 
-			}
-		}
-
-		var total = "$" +  price * num + ".00";
-		grandTotal = grandTotal + price;
-		$(this).parent().parent().next().children().html(num);
-		$(this).parent().parent().prev().children().html(total); 
-		calcShipping();
-
-	});
-
-	$('.minusSign').on('click', function(e){
-		e.preventDefault();
-		e.stopImmediatePropagation();
-		totalPrints--;
-
-		var count = $(this).parent().parent().prev().children()[0].innerText; 
-		if (count <= 2) {
-			$(this).addClass("not-active");
-		}
-
-		var price = Number($(this).parent().parent().prev().prev().prev().children().attr("data-price"));
-		var id = $(this).parent().parent().prev().prev().prev().children().attr("id");  
-		var num = Number(count); 
-		num--;
-		var total = "$" + price * num + ".00"; 
-		grandTotal = grandTotal - price;
-		if (num < 1) { 
-			$(this).parent().parent().prev().children().html(1);
-			$(this).parent().parent().prev().prev().prev().children().children().html(price);
-		}
-		else {
-			$(this).parent().parent().prev().children().html(num);
-			$(this).parent().parent().prev().prev().prev().children().html(total);
-		}  
-	}); 
+	});   
 
 }  
 
@@ -289,8 +232,7 @@ $(document).ready(function(){
 	dims();
 	theDate(); 
 	getJSONs();    
-	//Sets ICONS 
-	setTimeout(setIcons, 1200);  
+	//Sets ICONS   
 	setTimeout(initImg, 1500); 
 	setTimeout(initLinks, 1200); 
 	sessionStorage.setItem("mainUrl", mainUrl);      

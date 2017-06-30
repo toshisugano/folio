@@ -188,43 +188,7 @@ function getJSONs(){
 	} 
   
 }	
-  
-
-function setIcons(){
-	for (i=0; i<aboutBios.length; i++){
-		var that = aboutBios[i];
-		if (that.facebook !== ""){ 
-			var template = _.template(socialIcons.facebook);
-			var htmlTemp = template(that);   
-			$('.socialLinks.' + that.name).append(htmlTemp);
-		}
-		if (that.instagram !== ""){
-			var template = _.template(socialIcons.instagram);
-			var htmlTemp = template(that);   
-			$('.socialLinks.' + that.name).append(htmlTemp);
-		}
-		if (that.site !== ""){
-			var template = _.template(socialIcons.site);
-			var htmlTemp = template(that);   
-			$('.socialLinks.' + that.name).append(htmlTemp); 
-		}
-		if (that.vimeo !== ""){
-			var template = _.template(socialIcons.vimeo);
-			var htmlTemp = template(that);   
-			$('.socialLinks.' + that.name).append(htmlTemp);
-		}
-		if (that.twitter !== ""){
-			var template = _.template(socialIcons.twitter);
-			var htmlTemp = template(that);   
-			$('.socialLinks.' + that.name).append(htmlTemp);
-		}
-		if (that.linkedin !== ""){
-			var template = _.template(socialIcons.linkedin);
-			var htmlTemp = template(that);   
-			$('.socialLinks.' + that.name).append(htmlTemp);
-		}
-	}
-}  
+   
  
 function initLinks() {  
 
@@ -253,64 +217,7 @@ function initLinks() {
 	    );
 	    initLinks();
 	});    
-
-
-	$('.plusSign').on('click', function(e){
-		e.stopImmediatePropagation();
-		e.preventDefault();
-
-		var count = $(this).parent().parent().next().children()[0].innerText; 
-		if (count >= 1) {
-			$(this).parent().parent().next().next().children().children().removeClass("not-active");
-		} 
-
-		totalPrints++;
-		var count = $(this).parent().parent().next().children()[0].innerText;  
-		var price = Number($(this).parent().parent().prev().children().attr("data-price"));
-		var id = $(this).parent().parent().prev().children().attr("id"); 
-		var num = Number(count); 
-		num++; 
-
-		for (i=0; i<shoppingCart.length; i++) {
-			if (shoppingCart[i].id === id) {
-				shoppingCart[i].quantity = num; 
-			}
-		}
-
-		var total = "$" +  price * num + ".00";
-		grandTotal = grandTotal + price;
-		$(this).parent().parent().next().children().html(num);
-		$(this).parent().parent().prev().children().html(total); 
-		calcShipping();
-
-	});
-
-	$('.minusSign').on('click', function(e){
-		e.preventDefault();
-		e.stopImmediatePropagation();
-		totalPrints--;
-
-		var count = $(this).parent().parent().prev().children()[0].innerText; 
-		if (count <= 2) {
-			$(this).addClass("not-active");
-		}
-
-		var price = Number($(this).parent().parent().prev().prev().prev().children().attr("data-price"));
-		var id = $(this).parent().parent().prev().prev().prev().children().attr("id");  
-		var num = Number(count); 
-		num--;
-		var total = "$" + price * num + ".00"; 
-		grandTotal = grandTotal - price;
-		if (num < 1) { 
-			$(this).parent().parent().prev().children().html(1);
-			$(this).parent().parent().prev().prev().prev().children().children().html(price);
-		}
-		else {
-			$(this).parent().parent().prev().children().html(num);
-			$(this).parent().parent().prev().prev().prev().children().html(total);
-		}  
-	}); 
-
+ 
 }  
 
 window.onresize = function() {
@@ -330,8 +237,7 @@ $(document).ready(function(){
 	dims();
 	theDate(); 
 	getJSONs();    
-	//Sets ICONS 
-	setTimeout(setIcons, 1200);  
+	//Sets ICONS  
 	setTimeout(initImg, 1500); 
 	setTimeout(initLinks, 1200); 
 	sessionStorage.setItem("mainUrl", mainUrl);      
