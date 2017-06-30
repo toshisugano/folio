@@ -791,6 +791,14 @@ hr {
     width: 100%; } }
 
 @media (max-width: 600px) {
+  .folioDiv20 {
+    width: 100%;
+    height: 700px;
+    margin-top: 0px;
+    margin-bottom: 0px; }
+  #folioArticle2 {
+    padding-top: 0px;
+    padding-bottom: 0px; }
   h3 {
     font-size: 1.75rem; }
   h2 {
@@ -897,7 +905,13 @@ hr {
   h1 {
     font-size: 1.75rem; }
   .articleContainer, .articleContainer2, .bioContainer2, .articleContainer2, .innerContainer {
-    min-height: 150px; } }
+    min-height: 150px; }
+  .folioDiv20 {
+    height: 600px; } }
+
+@media (max-width: 350px) {
+  .folioDiv20 {
+    height: 550px; } }
 
 @media (max-width: 300px) {
   h3 {
