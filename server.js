@@ -27,36 +27,13 @@ var express = require('express');
 
 mongoose.Promise = global.Promise; 
 
-mongoose.connection.close();
-
-//mongoose.connect(mongoLabs, options); 
-/*mongoose.connect(mongoLabsNews); 
- 
-  var conn = mongoose.connection;
-  conn.on('error', console.error.bind(console, 'connection error:'));  
-  conn.on('open', function() {
-
-    conn.db.dropCollection('news', (err, result) => {});  
-
-    var news = new NewsArticle({
-        title : "New Portolio section up and runningnowwwww",
-        linkText : "Link",
-        url : "http://WWW.thesoogie.com/friends"  
-    });  
-
-    news.save(); 
-
-  });  */ 
+mongoose.connection.close(); 
 
 var urlencodedParser = bodyParser.urlencoded({
   extended : false
 });
 
-var mainUrl = '//www.thesoogie.com/';  
-
-var images = fs.readFileSync(__dirname + '/dist/json/images.json'); 
-
-var jsonImages = JSON.parse(images); 
+var mainUrl = '//www.thesoogie.com/';   
 
 var port = process.env.PORT || 8000;  
 
@@ -71,22 +48,24 @@ app.use('/json', express.static(__dirname + '/dist/json'));
 app.use('/projects', projects);
 app.use('/morgue', morgue); 
  
+//MAIN INDEX
 app.get('/', function(req, res ){
   mongoose.connection.close();
 	res.sendFile(__dirname + '/dist/about.html');
-});
- 
+}); 
 
 app.get('/about', function(req, res ){
     mongoose.connection.close();
     res.sendFile(__dirname + '/dist/about.html');
 });
 
+//NEWS
 app.get('/news', function(req, res ){
     mongoose.connection.close();
     res.sendFile(__dirname + '/dist/news.html');
 });
 
+//READ NEWS JSON
 app.get('/newsjson', function(req, res){
 
     mongoose.connect(mongoLabsNews, options); 
@@ -103,9 +82,7 @@ app.get('/newsjson', function(req, res){
 
         else {
           console.log(err);
-        }
-
-        
+        } 
   
       }); 
 
@@ -117,10 +94,11 @@ app.get('/newsjson', function(req, res){
 
 });
 
+//CREATE NEWS
 app.get('/editnews', function(req, res ){  
     res.sendFile(__dirname + '/dist/editNews.html');   
 });
-
+ 
 app.post('/editnews', urlencodedParser, function(req, res ){
 
   mongoose.connect(mongoLabsNews, options); 
@@ -147,17 +125,21 @@ app.post('/editnews', urlencodedParser, function(req, res ){
 
 });
 
+//FOLIO
 app.get('/folio', function(req, res ){
     mongoose.connection.close();
     res.sendFile(__dirname + '/dist/folio.html');
 });
 
-app.get('/contact', function(req, res){
+//FRIENDS
+app.get('/team', function(req, res ){
+    mongoose.connection.close();
+    res.sendFile(__dirname + '/dist/team.html');
+}); 
 
-  
-
-  res.sendFile(__dirname + '/dist/contact.html');
-
+//CONTACT
+app.get('/contact', function(req, res){  
+  res.sendFile(__dirname + '/dist/contact.html'); 
 });
 
 app.post('/contact', urlencodedParser, function(req, res){   
@@ -184,11 +166,9 @@ app.post('/contact', urlencodedParser, function(req, res){
 
   res.sendFile(__dirname + '/dist/contact.html');
 
-});
-
-app.get('/team', function(req, res ){
-    mongoose.connection.close();
-    res.sendFile(__dirname + '/dist/team.html');
 }); 
 
+//LISTEN TO PORT
 app.listen(port);
+
+
