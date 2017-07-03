@@ -187,8 +187,7 @@ function getJSONs(){
 function initLinks() {  
 
 	$('.links').on('click', function(e){  
-		e.preventDefault(); 
-		alert('clicked');
+		e.preventDefault();  
 		var that = $(this); 
 		that.parent().siblings().children().children().attr('style', 'color : $vanilla');
 		var id = that[0].id; 
