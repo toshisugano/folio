@@ -13,7 +13,7 @@
 
 .vanillaFont, h1, h3, h4, #pageCenter h3 {
   font-family: 'Roboto';
-  color: #eff7d9; }
+  color: #f4f5e6; }
 
 .stylishFont, h2.articleHeader, h2.bioHeader, .cartContainer1 h2, .cartContainer2 h2 {
   font-family: 'Impact';
@@ -47,7 +47,7 @@
   margin-bottom: -10px; }
   .folioHeader h3, #folioHeader1 h3, #folioHeader2 h3 {
     margin-top: -10px;
-    color: #eff7d9; }
+    color: #f4f5e6; }
 
 .tag {
   padding: 5px 5px 5px 5px;
@@ -56,7 +56,7 @@
   border: #fceecb 2px solid;
   border-radius: 7px;
   margin: 5px 5px 0 0;
-  color: #ecf2d9; }
+  color: #f4f5e6; }
 
 html {
   -webkit-font-smoothing: antialiased;
@@ -82,7 +82,8 @@ h2.bioHeader {
   color: black; }
 
 h3 {
-  font-size: 2rem; }
+  font-size: 2rem;
+  color: white; }
 
 h4 {
   font-size: 1.5rem; }
@@ -106,7 +107,7 @@ hr {
   position: fixed;
   z-index: 100;
   border: solid 4px #c2c7cb;
-  background-color: #ecf2d9;
+  background-color: #f4f5e6;
   overflow: scroll; }
 
 #overlay-app {
@@ -185,7 +186,7 @@ hr {
   margin-right: auto; }
 
 .cartButton h3 {
-  color: #ecf2d9;
+  color: #f4f5e6;
   line-height: 50px;
   vertical-align: center; }
 
@@ -236,7 +237,8 @@ hr {
 
 #navLinks li {
   display: inline-block;
-  margin-top: -1px; }
+  margin-top: -1px;
+  color: white; }
 
 #logo {
   margin-top: -3px; }
@@ -283,10 +285,6 @@ hr {
 #fbRecommend {
   height: 30px; }
 
-.fa-shopping-cart {
-  line-height: 55px;
-  margin-right: 10px; }
-
 #cartCount h3 {
   margin-top: 8px; }
 
@@ -322,7 +320,7 @@ hr {
     padding-right: 30px; }
 
 #folioHeader2 h3 {
-  color: #eff7d9; }
+  color: #f4f5e6; }
 
 .folioDiv20 {
   margin: 0px 20px 0px 0px;
@@ -437,7 +435,7 @@ hr {
   width: 100%; }
 
 #artGallery {
-  background-color: #eff7d9; }
+  background-color: #f4f5e6; }
 
 .nextButton {
   position: relative;
@@ -589,7 +587,7 @@ hr {
   margin-bottom: -10px; }
   #contactHeader h3 {
     margin-top: -10px;
-    color: #eff7d9; }
+    color: #f4f5e6; }
 
 #contact-f {
   position: relative;
@@ -615,7 +613,7 @@ hr {
   margin-bottom: -10px; }
   #editHeader h3 {
     margin-top: -10px;
-    color: #eff7d9; }
+    color: #f4f5e6; }
 
 #edit-f {
   position: relative;
@@ -645,7 +643,7 @@ hr {
   padding-top: 20px; }
 
 .cartContainer1 {
-  background-color: #ecf2d9;
+  background-color: #f4f5e6;
   margin-top: -20px;
   padding-top: 10px;
   padding-bottom: 10px;
@@ -768,6 +766,9 @@ hr {
   margin-right: auto;
   background-color: black;
   padding-bottom: 50px; }
+
+#nodelogo {
+  width: 150px; }
 
 @media (max-width: 768px) {
   h3 {
