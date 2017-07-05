@@ -379,9 +379,41 @@ hr {
   width: 100%; }
 
 #aboutDescription {
-  background-color: black;
+  background-color: #d6dbdf;
   text-align: center;
-  padding-bottom: 20px; }
+  padding-bottom: 20px;
+  padding-left: 20px;
+  padding-right: 20px; }
+  #aboutDescription h1 {
+    font-family: Anton;
+    color: black; }
+
+#fadeIn {
+  opacity: 0;
+  -webkit-transition: all 0.75s ease-in-out;
+  -moz-transition: all 0.75s ease-in-out;
+  transition: all 0.75s ease-in-out; }
+
+#fadeIn2 {
+  opacity: 0;
+  -webkit-transition: all 0.75s ease-in-out;
+  -moz-transition: all 0.75s ease-in-out;
+  transition: all 0.75s ease-in-out; }
+
+#fadeIn3 {
+  opacity: 0;
+  -webkit-transition: all 0.75s ease-in-out;
+  -moz-transition: all 0.75s ease-in-out;
+  transition: all 0.75s ease-in-out; }
+
+#fadeIn.animate {
+  opacity: 1; }
+
+#fadeIn2.animate {
+  opacity: 1; }
+
+#fadeIn3.animate {
+  opacity: 1; }
 
 #watchContainer {
   background-color: #d6dbdf;

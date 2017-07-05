@@ -40,11 +40,20 @@ function winReload(){
 } 
 
 function setBG(){ 
-	$('#aboutDescription').html('<h1>Project : Cabbit Film' +
-              					'<h1>Illustrator/Animator : Toshi Sugano</h1>' + 
-              					'<h2>Click <a target="_blank" href="../../morgue/cabbitfilm/index.html">HERE </a>to launch site.</h2>'
+	$('#aboutDescription').html('<h1 id="fadeIn">Once upon a time….</h1>' +
+              					'<h1 id="fadeIn2">A small cat-like creature emerged from a long nap and left home to have tea with a friend. Little did the villagers know, this was a harbinger of terrible things to come.</h1>' + 
+              					'<br/>' +
+              					'<img id="mainBG" src="images/cabbit-bar-l.jpg"/>' + 
+              					'<br/>' +
+              					'<br/>' +
+              					'<h1 id="fadeIn3">Cabbit was a short film produced by Prospekt Films. The Soogie provided illustrations and animation with assistance from Emma Koster, Matt Arnold, and Andre Gorgievski. John Kassab was the producer and also provided the sound design while Kadavre Exquis composed the background music.</h1>' +
+              					'<h2>Click <a target="_blank" href="../../morgue/cabbitfilm/index.html">HERE </a>to launch the archived site.</h2>' + 
+              					'<br/>' + 
+              					'<br/>' + 
+              					'<img id="mainBG" src="images/deerwood-bg-l.jpg"/>'  
               					 );
-} 
+}  
+ 
 
 function theDate(){
 	$('#footerContainer').append('<footer id="copyright">&copy;' + year + ' THE SOOGIE</footer>');
@@ -95,95 +104,6 @@ function initImg(){
 		$('#mainBG').attr('src', 'images/main-bg-s.jpg'); 
 	} 
 } 
-
-function getJSONs(){  
-	//Load article1 template
-	var split = mainUrl.split("");
-	var route = mainUrl.slice(split.length-4, split.length); 
-
-	if (route === "team"){ 
-		
-		var aboutJSON = $.getJSON("json/about.json");
-		var socialJSON = $.getJSON("templates/socialMedia.json"); 
-
-		$.get("templates/bio1.txt", function(data) {
-    		bioTemp = data;
-    	}); 
-
-    	$.get("templates/bio2.txt", function(data) {
-    		bioTemp2 = data;
-    	}); 
-
-    	aboutJSON.then(function(json){ 
-			setTimeout(function(){
-				_.each(json, function(obj){ 
-				aboutBios.push(obj);
-				var modulus = obj.id%2;
-				if (modulus){
-					var template = _.template(bioTemp);
-					var htmlTemp = template(obj);  
-					$('#teamContainer').append(htmlTemp);
-				}
-				else {
-					var template2 = _.template(bioTemp2);
-					var htmlTemp2 = template2(obj); 
-					$('#teamContainer').append(htmlTemp2);
-				}  
-				});
-			}, 500);    
-		});   
-
-		socialJSON.then(function(jsondata){
-			_.each(jsondata, function(icons){
-				var keys = Object.keys(icons);
-				for (i=0; i<keys.length; i++){
-					var thisKey = keys[i];
-					socialIcons[thisKey] = icons[thisKey];
-				}
-			}); 
-		});   
-
-	} 
-
-	else if (route === "olio") {
-		setTimeout(function(){
-			flickrAPI();
-		}, 500);
-	}
-
-	else if (route === "news") {
-
-		$.get("templates/article1.txt", function( data ) {
-        	articleTemp = data;
-    	});
-     
-	    $.get("templates/article2.txt", function( data ) {
-	        articleTemp2 = data;
-	    }); 
-
-	    var newsJSON = $.getJSON("json/news.json");
-
-	    newsJSON.then(function(json){
-			setTimeout(function(){
-			_.each(json, function(obj){ 
-				var modulus = obj.id%2;
-				if (modulus){
-					var template = _.template(articleTemp);
-					var htmlTemp = template(obj);  
-					$('#newsContainer').append(htmlTemp);
-				}
-				else {
-					var template2 = _.template(articleTemp2);
-					var htmlTemp2 = template2(obj); 
-					$('#newsContainer').append(htmlTemp2);
-				}   
-			}); 
-			}, 500);  
-		});
-
-	} 
-  
-}	
   
  
 function initLinks() {  
@@ -226,13 +146,19 @@ window.onresize();
 $(window).scroll(function(){
 	dims();
 	scrollTop = $(document).scrollTop();   
+	if (scrollTop > 400) {
+		$('#fadeIn').addClass('animate');
+		$('#fadeIn2').addClass('animate'); 
+	}
+    if (scrollTop > 600) {
+		$('#fadeIn3').addClass('animate');
+	}
 });  
 
 $(document).ready(function(){  
 	setBG(); 
 	dims();
-	theDate(); 
-	getJSONs();    
+	theDate();      
 	//Sets ICONS   
 	setTimeout(initImg, 1500); 
 	setTimeout(initLinks, 1200); 
