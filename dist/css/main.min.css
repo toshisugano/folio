@@ -12,7 +12,7 @@
   display: block; }
 
 .vanillaFont, h1, h3, h4, #pageCenter h3 {
-  font-family: 'Roboto';
+  font-family: 'Impact';
   color: #f4f5e6; }
 
 .stylishFont, h2.articleHeader, h2.bioHeader, .cartContainer1 h2, .cartContainer2 h2 {
@@ -239,6 +239,9 @@ hr {
   display: inline-block;
   margin-top: -1px;
   color: white; }
+
+.fa-home {
+  margin-top: 2px; }
 
 #logo {
   margin-top: -3px; }
