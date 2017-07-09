@@ -49,15 +49,7 @@ function setBG(){
 
 	var num = Math.ceil(Math.random()*10);
 	var div = num/2;
-
-
-
  
-
-
-
-
-
 	if (div === 0 || div < 1) {
 	   mainBG.large += 'bear';
 	   $('#aboutDescription').html('<h1>The Soogie, aka Toshi Sugano, is a digital designer who can also work with code.</h1>' +
@@ -503,11 +495,12 @@ function initLinks() {
 		$('#announcements').attr('margin-top', '-11px');
 		$('#bars').attr('opacity', '0.5').addClass('inactive');
 		$("#menuItems").append(
-			'<li><a id="about" style="" href="about"><h3>HOME</h3></a></li>' +
-			'<li><a id="news" style="" href="news"><h3>NEWS</h3></a></li>' +
+			'<li><a id="about" style="" href="../../about"><h3>HOME</h3></a></li>' +
+			'<li><a id="news" style="" href="../../news"><h3>NEWS</h3></a></li>' +
 	        '<li><a id="art" style="" href="art?page=1&winWidth=525"><h3>ART</h3></a></li>' +
-	        '<li><a id="team" style="" href="team"><h3>FRIENDS</h3></a></li>'+  
-            '<li><a id="contact" class="links" style="" href="contact"><h3><i class="fa fa-envelope" aria-hidden="true"></i>'
+	        '<li><a id="folio" style="" href="../../folio"><h3>FOLIO</h3></a></li>'+  
+	        '<li><a id="team" style="" href="../../team"><h3>FRIENDS</h3></a></li>'+  
+            '<li><a id="contact" class="links" style="" href="../../contact"><h3><i class="fa fa-envelope" aria-hidden="true"></i>'
 	    );
 	    initLinks();
 	});    
