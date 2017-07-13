@@ -53,7 +53,7 @@ function setBG(){
 	if (div === 0 || div < 1) {
 	   mainBG.large += 'bear';
 	   $('#aboutDescription').html('<h1>The Soogie, aka Toshi Sugano, is a digital designer who can also work with code.</h1>' +
-	   							 '<img id="mainBG" src="/images/soogie-bar-l.jpg">' +
+	   							 '<img id="mainBG" alt="The Soogie Sad Bear" src="/images/soogie-bar-l.jpg">' +
               					 '<h1>His passions include design, javascript, and writing. He has experience working with the following : html, css, Jquery, Node.js, Express.js, Firebase, MongoDB, Mongoose, Grunt.js, Gulp.js, Webpack, Graphic Design, Illustration, Photoshop, Git, Sketch, Autocad, Bootstrap, Font Awesome, Sass, Underscore.js, Backbone.js, Photography, video production, and writing.</h1>' +
               					 '<br/>' + 
               					 '<h1>Featured : Cabbit - An Interpretive Eco-Fable</h1>' +
@@ -63,7 +63,7 @@ function setBG(){
 	else if (div === 1 || div < 2) {
 	   mainBG.large += 'bear';
 	   $('#aboutDescription').html('<h1>The Soogie, aka Toshi Sugano, is a digital designer who can also work with code.</h1>' +
-              					 '<img id="mainBG" src="/images/soogie-bar-l.jpg">' +
+              					 '<img id="mainBG" alt="The Soogie Sad Bear" src="/images/soogie-bar-l.jpg">' +
               					 '<h1>His passions include design, javascript, and writing. He has experience working with the following : html, css, Jquery, Node.js, Express.js, Firebase, MongoDB, Mongoose, Grunt.js, Gulp.js, Webpack, Graphic Design, Illustration, Photoshop, Git, Sketch, Autocad, Bootstrap, Font Awesome, Sass, Underscore.js, Backbone.js, Photography, video production, and writing.</h1>' +
               					 '<br/>' +
               					 '<h1>Featured : Cabbit - An Interpretive Eco-Fable</h1>' + 
@@ -73,7 +73,7 @@ function setBG(){
 	else if (div === 2 || div < 3) {
 	   mainBG.large += 'bear';
 	   $('#aboutDescription').html('<h1>The Soogie, aka Toshi Sugano, is a digital designer who can also work with code.</h1>' +
-              					 '<img id="mainBG" src="/images/soogie-bar-l.jpg">' +
+              					 '<img id="mainBG" alt="The Soogie Sad Bear" src="/images/soogie-bar-l.jpg">' +
               					 '<h1>His passions include design, javascript, and writing. He has experience working with the following : html, css, Jquery, Node.js, Express.js, Firebase, MongoDB, Mongoose, Grunt.js, Gulp.js, Webpack, Graphic Design, Illustration, Photoshop, Git, Sketch, Autocad, Bootstrap, Font Awesome, Sass, Underscore.js, Backbone.js, Photography, video production, and writing.</h1>' +
               					 '<br/>' +
               					 '<h1>Featured : Cabbit - An Interpretive Eco-Fable</h1>' + 
@@ -83,7 +83,7 @@ function setBG(){
 	else if (div === 3 || div < 4) {
 	   mainBG.large += 'bear';
 	   $('#aboutDescription').html('<h1>The Soogie, aka Toshi Sugano, is a digital designer who can also work with code.</h1>' +
-              					 '<img id="mainBG" src="/images/soogie-bar-l.jpg">' +
+              					 '<img id="mainBG" alt="The Soogie Sad Bear" src="/images/soogie-bar-l.jpg">' +
               					 '<h1>His passions include design, javascript, and writing. He has experience working with the following : html, css, Jquery, Node.js, Express.js, Firebase, MongoDB, Mongoose, Grunt.js, Gulp.js, Webpack, Graphic Design, Illustration, Photoshop, Git, Sketch, Autocad, Bootstrap, Font Awesome, Sass, Underscore.js, Backbone.js, Photography, video production, and writing.</h1>' +
               					 '<br/>' +
               					 '<h1>Featured : Cabbit - An Interpretive Eco-Fable</h1>' + 
@@ -93,7 +93,7 @@ function setBG(){
 	else if (div === 4 || div <= 5) {
 	   mainBG.large += 'bear';
 	   $('#aboutDescription').html('<h1>The Soogie, aka Toshi Sugano, is a digital designer who can also work with code.</h1>' +
-              					 '<img id="mainBG" src="/images/soogie-bar-l.jpg">' +
+              					 '<img id="mainBG" alt="The Soogie Sad Bear" src="/images/soogie-bar-l.jpg">' +
               					 '<h1>His passions include design, javascript, and writing. He has experience working with the following : html, css, Jquery, Node.js, Express.js, Firebase, MongoDB, Mongoose, Grunt.js, Gulp.js, Webpack, Graphic Design, Illustration, Photoshop, Git, Sketch, Autocad, Bootstrap, Font Awesome, Sass, Underscore.js, Backbone.js, Photography, video production, and writing.</h1>' +
               					 '<br/>' +
               					 '<h1>Featured : Cabbit - An Interpretive Eco-Fable</h1>' + 
@@ -569,6 +569,11 @@ window.onresize = function() {
 	dims();
     initImg(); 
 };
+
+window.onscroll = function() {
+	console.log("scrolled");
+}
+
  
 window.onresize(); 
 
