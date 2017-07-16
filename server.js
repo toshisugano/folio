@@ -23,7 +23,7 @@ var express = require('express');
               };
 
     projects = require('./routes/projects'); 
-    morgue = require('./routes/morgue');
+    morgue = require('./routes/morgue'); 
 
 mongoose.Promise = global.Promise; 
 
@@ -101,27 +101,27 @@ app.get('/editnews', function(req, res ){
  
 app.post('/editnews', urlencodedParser, function(req, res ){
 
-  mongoose.connect(mongoLabsNews, options); 
- 
-  var conn = mongoose.connection; 
-  conn.on('error', console.error.bind(console, 'connection error:'));   
-  conn.on('open', function() {  
-    console.log('db opened'); 
-  });
+    mongoose.connect(mongoLabsNews, options); 
+   
+    var conn = mongoose.connection; 
+    conn.on('error', console.error.bind(console, 'connection error:'));   
+    conn.on('open', function() {  
+      console.log('db opened'); 
+    });
 
-  var news = new NewsArticle({
-      title : req.body.text,
-      linkText : req.body.source,
-      url : req.body.url  
-  });   
+    var news = new NewsArticle({
+        title : req.body.text,
+        linkText : req.body.source,
+        url : req.body.url  
+    });   
 
-  news.save();    
- 
-  setTimeout(function(){
-    conn.close();
-  }, 2000);
+    news.save();    
+   
+    setTimeout(function(){
+      conn.close();
+    }, 2000);
 
-  res.sendFile(__dirname + '/dist/editNews.html');
+    res.sendFile(__dirname + '/dist/editNews.html');
 
 });
 
@@ -135,6 +135,14 @@ app.get('/folio', function(req, res ){
 app.get('/team', function(req, res ){
     mongoose.connection.close();
     res.sendFile(__dirname + '/dist/team.html');
+});  
+
+//ARTICLES 
+app.get('/articles/:year/:month/:title', function(req, res){
+   var year = req.params.year;
+   var month = req.params.month;
+   var title = req.params.title;
+   res.sendFile(__dirname + '/articles/' + year + '/' + month + '/' + title + '/index.html' ); 
 }); 
 
 //CONTACT
@@ -161,8 +169,8 @@ app.post('/contact', urlencodedParser, function(req, res){
     setTimeout(function(){
       conn.close();
     }, 2000);
-  }); 
 
+  });  
 
   res.sendFile(__dirname + '/dist/contact.html');
 
