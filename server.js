@@ -38,6 +38,7 @@ var mainUrl = '//www.thesoogie.com/';
 var port = process.env.PORT || 8000;  
 
 app.use(bodyParser.json());
+app.use('/articles', express.static(__dirname + '/articles')); 
 app.use('/projects', express.static(__dirname + '/projects'));
 app.use('/morgue', express.static(__dirname + '/morgue'));
 app.use('/css', express.static(__dirname + '/dist/css'));
