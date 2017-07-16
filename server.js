@@ -38,9 +38,9 @@ var mainUrl = '//www.thesoogie.com/';
 var port = process.env.PORT || 8000;  
 
 app.use(bodyParser.json());
-app.use('/articles', express.static(__dirname + '/articles')); 
-app.use('/projects', express.static(__dirname + '/projects'));
-app.use('/morgue', express.static(__dirname + '/morgue'));
+app.use('/articles', express.static(__dirname + '/dist/articles')); 
+app.use('/projects', express.static(__dirname + '/dist/projects'));
+app.use('/morgue', express.static(__dirname + '/dist/morgue'));
 app.use('/css', express.static(__dirname + '/dist/css'));
 app.use('/images', express.static(__dirname + '/dist/images'));
 app.use('/scripts', express.static(__dirname + '/dist/scripts'));
@@ -143,7 +143,7 @@ app.get('/articles/:year/:month/:title', function(req, res){
    var year = req.params.year;
    var month = req.params.month;
    var title = req.params.title;
-   res.sendFile(__dirname + '/articles/' + year + '/' + month + '/' + title + '/index.html' ); 
+   res.sendFile(__dirname + '/dist/articles/' + year + '/' + month + '/' + title + '/index.html' ); 
 }); 
 
 //CONTACT

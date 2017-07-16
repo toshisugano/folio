@@ -5,19 +5,19 @@ const router = express.Router();
 router.get('/leechesfilm', (req, res, next) => { 
 	let routes = __dirname;
 	let sliced = routes.slice(0, routes.length-6 );
-	res.sendFile(sliced + 'projects/leechesfilm/about.html');
+	res.sendFile(sliced + 'dist/projects/leechesfilm/about.html');
 });
 
 router.get('/leechesposter', (req, res, next) => { 
 	let routes = __dirname;
 	let sliced = routes.slice(0, routes.length-6 );
-	res.sendFile(sliced + 'projects/leechesposter/about.html');
+	res.sendFile(sliced + 'dist/projects/leechesposter/about.html');
 });
 
 router.get('/cabbitfilm', (req, res, next) => { 
 	let routes = __dirname;
 	let sliced = routes.slice(0, routes.length-6 );
-	res.sendFile(sliced + 'projects/cabbitfilm/about.html');
+	res.sendFile(sliced + 'dist/projects/cabbitfilm/about.html');
 });
 
 module.exports = router;
