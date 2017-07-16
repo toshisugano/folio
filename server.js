@@ -139,11 +139,11 @@ app.get('/team', function(req, res ){
 });  
 
 //ARTICLES 
-app.get('/articles/:year/:month/:title', function(req, res){
+app.get('/articles/:year/:title', function(req, res){
    var year = req.params.year;
    var month = req.params.month;
    var title = req.params.title;
-   res.sendFile(__dirname + '/dist/articles/' + year + '/' + month + '/' + title + '/index.html' ); 
+   res.sendFile(__dirname + '/dist/articles/' + year + '/' + title + '/index.html' ); 
 }); 
 
 //CONTACT
